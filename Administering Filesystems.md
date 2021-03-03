@@ -64,18 +64,20 @@ to your partitions, without explicitly writing the changes to disk.
 
 3.Working with Filesystem Labels
 ---
+disk 나 partiton (sda, sdb, sda1 ..)에 이름(label)을 지정하여 사용성을 높임 
+*\*file system이 지정되 있어야 label지정 가능*
 
-|label|disk 나 partiton (sda, sdb, sda1 ..)에 이름을 지정하여 사용성을 높임 |
+|||
 |--|--|
 |1.disk label| can be used as another name for a partition table, as seen in parted output. |
-|2.partition| label can also be the name of an individual partition that contains an ext filesystem.|
+|2.partition label| label can also be the name of an individual partition that contains an ext filesystem.|
 
 
 |commnad||
 |--|--|
 |$ sudo e2label /dev/sda2 | To see a partition’s label (if it has one)|
 |$ sudo e2label /dev/sda2 mypartition | To set the label on a partition:|
-|/etc/fstab  |  be set up to use the partition label to mount the partition |
+|/etc/fstab  |  be set up to use the partition label to mount the partition ( 자동 마운트 설정가능 ) |
 |$ sudo findfs LABEL=mypartition | To find a partition when you know only the label|
 
 
@@ -83,7 +85,7 @@ to your partitions, without explicitly writing the changes to disk.
 
 4.Copying Partition Tables with sfdisk
 ----
-partition table 을 백업 복구하는 방법
+partition table 을 백업및 복구하는 방법
 
 |commnad||
 |--|--|
@@ -97,7 +99,7 @@ partition table 을 백업 복구하는 방법
 
 5.Creating a Filesystem on a Disk Partition
 ----
-각 partion 에 filesystem 을 지정해주자. 
+각 partion에 filesystem을 지정해주자. 
 
 |commnad||
 |--|--|
@@ -108,6 +110,30 @@ partition table 을 백업 복구하는 방법
 
 
 
+6.Creating a Virtual Filesystem
+-----
+virtual filesystem : 하나의 디스크에만 고정되지않고 다른 디스크로 쉽게 이동할수 있고 원하는 filesystem으로 전환 할 수 있는 filesystem.
+
+7.Viewing and Changing Filesystem Attributes
+------
+ filesystems ( ext2, ext3, and ext4 ) 의 attribute를 확인 변경하자. 
+ 
+|commnad||
+|--|--|
+|$ sudo tune2fs -l /dev/sda1 \| less    | View tunable file system attributes|
+|$ sudo dumpe2fs -h /dev/sda1| |
+
+
+|commnad||
+|--|--|
+|$ sudo tune2fs -c 31 /dev/sda1 |Sets # of mounts before forced check | 
+|$ sudo tune2fs -c -1 /dev/sda1| disable mount-count checking|
+
+count 에 의한 forced check 말고 time-dependent checking을 하고싶다면 count를 -1 로해서 count 를 정지시키자. 
+|commnad||
+|--|--|
+|$ sudo tune2fs -i 10 /dev/sda1 |Check after 10 days|
+|$ sudo tune2fs -i 1d /dev/sda1 |Check after 1 day|
 
 $ mount
 ----
