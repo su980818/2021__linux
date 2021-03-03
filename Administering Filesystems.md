@@ -4,7 +4,7 @@
 
 구조 : 파일 시스템은 일반적으로 크기가 일정한 블록들의 배열(섹터라고도 불리며 통상 512바이트, 1키비바이트, 2키비바이트같은 - 2를 제곱한 수만큼의 크기를 갖는다)에 접근할 수 있는 자료 보관 장치 위에 생성되어 이러한 배열들을 조직함으로 파일이나 디렉터리를 만들며 어느 부분이 파일이고 어느 부분이 공백인지를 구분하기 위하여 각 배열에 표시를 해 둔다
 
-----
+------------
 파티션 : 하나의 물리적인 드라이브( ssd , 하드디스크 )를 논리적으로 여러 부분으로 분할하는 것.
 
 리눅스를 설치한 드라이브는 default 로 3가지의 파티션으로 분할 되어 있음. 
@@ -18,10 +18,10 @@
 * partition 은 파일관리를 쉽게 하기위해 구분해서 분할한 것으로 그냥 드라이브 하나에 모든 file 을 저장해도 상관 없음.  
 
 
--------
+-------------
 
-fdisk
---------
+$ fdisk
+-------------
 <pre>
 $ sudo fdisk -l List disk partitions for every disk
 Disk /dev/sda: 82.3 GB, 82348277760 bytes
@@ -40,9 +40,32 @@ sda 라는 하나의 디스크에 1 , 2 , 3 의 파티션으로 구분해서 보
 sudo fdisk /dev/sdb
 </pre>
 *sdb 의 file system 을 관리하는 문답형식의 command ( m을 눌러서 manual을 참고하자 )
+*설정을 하고 w를 눌러야만 적용이 완료됨 
 
 
-mount
+$sfdisk
+----
+|commnad||
+|--|--|
+|$ sudo sfdisk –d /dev/sda > sda-table |Back up partition table to file|
+|$ sudo sfdisk /dev/sda < sda-table| Restore partition table from file|
+|$ sudo sfdisk –d /dev/sda | sfdisk /dev/sdb |Copy part table from a to b|
+*partition table 을 백업 복구하는 방법
+
+$ parted
+-----
+*fdisk와 같이 partion을 관리하지만 유용한 기능이 추가된 command
+
+|commnad||
+|--|--|
+|$ sudo parted /dev/sda print | $fdisk -l |
+|$ sudo parted /dev/sdc | fdisk /dev/sdc |
+
+**Warning** Unlike fdisk, parted immediately incorporates changes you make
+to your partitions, without explicitly writing the changes to disk.
+
+
+$ mount
 ----
 virtual box 에 경우 usb를 꽃고 
 ![화면 캡처 2021-03-03 110002](https://user-images.githubusercontent.com/78835559/109741041-a5073a00-7c0f-11eb-80bc-58e91d43e3ee.png)
