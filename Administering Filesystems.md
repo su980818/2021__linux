@@ -35,6 +35,12 @@ Units = cylinders of 16065 * 512 = 8225280 bytes
 </pre>
 sda 라는 하나의 디스크에 1 , 2 , 3 의 파티션으로 구분해서 보여주고 boot , system , swap 파티션을 보여준다.
 
+실습을 위해 usb를 희생하자.
+<pre>
+sudo fdisk /dev/sdb
+</pre>
+*sdb 의 file system 을 관리하는 문답형식의 command ( m을 눌러서 manual을 참고하자 )
+
 
 mount
 ----
@@ -42,3 +48,16 @@ virtual box 에 경우 usb를 꽃고
 ![화면 캡처 2021-03-03 110002](https://user-images.githubusercontent.com/78835559/109741041-a5073a00-7c0f-11eb-80bc-58e91d43e3ee.png)
 설정창-> usb -> 오른쪽 +모양 펜을 클릭해서 usb장치를 인식 시켜 주자. 
 
+<pre>
+$ mount 
+proc on /proc type proc (rw,noexec,nosuid,nodev)
+/dev/mapper/abc-root on / type ext4 (rw,errors=remount-ro)
+/dev/sda1 on /boot type ext2 (rw)
+192.1.0.9:/volume1/books on /mnt/books type nfs (rw,addr=192.1.1.9)
+/dev/sdb1 on /media/myusb type ext4 (rw,nosuid,nodev,uhelper=udisks)
+</pre>
+* derive , 마운트된 folder , file system을 보여준다. 
+
+<pre>
+
+</pre>
