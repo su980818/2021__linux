@@ -19,7 +19,9 @@ Partiion
 *\*partition 은 파일관리를 쉽게 하기위해 구분해서 분할한 것으로 그냥 드라이브 하나에 모든 file 을 저장해도 상관 없음.*
 
 
-Changing Disk Partitions with fdisk
+
+
+1.Changing Disk Partitions with fdisk
 -------------
 <pre>
 $ sudo fdisk -l List disk partitions for every disk
@@ -42,7 +44,10 @@ sudo fdisk /dev/sdb
 
 *\*설정을 하고 w를 눌러야만 적용이 완료됨*
 
-Changing Disk Partitions with parted
+
+
+
+2.Changing Disk Partitions with parted
 -----
 *\*fdisk와 같이 partion을 관리하지만 유용한 기능이 추가된 command*
 
@@ -54,7 +59,10 @@ Changing Disk Partitions with parted
 **Warning** Unlike fdisk, parted immediately incorporates changes you make
 to your partitions, without explicitly writing the changes to disk.
 
-Working with Filesystem Labels
+
+
+
+3.Working with Filesystem Labels
 ---
 |label|disk 나 partiton (sda, sdb, sda1 ..)에 이름을 지정하여 사용성을 높임 |
 |--|--|
@@ -69,7 +77,9 @@ Working with Filesystem Labels
 |$ sudo findfs LABEL=mypartition | To find a partition when you know only the label|
 
 
-Copying Partition Tables with sfdisk
+
+
+4.Copying Partition Tables with sfdisk
 ----
 |commnad||
 |--|--|
@@ -80,7 +90,8 @@ Copying Partition Tables with sfdisk
 
 
 
-Creating a Filesystem on a Disk Partition
+
+5.Creating a Filesystem on a Disk Partition
 ----
 각 partion 에 filesystem 을 지정해주자. 
 |
@@ -88,6 +99,9 @@ Creating a Filesystem on a Disk Partition
 |$ sudo mkfs -t ext4 -v -c /dev/sdb1 |More verbose/scan for bad blocks|
 |$ sudo mkfs|.ext4 -c /dev/sdb1| Same result as previous command|
 |$ sudo mkfs.ext4 -c -L mypartition /dev/sdb1 | Add mypartition label|
+
+
+
 
 $ mount
 ----
