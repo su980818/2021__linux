@@ -35,3 +35,10 @@ Units = cylinders of 16065 * 512 = 8225280 bytes
 </pre>
 sda 라는 하나의 디스크에 1 , 2 , 3 의 파티션으로 구분해서 보여주고 boot , system , swap 파티션을 보여준다.
 
+
+mount
+----
+virtual box 에 경우 usb를 꽃고 
+![화면 캡처 2021-03-03 110002](https://user-images.githubusercontent.com/78835559/109741041-a5073a00-7c0f-11eb-80bc-58e91d43e3ee.png)
+설정창-> usb -> 오른쪽 +모양 펜을 클릭해서 usb장치를 인식 시켜 주자. 
+
