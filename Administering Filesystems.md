@@ -81,12 +81,13 @@ to your partitions, without explicitly writing the changes to disk.
 
 4.Copying Partition Tables with sfdisk
 ----
+partition table 을 백업 복구하는 방법
 |commnad||
 |--|--|
 |$ sudo sfdisk –d /dev/sda > sda-table |Back up partition table to file|
 |$ sudo sfdisk /dev/sda < sda-table| Restore partition table from file|
-|$ sudo sfdisk –d /dev/sda | sfdisk /dev/sdb |Copy part table from a to b|
-*\*partition table 을 백업 복구하는 방법*
+|$ sudo sfdisk –d /dev/sda \| sfdisk /dev/sdb |Copy part table from a to b|
+
 
 
 
@@ -94,7 +95,8 @@ to your partitions, without explicitly writing the changes to disk.
 5.Creating a Filesystem on a Disk Partition
 ----
 각 partion 에 filesystem 을 지정해주자. 
-|
+|commnad||
+|--|--|
 |$ sudo mkfs -t ext4 /dev/sdb1 |Create ext4 file system on sba1|
 |$ sudo mkfs -t ext4 -v -c /dev/sdb1 |More verbose/scan for bad blocks|
 |$ sudo mkfs|.ext4 -c /dev/sdb1| Same result as previous command|
