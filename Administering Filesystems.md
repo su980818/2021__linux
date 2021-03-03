@@ -49,7 +49,7 @@ sudo fdisk /dev/sdb
 
 2.Changing Disk Partitions with parted
 -----
-*\*fdisk와 같이 partion을 관리하지만 유용한 기능이 추가된 command*
+fdisk와 같이 partion을 관리하지만 유용한 기능이 추가된 command
 
 |commnad||
 |--|--|
@@ -64,10 +64,12 @@ to your partitions, without explicitly writing the changes to disk.
 
 3.Working with Filesystem Labels
 ---
+
 |label|disk 나 partiton (sda, sdb, sda1 ..)에 이름을 지정하여 사용성을 높임 |
 |--|--|
 |1.disk label| can be used as another name for a partition table, as seen in parted output. |
 |2.partition| label can also be the name of an individual partition that contains an ext filesystem.|
+
 
 |commnad||
 |--|--|
@@ -82,6 +84,7 @@ to your partitions, without explicitly writing the changes to disk.
 4.Copying Partition Tables with sfdisk
 ----
 partition table 을 백업 복구하는 방법
+
 |commnad||
 |--|--|
 |$ sudo sfdisk –d /dev/sda > sda-table |Back up partition table to file|
@@ -95,6 +98,7 @@ partition table 을 백업 복구하는 방법
 5.Creating a Filesystem on a Disk Partition
 ----
 각 partion 에 filesystem 을 지정해주자. 
+
 |commnad||
 |--|--|
 |$ sudo mkfs -t ext4 /dev/sdb1 |Create ext4 file system on sba1|
