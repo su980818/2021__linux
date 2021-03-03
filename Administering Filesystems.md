@@ -16,7 +16,7 @@ Partiion
 |2. system partion |operating system file, 사용자가 사용하는 file 들을 저장하는 공간 . linux 에서 root 로 마운트 되어 있는 공간. |
 |3. swap partition |memory 에서 swap을 위한 여유공간을 미리 구해놓기 위한 partiton  |
 
-*partition 은 파일관리를 쉽게 하기위해 구분해서 분할한 것으로 그냥 드라이브 하나에 모든 file 을 저장해도 상관 없음.*
+*\*partition 은 파일관리를 쉽게 하기위해 구분해서 분할한 것으로 그냥 드라이브 하나에 모든 file 을 저장해도 상관 없음.*
 
 
 Changing Disk Partitions with fdisk
@@ -38,13 +38,13 @@ sda 라는 하나의 디스크에 1 , 2 , 3 의 파티션으로 구분해서 보
 <pre>
 sudo fdisk /dev/sdb
 </pre>
-*sdb 의 file system 을 관리하는 문답형식의 command ( m을 눌러서 manual을 참고하자 )*
+*\*sdb 의 file system 을 관리하는 문답형식의 command ( m을 눌러서 manual을 참고하자 )*
 
-*설정을 하고 w를 눌러야만 적용이 완료됨*
+*\*설정을 하고 w를 눌러야만 적용이 완료됨*
 
 Changing Disk Partitions with parted
 -----
-*fdisk와 같이 partion을 관리하지만 유용한 기능이 추가된 command
+*\*fdisk와 같이 partion을 관리하지만 유용한 기능이 추가된 command*
 
 |commnad||
 |--|--|
@@ -76,16 +76,23 @@ Copying Partition Tables with sfdisk
 |$ sudo sfdisk –d /dev/sda > sda-table |Back up partition table to file|
 |$ sudo sfdisk /dev/sda < sda-table| Restore partition table from file|
 |$ sudo sfdisk –d /dev/sda | sfdisk /dev/sdb |Copy part table from a to b|
-*partition table 을 백업 복구하는 방법*
+*\*partition table 을 백업 복구하는 방법*
 
 
+
+Creating a Filesystem on a Disk Partition
+----
+각 partion 에 filesystem 을 지정해주자. 
+|
+|$ sudo mkfs -t ext4 /dev/sdb1 |Create ext4 file system on sba1|
+|$ sudo mkfs -t ext4 -v -c /dev/sdb1 |More verbose/scan for bad blocks|
+|$ sudo mkfs|.ext4 -c /dev/sdb1| Same result as previous command|
+|$ sudo mkfs.ext4 -c -L mypartition /dev/sdb1 | Add mypartition label|
 
 $ mount
 ----
-virtual box 에 경우 usb를 꽃고 
-![화면 캡처 2021-03-03 110002](https://user-images.githubusercontent.com/78835559/109741041-a5073a00-7c0f-11eb-80bc-58e91d43e3ee.png)
 
-설정창-> usb -> 오른쪽 +모양 펜을 클릭해서 usb장치를 인식 시켜 주자. 
+
 
 <pre>
 $ mount 
@@ -95,8 +102,17 @@ proc on /proc type proc (rw,noexec,nosuid,nodev)
 192.1.0.9:/volume1/books on /mnt/books type nfs (rw,addr=192.1.1.9)
 /dev/sdb1 on /media/myusb type ext4 (rw,nosuid,nodev,uhelper=udisks)
 </pre>
-*derive , 마운트된 folder , file system을 보여준다.*
+*\*derive , 마운트된 folder , file system을 보여준다.*
 
 <pre>
 
 </pre>
+
+
+
+----
+virtual box 에 경우 usb를 꽃고 
+![화면 캡처 2021-03-03 110002](https://user-images.githubusercontent.com/78835559/109741041-a5073a00-7c0f-11eb-80bc-58e91d43e3ee.png)
+
+설정창-> usb -> 오른쪽 +모양 펜을 클릭해서 usb장치를 인식 시켜 주자. 
+
