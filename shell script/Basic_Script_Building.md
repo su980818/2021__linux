@@ -6,14 +6,14 @@ Creating a Script File
 ---------
 
 #!/bin/bash
-*첫번째줄에 사용되는 #! 는 일반적인 경우와 달리 사용되는 shell script를 표시한다.*
+*첫번째줄에 사용되는 #은 일반적인 #의 사용법과 달리 와 달리 !와 합쳐저 이 file이 shell script임을 설정해준다.*
 
 
 shell script실행하기
 -------
 다른 command의 경우 file 이름만 입력하면 실행이 되는데 이는 입력된 file의 경로를 shell이 자동으로 찾아주기 때문에 가능하다. 
 
-그럼으로 shellscript를 실행하기 위해서는 $PATH에 shell script 경로를 설정해준다. 
+그럼으로 shellscript를 실행하기 위해서는 $PATH에 shell script 경로를 추가해 주어야 한다. 
 <pre>
 $ export PATH=$PATH:/home/user
 $ shellscript
@@ -24,14 +24,16 @@ $ shellscript
 $ ./shellscript
 </pre>
 
+
 -------
 |shell script |||
 |-|-|-|
 |; |semicolon| chain commands together into a single step|
 |# |pound sign| is used as a comment line |
-|$variable||variable을 참조할때 사용|
-|${variable}||
 
+String 
+----
+string 을 출력해 보자. 
 |command ||
 |-|-|
 |echo "string"|string 출력|
@@ -40,6 +42,11 @@ $ ./shellscript
 Using Variables
 ----
 Variable : temporarily store information within the shell script for use with other commands in the script 
+|shell script |||
+|-|-|-|
+|varialbe=value||값 지정|
+|$variable|reference|variable을 참조할때 사용|
+|${variable}||
 
 ### 1. Environment variables
 |command ||
@@ -162,7 +169,7 @@ EOF
 Exiting the Script 
 -----
 enviroment variable인 exit status 는 쉘에서 실행된는 모든 command가 끝날때 마다 command의 실행여부에 따라 특정 값이(0 - 255) exit에 전달됨. 
-** $? **를 사용하여 참조 가능. 
+**$?** 를 사용하여 참조 가능. 
 
 |Code| Description|
 |-|-|
@@ -176,3 +183,9 @@ enviroment variable인 exit status 는 쉘에서 실행된는 모든 command가 
 |130 |Command terminated with Ctrl+C|
 |255| Exit status out of range|
 
+*exit command를 사용해 script 종료시 exit status 를 변경할수 있음
+<pre>
+#!/bin/bash
+echo test 
+exit 5
+</pre>
