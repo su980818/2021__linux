@@ -1,7 +1,6 @@
 # Basic Script Building
 
-; (semicolon) chain commands together into a single step
-#(pound sign) is used as a comment line 
+
 
 Creating a Script File
 ---------
@@ -15,6 +14,7 @@ shell script실행하기
 그럼으로 실행하기 위해서는 $PATH에 shell script 경로를 설정해준다. 
 <pre>
 $ export PATH=$PATH:/home/user
+$ shellscript
 </pre>
 
 혹은 경로를 수동으로 입력해 사용한다. 
@@ -22,4 +22,26 @@ $ export PATH=$PATH:/home/user
 $ ./shellscript
 </pre>
 
+-------
+|shell script |||
+|-|-|-|
+|; |(semicolon)| chain commands together into a single step|
+|# |(pound sign)| is used as a comment line |
 
+|command ||
+|-|-|
+|echo "string"|string 출력|
+|echo -n "string"|다음 command 의 output 과 같은 라인에 string 출력|
+
+Using Variables
+----
+Variable : temporarily store information within the shell script for use with other commands in the script 
+
+###1. Environment variables
+|command ||
+|-|-|
+|$set | list of environment variables |
+*$(dollar sing ) 과 함께 사용하면 script 내부에서 원하는 환경 변수를 참조할수 있음*
+<pre>
+$ echo "user info for userid : &USER"
+</pre>
