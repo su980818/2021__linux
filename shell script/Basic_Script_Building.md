@@ -77,7 +77,8 @@ echo test > log.$test_value
 </pre>
 
 **Caution** 
-script를 실행하는 shell위에 새로운 subshell을 생성하여 comand substitution을 수행하기 때문에 script에서 설정한 user variable은 subshell에서는 설정이 되어있지 않아 사용불가.
+script를 실행하는 shell위에 새로운 subshell을 생성하여 comand substitution을 수행하기 때문에 
+sub shell 에서 선언한 변수의 경우 script shell에서는 선언이 되지 않음.
 
 이와 별개로 script를 실행할때도 teminal shell위에 새로운 subshell을 생성하여 script를 수행하고 있는 것임. 
 
@@ -135,16 +136,43 @@ Performin floating-point
 ### 1. The basics of bc
 <pre>
 bc  -q   # bc calculator 로 access , -q : 인삿말 삭제 
-scale=2  # bc calculator의 한경변수로 decimal place를 지정할수 있음.
+scale=2  # bc calculator의 한경변수 scale로 decimal place를 지정할수 있음.
 12 * 5.4
 64.8
 quit     # quite bc calculator
 </pre>
 
 ### 2. Using bc in script 
+pipe를 통해 bc에 input을 넣어주자. 
 <pre>
 #!/bin/bash
 var1=$(echo "scale =4 ; 3.44 / 5 "| bc)
 </pre>
 
+긴 input에 경우 위에서 봤던 inline redirection을 통해 input을 넣어주자. 
+<pre>
+variable=$(bc << EOF
+options
+statements
+expressions
+EOF
+)
+</pre>
+
+Exiting the Script 
+-----
+enviroment variable인 exit status 는 쉘에서 실행된는 모든 command가 끝날때 마다 command의 실행여부에 따라 특정 값이(0 - 255) exit에 전달됨. 
+**$?**를 사용하여 참조 가능. 
+
+|Code| Description|
+|-|-|
+|0 |Successful completion of the command|
+|1 |General unknown error|
+|2 |Misuse of shell command|
+|126 |The command can’t execute|
+|127 |Command not found|
+|128 |Invalid exit argument|
+|128+x |Fatal error with Linux signal x|
+|130 |Command terminated with Ctrl+C|
+|255| Exit status out of range|
 
