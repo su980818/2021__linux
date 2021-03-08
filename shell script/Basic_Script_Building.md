@@ -12,6 +12,14 @@ Creating a Script File
 
 shell script실행하기
 다른 command의 경우 file 이름만 입력하면 실행이 되는데 이는 입력된 file의 경로를 shell이 자동으로 찾아주기 때문에 가능하다. 
-그럼으로 실행하기 위해서는 $PATH에 shell script 경로를 설정하기 
+그럼으로 실행하기 위해서는 $PATH에 shell script 경로를 설정해준다. 
+<pre>
+$ export PATH=$PATH:/home/user
+</pre>
 
 혹은 경로를 수동으로 입력해 사용한다. 
+<pre>
+$ ./shellscript
+</pre>
+
+
