@@ -87,11 +87,13 @@ Redirection Input and Output
 stdout인 teminal 이 아니라 지정한 file에 ouput을 출력해보자. 
 
 stdin이 아니라 지정한 file에서 input을 입력 해보자. 
-|command ||command|
+|command |||command|
 |-|-|-|-|
 |>| overwrite to file |<| input redirection |
-|>>|appand to file|<< | inline inpt redirection |
+|>>|appand to file| |  |
 
+
+**inline input redirection** : 파일을 redirection 하는게 아닌 command line 을 순차적으로 input으로 사용해줌
 <pre>
 $ sort << EOF
 > b
