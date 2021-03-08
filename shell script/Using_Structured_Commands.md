@@ -37,3 +37,17 @@ else
   commands
 fi
 </pre>
+
+2.Trying the test Command
+-------
+* if 문에 들어가는 조건문을 알아보자. 
+
+variable에 값이 있는지 판단 하기 
+<pre>
+variable=""
+if test $varaible
+if [ variable ]
+</pre>
+*둘다 값의 여부를 판단 , brackets에 경우 variable과 공백이 무조건 있어야함. *
+
+1) Numeric comparisons
