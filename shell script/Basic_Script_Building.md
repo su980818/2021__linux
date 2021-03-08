@@ -162,7 +162,7 @@ EOF
 Exiting the Script 
 -----
 enviroment variable인 exit status 는 쉘에서 실행된는 모든 command가 끝날때 마다 command의 실행여부에 따라 특정 값이(0 - 255) exit에 전달됨. 
-**$?**를 사용하여 참조 가능. 
+** $? **를 사용하여 참조 가능. 
 
 |Code| Description|
 |-|-|
