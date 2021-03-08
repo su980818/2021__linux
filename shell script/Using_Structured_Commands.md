@@ -1,8 +1,8 @@
 1.Working with the if-then Statement
 ------
-조건문이 command의 exit status에 의해 
+**조건문이 command의 exit status에 의해 조작됨**
 
-*If the exit status of the command is zero , command list under the then section are executed.
+* If the exit status of the command is zero , command list under the then section are executed.
 
 <pre>
 if command
@@ -18,7 +18,7 @@ fi
 </pre> 
 
 
-*If the exit status of the command is non-zero , command list under the else section are executed.
+* If the exit status of the command is non-zero , command list under the else section are executed.
 <pre>
 if command  ; then
   commands
@@ -27,7 +27,7 @@ else
 fi
 </pre>
 
-*else if 
+* else if 
 <pre>
 if command  ; then
   commands
