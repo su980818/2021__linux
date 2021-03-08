@@ -87,7 +87,7 @@ Redirection Input and Output
 stdout인 teminal 이 아니라 지정한 file에 ouput을 출력해보자. 
 
 stdin이 아니라 지정한 file에서 input을 입력 해보자. 
-|command |||command|
+|command ||command||
 |-|-|-|-|
 |>| overwrite to file |<| input redirection |
 |>>|appand to file| |  |
@@ -101,6 +101,23 @@ $ sort << EOF
 > a 
 >EOF
 </pre>
-*text marker 를 설정하여 입력의 시작과 끝을 구분해줘야함 ( 관례상으로 EOF를 사용)*
+*text marker를 설정하여 입력의 시작과 끝을 구분해줘야함 ( 관례상으로 EOF를 사용 )*
 
+Pipes
+----
+1번command의 output을 2번command 의 출력으로 redirection해줌
+<pre>
+$ 1st_command | 2st_command
+$ ls -l | sort 
+</pre>
 
+Performing Math
+------
+shell script 안에서 mathmatical operation 을 사용해보자. 
+### 1. The expr command 
+<pre>
+$ expr 1 + 5
+</pre>
+*shell 에서는 사용이 편리할수 있지만 script안에서는 expr의 operator들이 다른 의미를 갖기때문에 \과 함께 사용해야 하는 불편함이 있음*
+
+### 2. 
