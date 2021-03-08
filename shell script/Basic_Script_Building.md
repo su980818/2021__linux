@@ -113,11 +113,38 @@ $ ls -l | sort
 
 Performing Math
 ------
-shell script 안에서 mathmatical operation 을 사용해보자. 
++shell script 안에서 mathmatical operation 을 사용해보자. 
 ### 1. The expr command 
 <pre>
 $ expr 1 + 5
+$ 6
 </pre>
 *shell 에서는 사용이 편리할수 있지만 script안에서는 expr의 operator들이 다른 의미를 갖기때문에 \과 함께 사용해야 하는 불편함이 있음*
 
-### 2. 
+### 2. Using brackets
++expr보다 편하게 사용해보자. 
+<pre>
+$var1=$[1 + 5]
+$var2=$[$var1 * 6]
+</pre>
+*shell에서의 계산은 오직 정수에 한정된다.*
+
+Performin floating-point 
+-------
+
+### 1. The basics of bc
+<pre>
+bc  -q   # bc calculator 로 access , -q : 인삿말 삭제 
+scale=2  # bc calculator의 한경변수로 decimal place를 지정할수 있음.
+12 * 5.4
+64.8
+quit     # quite bc calculator
+</pre>
+
+### 2. Using bc in script 
+<pre>
+#!/bin/bash
+var1=$(echo "scale =4 ; 3.44 / 5 "| bc)
+</pre>
+
+
