@@ -41,7 +41,14 @@ Variable : temporarily store information within the shell script for use with ot
 |command ||
 |-|-|
 |$set | list of environment variables |
-*$(dollar sing ) 과 함께 사용하면 script 내부에서 원하는 환경 변수를 참조할수 있음*
+
 <pre>
-$ echo "user info for userid : &USER"
+$ echo "user info for userid : $USER , $UID , $HOME"
 </pre>
+*$( dollar sing ) 과 함께 사용하면 script 내부에서 원하는 환경 변수를 참조할수 있음*
+
+<pre>
+$ echo "cost is $15"
+$ cost is 5
+</pre>
+* 위의 경우 쉘이$를 변수를 참조하는 $로 인식하기 때문에 \$ 를 사용하여 이를 방지하여야 한다. *
