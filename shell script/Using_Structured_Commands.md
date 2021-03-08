@@ -4,13 +4,13 @@
 
 * If the exit status of the command is zero , command list under the then section are executed.
 
+* 기본 format 
 <pre>
 if command
 then 
   commands
 fi
 </pre>
-or
 <pre>
 if command ; then
   commands
@@ -40,9 +40,9 @@ fi
 
 2.Trying the test Command
 -------
-* if 문에 들어가는 조건문을 알아보자.(조건이 맞을시 exit value를 0로 return)
+<span style="color:red">if 문에 들어가는 조건문을 알아보자.(조건이 맞을시 exit value를 0로 return)</span>
 
-variable에 값이 있는지 판단 하기 
+* variable에 값이 있는지 판단 하기 
 <pre>
 variable=""
 if test $varaible
