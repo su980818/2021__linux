@@ -59,3 +59,46 @@ $ cost is 5
 
 ### 2. User variables
 
+=(equal sign) 을  통해 변수설정 가능 
+*중간에 공백이 있으면 안됨 , 변수를 설정할때는 $ 사용 x , 변수를 참조할때만 $ 사용*
+<pre>
+value=10
+echo value is $value
+</pre>
+
+### 3. Command substitution
+command 의 output 을 변수에 저장하기 **value=$(command)**
+*변수참조에 사용하는 ${value}와 다름*
+<pre>
+test_value=$(date)
+echo "the date is " $test_value
+echo test > log.$test_value
+#파일 이름에도 value를 참조하여 사용할수 있음. 
+</pre>
+
+**Caution** 
+script를 실행하는 shell위에 새로운 subshell을 생성하여 comand substitution을 수행하기 때문에 script에서 설정한 user variable은 subshell에서는 설정이 되어있지 않아 사용불가.
+
+이와 별개로 script를 실행할때도 teminal shell위에 새로운 subshell을 생성하여 script를 수행하고 있는 것임. 
+
+Redirection Input and Output
+------
+
+stdout인 teminal 이 아니라 지정한 file에 ouput을 출력해보자. 
+
+stdin이 아니라 지정한 file에서 input을 입력 해보자. 
+|command ||command|
+|-|-|-|-|
+|>| overwrite to file |<| input redirection |
+|>>|appand to file|<< | inline inpt redirection |
+
+<pre>
+$ sort << EOF
+> b
+> d
+> a 
+>EOF
+</pre>
+*text marker 를 설정하여 입력의 시작과 끝을 구분해줘야함 ( 관례상으로 EOF를 사용)*
+
+
