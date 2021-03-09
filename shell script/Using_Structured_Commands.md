@@ -43,14 +43,11 @@ fi
 <span style="color:red">" if 문에 들어가는 조건문을 알아보자.(조건이 맞을시 exit value를 0로 return) "</span>
 
 * variable에 값이 있는지 판단 하기 
-* + 아래에 나오는 if문 comparisons을 사용하기 위해서 둘중 하나를 사용하여 표현해야함. 
+*+ 아래에 나오는 if문 comparisons을 사용하기 위해서 둘중 하나를 사용하여 표현해야함. 
 
-###  if test $varaible
+###  1. $ if test $varaible
 
-###  if [ variable ]
-
-
-*둘다 값의 여부를 판단 , brackets에 경우 variable과 공백이 무조건 있어야함.*
+###  2. $ if [ variable ]
 
 
 ### 1) Numeric comparisons
