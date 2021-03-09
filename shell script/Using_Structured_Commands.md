@@ -40,7 +40,7 @@ fi
 
 2.Trying the test Command
 -------
-<font color="green">if 문에 들어가는 조건문을 알아보자.(조건이 맞을시 exit = 0 , 조건이 틀릴시 exit != 0 을 반환하는 커맨드 )</font>
+### if 문에 들어가는 조건문을 알아보자.(조건이 맞을시 exit = 0 , 조건이 틀릴시 exit != 0 을 반환하는 커맨드 )
 
 * variable에 값이 있는지 판단 하기 
 * 아래에 나오는 1)2)3)의 if문 comparisons을 사용하기 위해서 둘중 하나를 사용하여 표현해야함. 
