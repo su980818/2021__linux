@@ -80,6 +80,8 @@ fi
 *shell에서는 integers operation밖에 못하기 때문에 floating_point는 비교 불가.*
 
 ### 2) String comparisons
++ 문자열을 비교해 보자. 
+
 |Comparison |Description|
 |-|-|
 |str1 = str2 |Checks if str1 is the same as string str2|
@@ -89,3 +91,23 @@ fi
 |-n str1 |Checks if str1 has a length greater than zero|
 |-z str1 |Checks if str1 has a length of zero|
 
+
+<pre>
+#!/bin/bash
+testuser=su980818
+if[ $USER = $testuser ] ; then
+  echo "welcom $testuser"
+fi
+</pre>
+
+<pre>
+#!/bin/bash
+val1=a
+va12=A
+if[ $val \> $val2 ] ; then                        #  < , > redirection으로 인식됨으로 \을 추가해야함.  
+  echo "$val1 is greater than $val2"              
+fi
+</pre>
+*string comparison에 경우 ASCII를 사용하여 (A=65 a=97) 대문자가 소문자보다 작다. (이와 다르게 sort에 경우는 일반적인 영어 순서를 따른다.)*
+
+  
