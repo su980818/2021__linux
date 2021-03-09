@@ -132,8 +132,8 @@ $ 6
 ### 2) Using brackets
 +expr보다 편하게 사용해보자. 
 <pre>
-$var1=$[1 + 5]
-$var2=$[$var1 * 6]
+$  var1=$[1 + 5]
+$  var2=$[$var1 * 6]
 </pre>
 *shell에서의 계산은 오직 정수에 한정된다.*
 
