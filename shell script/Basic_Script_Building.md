@@ -42,11 +42,12 @@ string 을 출력해 보자.
 4.Using Variables
 ----
 Variable : temporarily store information within the shell script for use with other commands in the script 
-|shell script |||
-|-|-|-|
-|varialbe=value||값 지정|
-|$variable|reference|variable을 참조할때 사용|
-|${variable}||
+|shell script ||
+|-|-|
+|varialbe=value|varaible에 값 할당(assign)|
+|varialbe=&(command)|command의 output을 variable에 할당|
+|$variable|variable을 참조할때 사용(reference)|
+|${variable}|위와 동일|
 
 ### 1) Environment variables
 |command ||
@@ -75,7 +76,7 @@ echo value is $value
 
 ### 3) Command substitution
 command 의 output 을 변수에 저장하기 **value=$(command)**
-*변수참조에 사용하는 ${value}와 다름*
+*변수참조에 사용하는 ${valiable}와 다름*
 <pre>
 test_value=$(date)
 echo "the date is " $test_value
