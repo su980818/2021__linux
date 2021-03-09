@@ -77,7 +77,7 @@ if test $value -gt 5  ; then
   echo "$value is grater than 5 "
 fi
 </pre>
-*shell에서는 integers operation밖에 못하기 때문에 floating_point는 비교 불가.*
+*#shell에서는 integers operation밖에 못하기 때문에 floating_point는 비교 불가.*
 
 ### 2) String comparisons
 + 문자열을 비교해 보자. 
@@ -108,6 +108,49 @@ if[ $val \> $val2 ] ; then                        #  < , > redirection으로 인
   echo "$val1 is greater than $val2"              
 fi
 </pre>
-*string comparison에 경우 ASCII를 사용하여 (A=65 a=97) 대문자가 소문자보다 작다. (이와 다르게 sort에 경우는 일반적인 영어 순서를 따른다.)*
+*#string comparison에 경우 ASCII를 사용하여 (A=65 a=97) 대문자가 소문자보다 작다. (이와 다르게 sort에 경우는 일반적인 영어 순서를 따른다.)*
 
-  
+ <pre>
+#!/bin/bash
+val=""
+if[ -z $val ] ; then                        
+  echo "val is empty"          
+fi
+</pre>
+*#항상 value값이 있는지 없는지 따지는건 오류를 줄이기 위해 중요함.*
+
+
+
+### 3) Using file comparisons
++ test the status of file or directories
+
+|Comparison| Description|
+|-|-|
+|-d file| Checks if file exists and is a directory|
+|-e file| Checks if file exists|
+|-f file| Checks if file exists and is a file|
+|-r file |Checks if file exists and is readable|
+|-s file |Checks if file exists and is not empty|
+|-w file |Checks if file exists and is writable|
+|-x file |Checks if file exists and is executable|
+|-O file |Checks if file exists and is owned by the current user|
+|-G file|Checks if file exists and the default group is the same as the current user|
+|file1 -nt file2 | Checks if file1 is newer than file2|
+|file1 -ot file2| Checks if file1 is older than file2|
+
+<pre>
+ #!/bin/bash
+ 
+  file='a.txt'
+  if [ -d $HOME ] ; then
+          echo $HOME is directory
+          if [ -f $HOME/$file ] ; then
+                  echo $file is file
+         else
+                echo $file is not file or exit
+                touch a.txt
+          fi
+  else
+          echo $HOME is not directory or exit
+  fi
+</pre>
