@@ -48,7 +48,6 @@ if 문에 들어가는 조건문을 알아보자.(조건이 맞을시 exit = 0 ,
 ||
 |-|
 |**1. $ if test $varaible**|
-
 |**2. $ if [ variable ]**|
 
 
