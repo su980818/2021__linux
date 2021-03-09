@@ -140,7 +140,7 @@ fi
 
 <pre>
  #!/bin/bash
- 
+ #home에 a.txt file이 있는지 확인하고 없으면 생성
   file='a.txt'
   if [ -d $HOME ] ; then
           echo $HOME is directory
