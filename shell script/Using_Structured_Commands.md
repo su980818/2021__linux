@@ -138,6 +138,7 @@ fi
 |-G file|Checks if file exists and the default group is the same as the current user|
 |file1 -nt file2 | Checks if file1 is newer than file2|
 |file1 -ot file2| Checks if file1 is older than file2|
+
 *#-G에 경우 file이 current user의 그냥 그룹이 아닌 defalut group에 속하는지만을 알아낼수 있다.*
 *#모든 comparison은 file이 존재하지 않는다면 fail을 return함으로 file exist를 먼저 확인하는게 좋다.*
 *# script에서 파일을 지정할때는 절대 경로를 이용하는게 좋다. (script에서 pwd를 이용해보면 script가 있는 directory로 설정되 있음)*
