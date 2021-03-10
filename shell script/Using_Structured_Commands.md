@@ -140,7 +140,9 @@ fi
 |file1 -ot file2| Checks if file1 is older than file2|
 
 *#-G에 경우 file이 current user의 그냥 그룹이 아닌 defalut group에 속하는지만을 알아낼수 있다.*
+
 *#모든 comparison은 file이 존재하지 않는다면 fail을 return함으로 file exist를 먼저 확인하는게 좋다.*
+
 *# script에서 파일을 지정할때는 절대 경로를 이용하는게 좋다. (script에서 pwd를 이용해보면 script가 있는 directory로 설정되 있음)*
 
 <pre>
@@ -160,3 +162,64 @@ fi
   fi
 </pre>
 
+3.Considering Compound Testing
+------
+### [command 와 test (or [] ) 을 결합해서 사룡할수 있음.](http)
+|AND|[condition1] && [comdition]|
+|-|-|
+|**OR**|**[condition1] \|\| [comdition]**|
+
+<pre>
+#!/bin/bash
+if [ -d $HOME ] && [ -w $HOME/testing ] ; then
+  echo "you can wirte FILE "
+  vim testing
+else
+  echo "you cannot wite to the FILE"
+fi
+</pre>
+
+4.Advanced if-then Features
+-----
+### [numerical , string comparison보다 더 유용한 표현}(http)
+### 1) Using Double parentheses for numerical
+|Symbol| Description|
+|-|-|
+|val+ |Post-incrementv
+|<pre>val-</pre>|Post-decrement|
+|++val |Pre-increment|
+|—val |Pre-decrement|
+|! |Logical negation|
+|∼ |Bitwise negation|
+|** |Exponentiation|
+|<< |Left bitwise shift|
+|>> |Right bitwise shift|
+|& |Bitwise Boolean AND|
+|\|| Bitwise Boolean OR|
+|&&| Logical AND|
+|\|\| |Logical OR|
+
+<pre>
+#!/bin/bash
+val1=10
+
+if (( $val1 ** 2 > 90 )); then
+  (( val2 = $val1 ** 2 ))
+  echo “The square of $val1 is $val2”
+fi
+</pre>
+
+### 2) Using Double brackets for String
+
+~~Chepter 20 에서 추가~~
+
+<pre>
+!/bin/bash
+if [[ $USER == r* ]]; then     # * is patter so that test if user is start with r 
+  echo “Hello $USER”
+else
+  echo “Sorry, I do not know you”
+fi
+</pre>
+
+5.Case Command 
