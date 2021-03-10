@@ -164,7 +164,7 @@ fi
 
 3.Considering Compound Testing
 ------
-### [command 와 test (or [] ) 을 결합해서 사룡할수 있음.](http)
+### [command 와 test (or [] ) 을 결합해서 사룡해 보자.](http)
 |AND|[condition1] && [comdition]|
 |-|-|
 |**OR**|**[condition1] \|\| [comdition]**|
@@ -181,7 +181,7 @@ fi
 
 4.Advanced if-then Features
 -----
-### [numerical , string comparison보다 더 유용한 표현}(http)
+### [2.에서 배운 numerical , string comparison보다 더 쉬운 표현식을 알아보자. ](http)
 ### 1) Using Double parentheses for numerical
 |Symbol| Description|
 |-|-|
@@ -209,6 +209,8 @@ if (( $val1 ** 2 > 90 )); then
 fi
 </pre>
 
+*#조건문에도 쓸수 있지만 일반 계산에서도 사용할수 있음*
+
 ### 2) Using Double brackets for String
 
 ~~Chepter 20 에서 추가~~
@@ -223,3 +225,4 @@ fi
 </pre>
 
 5.Case Command 
+-----
