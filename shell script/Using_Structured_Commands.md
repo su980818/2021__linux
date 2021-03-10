@@ -1,6 +1,7 @@
 1.Working with the if-then Statement
 ------
-**조건문이 command의 exit status에 의해 조작됨**
+[조건문이 command의 exit status에 의해 조작됨](http)
+
 
 * If the exit status of the command is zero , command list under the then section are executed.
 
