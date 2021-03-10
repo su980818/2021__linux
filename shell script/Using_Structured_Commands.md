@@ -1,6 +1,6 @@
 1.Working with the if-then Statement
 ------
-[조건문이 command의 exit status에 의해 조작됨](http)
+### [조건문은 command의 exit status에 의해 조작됨](http)
 
 
 * If the exit status of the command is zero , command list under the then section are executed.
@@ -41,7 +41,7 @@ fi
 
 2.Trying the test Command
 -------
-### if 문에 들어가는 조건문을 알아보자.(조건이 맞을시 exit = 0 , 조건이 틀릴시 exit != 0 을 반환하는 커맨드 )
+### [if 문에 들어가는 조건문을 알아보자.(조건이 맞을시 exit = 0 , 조건이 틀릴시 exit != 0 을 반환하는 커맨드 )](http)
 
 * variable에 값이 있는지 판단 하기 
 * 아래에 나오는 1)2)3)의 if문 comparisons을 사용하기 위해서 둘중 하나를 사용하여 표현해야함. 
@@ -52,7 +52,7 @@ fi
 
 
 ### 1) Numeric comparisons
-* perform a comparison of two numeric values
+*perform a comparison of two numeric values
 
 |Comparison| Description|
 |-|-|
@@ -138,6 +138,9 @@ fi
 |-G file|Checks if file exists and the default group is the same as the current user|
 |file1 -nt file2 | Checks if file1 is newer than file2|
 |file1 -ot file2| Checks if file1 is older than file2|
+*#-G에 경우 file이 current user의 그냥 그룹이 아닌 defalut group에 속하는지만을 알아낼수 있다.*
+*#모든 comparison은 file이 존재하지 않는다면 fail을 return함으로 file exist를 먼저 확인하는게 좋다.*
+*# script에서 파일을 지정할때는 절대 경로를 이용하는게 좋다. (script에서 pwd를 이용해보면 script가 있는 directory로 설정되 있음)*
 
 <pre>
  #!/bin/bash
@@ -155,3 +158,4 @@ fi
           echo $HOME is not directory or exit
   fi
 </pre>
+
