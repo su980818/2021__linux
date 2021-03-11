@@ -153,7 +153,7 @@ done
 -----
 ### 1)break
 <pre>
-!/bin/bash
+#!/bin/bash
 while [ $var1 -lt 10 ]
 do
   if [ $var1 -eq 5 ] ; then  
@@ -166,7 +166,6 @@ done
 
 + break n : where n indicates the level of the loop to break out of
 <pre>
-!/bin/bash
 #!/bin/bash
 for (( a = 1; a < 4; a++ ))
 do
@@ -183,7 +182,7 @@ done
 ### 2)continue
 same format whit break
 <pre>
-!/bin/bash
+#!/bin/bash
 do
 echo “Iteration $a:”
   for (( b = 1; b < 3; b++ ))
