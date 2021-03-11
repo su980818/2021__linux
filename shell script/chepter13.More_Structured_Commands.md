@@ -183,6 +183,7 @@ done
 same format whit break
 <pre>
 #!/bin/bash
+for(( a = 1; a<=5 ; a++ ))
 do
 echo “Iteration $a:”
   for (( b = 1; b < 3; b++ ))
@@ -195,3 +196,14 @@ echo “Iteration $a:”
   done
 done
 </pre>
+
+8.Processing the Output of a Loop
+[loop문 내부의 output만 redirect or pipe 시켜보자. ( loop 문이 하나의 커맨드 임으로 )](http)
+<pre>
+for file is $HOME/*
+do
+  echo $file
+done > output.txt 
+#done | sort
+</pre>
+
