@@ -1,6 +1,6 @@
 1.The for Command
 ------------
-### [반복문을 사용해 보자. (C언어 형식 , bash 형식)](http)
+### [반복문을 사용해 보자. (bash 형식)](http)
 <pre>
 for var in list
 do
