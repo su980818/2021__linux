@@ -13,8 +13,9 @@ so let learn retrieving data from people.
 
 1.Passing Parameters
 -----
-+ space separator로 분리됨 string , numerical_value 둘다 pass 가능 
-+ $1 부터 시작해서 separate된 순으로 $num에 저장됨 
++ space separator로 분리됨.
++ string , numerical_value 둘다 parameter로 pass할수 있음.
++ $1 부터 시작해서 separate된 순으로  각각 $num에 저장됨.
 <pre>
 #!/bin/bash
 echo  $1  ${2}
@@ -25,8 +26,8 @@ $ ./script 100 "SEUNGWOO"
 </pre>
 
 
-### 1) Reading the script name : $0 and basname_command
-+ basename command 로 스크립트 실행 command가 저장된 $0 에서 실행경로를 뺄수 있음. 
+### 1) Reading the script name ( $0 and basname_command)
++ [basename command를 이용하여 전체 실행 경로가 저장된 $0 에서 실행 command만 추출할수 있음. ]()
 <pre>
 #!/bin/bash
 echo  $0  $(basename $0)
@@ -162,6 +163,7 @@ done
 *# getopt 와 다르게 -a -> a로 변경해서 저장하고있음*
 
 ### 참고) Standardzing Options (관행 표현)
+
 |Option| Description|
 |-|-|
 |-a |Shows all objects|
@@ -184,6 +186,8 @@ done
 6.Getting User Input
 -----
 **read** *variables*
+
+### 1) options
 |options|-|
 |-|-|
 |-p "string" | specify a string directly in the read command line|
@@ -191,7 +195,7 @@ done
 |-n# |  When a preset number of characters has been entered, it automatically exits. |
 |-s | sets the text color to the same as the background color |
 
-### Reading from a file
+### 2) Reading from a file
 + file에서 line 단위로 읽어들임
 <pre>
 #!/bin/bash
