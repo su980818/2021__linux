@@ -2,6 +2,15 @@
 you need to write a script that has to interact with the person running the script,
 so let learn retrieving data from people.
 
+1. Passing Parameters
+2. Using Special Parameter Variables
+3. Being Shifty
+4. Working with Options
+5. Standardizing Options
+6. Getting User Input
+
+
+
 1.Passing Parameters
 -----
 + space separator로 분리됨 string , numerical_value 둘다 pass 가능 
@@ -98,10 +107,11 @@ do
 done
 </pre>
 
-**But** this doesn’t work if you try to combine multiple options in one parameter:  ` $ ./test17.sh -ac `
+[**But** this doesn’t work if you try to combine multiple options in one parameter:  ` $ ./test17.sh -ac `](http)
 
 ### SOLUTION 1) Using the getopt command
-+ 입려 parameter 을 separate 하여 문자열로 출력해보자. 
++ [ 입려 parameter 을 separate 하여 정리된 문자열로 출력해보자. ](http)
+
  **getopt** *optstring parameters*
  
 list each command line option letter you’re going to use in your script in the optstring. Then place a colon after each option letter that requires a parameter value. 
@@ -113,15 +123,16 @@ getopt: invalid option -- 'd'
  -a -b b's_parameter -c -- xx
 </pre>
  
-**But** It interpreted the space as the parameter separator, instead of following the double quotation marks 
+[**But** It interpreted the space as the parameter separator, instead of following the double quotation marks ](http)
 <pre>
 $ ./script "test2 test3”  
 "test2
 test3"
 </pre>  
 ### SOLUTION 2) Advancing to getopts
-+ 입력 parameter 을 separate 하여 list로 출력해보자. 
++ [입력 parameter 을 separate 하여 list로 출력해보자. ](http)
 
+**getopts** *optstring variable*  
 <pre>
 #!/bin/bash
 
@@ -149,3 +160,26 @@ do
 done
 </pre>
 *# getopt 와 다르게 -a -> a로 변경해서 저장하고있음*
+
+### 참고) Standardzing Options (관행 표현)
+|Option| Description|
+|-|-|
+|-a |Shows all objects|
+|-c |Produces a count|
+|-d |Specifies a directory|
+|-e |Expands an object|
+|-f| Specifies a file to read data from|
+|-h|Displays a help message for the command|
+|-i |Ignores text case|
+|-l| Produces a long format version of the output|
+|-n| Uses a non-interactive (batch) mode|
+|-o| Specifies an output file to redirect all output to|
+|-q| Runs in quiet mode|
+|-r| Processes directories and files recursively|
+|-s| Runs in silent mode|
+|-v| Produces verbose output|
+|-x| Excludes an object|
+|-y| Answers yes to all questions|
+
+6.Getting User Input
+------
