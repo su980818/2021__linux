@@ -190,7 +190,7 @@ done
 -----
 [runnig ps 상태에서 유저입력을 받아보자.]()
 
-`**read** *variables*`
+**read** *variables*
 
 ### 1) options
 |options|-|
