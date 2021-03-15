@@ -26,7 +26,7 @@ parent shell 이 생성한 child shell ( sub shell )에 parent의 환경 context
 
 ### 1) sub_shell이 생성되는 경우
 
-**(a.)** shell 을 command를 통해 실행.
+**(a)** shell 을 command를 통해 실행.
 <pre>
 $ bash
 bash start
@@ -35,9 +35,9 @@ init─┬─init───bash───bash───pstree
      └─{init}
 </pre>
 
-**(b.)** shell_script 를 실행하면 자동으로 sub shell을 생성하여 이를 이용해 shell_script를 실행시킴.
+**(b)** shell_script 를 실행하면 자동으로 sub shell을 생성하여 이를 이용해 shell_script를 실행시킴.
 
-**(c.)** process list : `$ (command1 ; command2)`
+**(c)** process list : `$ (command1 ; command2)`
 <pre>
 $ (sleep 1 ; pstree)
 init─┬─init───bash───bash───pstree
@@ -60,10 +60,10 @@ init─┬─init───bash───bash───pstree
  
 
 ### 1) start background sub_shell
-**(a.)**  Putting process lists into the background
+**(a)**  Putting process lists into the background
 **(command1 ; command2)&**
 
-**(b.)**  Co-processing 
+**(b)**  Co-processing 
 **coproc** *command* : COPROC 라는 이름의 subshell을 back ground로 생성하고 이 안에서 command를 실행. 
 
 *# process list 를 자동으로 back ground로 실행하는것과 비슷한 효과*
