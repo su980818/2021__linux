@@ -108,7 +108,11 @@ do
 done
 </pre>
 
-[**But** this doesn’t work if you try to combine multiple options in one parameter:  ` $ ./test17.sh -ac `](http)
+[**But** this doesn’t work if you try to combine multiple options in one parameter: ]() 
+<pre> 
+$ ./test17.sh -ac 
+-ac is not options
+</pre>
 
 ### SOLUTION 1) Using the getopt command
 + [ 입려 parameter 을 separate 하여 정리된 문자열로 출력해보자. ](http)
