@@ -188,6 +188,7 @@ done
 
 6.Getting User Input
 -----
+[runnig ps 상태에서 유저입력을 받아보자.]()
 **read** *variables*
 
 ### 1) options
