@@ -99,10 +99,11 @@ seungwoo   172   159  0 21:47 tty1     00:00:00 ps -f
 ### #) Using the history command
 `history` :  show a recently used commands list (built-in)
 
-Command history is kept in the hidden .bash_history file, which is located in the user’s
+~~Command history is kept in the hidden .bash_history file, which is located in the user’s
 home directory. Be careful here. The bash command history is stored in memory and then
-written out into the history file when the shell is exited:
+written out into the history file when the shell is exited:~~
 
 ### #) Using command aliases
 `alias -p` : alias 된 command 출력
+
 `alias alias_variable=command` : command 를 variable을 통해 빠르게 사용가능.
