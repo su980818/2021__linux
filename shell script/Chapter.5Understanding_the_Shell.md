@@ -1,20 +1,32 @@
 # In This Chapter
 
-1. Investigating Shell Types
-2. Understanding the Parent/Child Shell Relationship
-3. Using Subshells Creatively
-4. Investigating Built-in Shell Commands
-
 [This chapter takes you through learning about the shell process.]()
 
-**/etc/passwd** 각 user의 default shell을 확인할수있음.
+1.Investigating Shell Types
 
-**/bin/bash** 원하는 shell을 실행하여 사용하자.
+2.Understanding the Parent/Child Shell Relationship
+
+3.Using Subshells Creatively
+
+4.Investigating Built-in Shell Commands
+
+1.Investigating Shell Types
+----
+
+**/etc/passwd**  : 각 user의 default shell을 확인할수있음.
+
+**/bin/bash**   : 원하는 shell을 실행하여 사용하자.
 
 
 2.Understanding the Parent/Child Shell Relationship
 ----
-shell_process 위에 shell_process 를 실행하는 경우 각각을 parent, child shell로 구분됨.
+[shell_process 위에 shell_process 를 실행하는 경우에 각각을 parent, child shell로 구분 할수 있음.]()
+
+parent shell 이 생성한 child shell ( sub shell )에 parent의 환경 context 의 일부분이 상속됨. (chapter6 참조)
+
+### #) sub_shell이 생성되는 경우
+
+a. shell 을 command를 통해 실행.
 <pre>
 $ bash
 bash start
@@ -22,10 +34,6 @@ $ pstree
 init─┬─init───bash───bash───pstree
      └─{init}
 </pre>
-
-
-### #) sub_shell이 생성되는 경우
-a. parent shell 이 생성한 child shell ( sub shell )에 parent의 환경 context 의 일부분이 상속됨. (chapter6 참조)
 
 b. shell_script 를 실행하면 자동으로 sub shell을 생성하여 이를 이용해 shell_script를 실행시킴.
 
@@ -37,8 +45,8 @@ init─┬─init───bash───bash───pstree
 </pre>
 
 
-### #) sub_shell depth 확인 variable 
-`$BASH_SUBSHELL` : return sub_shell depth
+
+`$BASH_SUBSHELL` :  sub_shell depth를 return 하는 variable
 
 
 
@@ -48,15 +56,16 @@ init─┬─init───bash───bash───pstree
 **background mod** : 하나의 process가 완료될때까지 shell 이 $를 반환해주지 않는데 background에서 실행하게 함으로 현재 shell이 하나의 process에만 잡혀있지 않게 process를 실행하는 방법
 
  [현재 shell에서 sub_shell을 back_ground로 실행함으로서 shell의 생산성을 향상시키는 것이 목적.]()
+ 
  [이러한 sub_shell 을 interactive_shell 이라고 부름.]()
 ### 1) Putting process lists into the background
-**coproc** *(command1 ; command2)&*
+**(command1 ; command2)&**
 
 
-### 2)Co-processing does two things at the same time. It spawns a subshell in background mode and executes a command within that subshell
+### 2)Co-processing 
+**coproc** *command* : COPROC 라는 이름의 subshell을 back ground로 생성하고 이 안에서 command를 실행. 
 
-**coproc** *command* : command 를 COPROC 라는 이름의 subshell에서 실행. 
-
+*# process list 를 자동으로 back ground로 실행하는것과 비슷한 효과*
 
 4.Investigating Built-in Shell Commands
 -----
@@ -69,7 +78,7 @@ seungwoo   159   158  4 21:47 tty1     00:00:00 -bash
 seungwoo   172   159  0 21:47 tty1     00:00:00 ps -f      
 </pre>
 *# ppid 가 bash 인 ps -f process가 실행됨*
-*# external command program is typically located in /bin, /usr/bin, /sbin, or /usr/sbin.*
+
 
 
 ### 2) Looking at built-in commands
@@ -77,6 +86,8 @@ seungwoo   172   159  0 21:47 tty1     00:00:00 ps -f
 
 **type** *command*
 **which** *commnand* : 이를 이용하여 external <-> built-in command를 구분할수 있음.
+
+*# external command program is typically located in /bin, /usr/bin, /sbin, or /usr/sbin.*
 
 *#) 몇몇 경우에 두가지 flavor을 모두 가지는 command 존재 ( type -a 를 통해 확인가능 )*
 
