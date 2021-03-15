@@ -2,18 +2,14 @@
 you need to write a script that has to interact with the person running the script,
 so let learn retrieving data from people.
 
+
 1.Passing Parameters
-----
 2.Using Special Parameter Variables
-----
 3.Being Shifty
-----
 4.Working with Options
-----
 5.Standardizing Options
-----
 6.Getting User Input
------
+
 
 
 1.Passing Parameters
