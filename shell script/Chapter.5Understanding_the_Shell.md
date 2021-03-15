@@ -66,7 +66,8 @@ init─┬─init───bash───bash───pstree
 
 **(b)**  Co-processing 
 COPROC 라는 이름의 subshell을 back ground로 생성하고 이 안에서 command를 실행. 
-`**coproc** *command*`
+
+`$ coproc *command`
 
 *# process list 를 자동으로 back ground로 실행하는것과 비슷한 효과*
 
