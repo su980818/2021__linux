@@ -2,13 +2,12 @@
 you need to write a script that has to interact with the person running the script,
 so let learn retrieving data from people.
 
-
-1.Passing Parameters
-2.Using Special Parameter Variables
-3.Being Shifty
-4.Working with Options
-5.Standardizing Options
-6.Getting User Input
+1. Passing Parameters
+2. Using Special Parameter Variables
+3. Being Shifty
+4. Working with Options
+5. Standardizing Options
+6. Getting User Input
 
 
 
@@ -183,4 +182,21 @@ done
 |-y| Answers yes to all questions|
 
 6.Getting User Input
-------
+-----
+**read** *variables*
+|options|-|
+|-|-|
+|-p "string" | specify a string directly in the read command line|
+|-t #|  The -t option specifies the number of seconds for the read command to wait for input ( if falis , exit 0 ) |
+|-n# |  When a preset number of characters has been entered, it automatically exits. |
+|-s | sets the text color to the same as the background color |
+
+### Reading from a file
++ file에서 line 단위로 읽어들임
+<pre>
+#!/bin/bash
+cat test | while read line
+do
+echo “Line : $line”
+done
+</pre>
