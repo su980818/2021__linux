@@ -65,7 +65,7 @@ fi
 + The shift command literally shifts the command line parameters in their relative positions.
 + This is another great way to iterate through command line parameters, especially if you don’t know how many parameters are available. 
 
-*shift # (default 1)*
+**shift** *# (default 1)*
 <pre>
 #!/bin/bash
 # parameter를 left shift를 하여 $1로 모든 parameter 을 사용할수 있음.
