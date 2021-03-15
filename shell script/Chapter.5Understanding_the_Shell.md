@@ -88,21 +88,21 @@ seungwoo   172   159  0 21:47 tty1     00:00:00 ps -f
 ### 2) Looking at built-in commands
 [When using a built-in command, no forking is required. Therefore, built-in commands are less expensive]()
 
-**type** *command*
-**which** *commnand* : 이를 이용하여 external <-> built-in command를 구분할수 있음.
+`type command` 
+`which commnand` : 이를 이용하여 external <-> built-in command를 구분할수 있음.
 
 *# external command program is typically located in /bin, /usr/bin, /sbin, or /usr/sbin.*
 
-*#) 몇몇 경우에 두가지 flavor을 모두 가지는 command 존재 ( type -a 를 통해 확인가능 )*
+*# 몇몇 경우에 두가지 flavor을 모두 가지는 command 존재 ( type -a 를 통해 확인가능 )*
 
 
 ### #) Using the history command
-**history** :  show a recently used commands list (built-in)
+`history` :  show a recently used commands list (built-in)
 
 Command history is kept in the hidden .bash_history file, which is located in the user’s
 home directory. Be careful here. The bash command history is stored in memory and then
 written out into the history file when the shell is exited:
 
 ### #) Using command aliases
-**alias -p** : alias 된 command 출력
-**alias** *alias_variable=command* : command 를 variable을 통해 빠르게 사용가능.
+`alias -p` : alias 된 command 출력
+`alias alias_variable=command` : command 를 variable을 통해 빠르게 사용가능.
