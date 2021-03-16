@@ -114,7 +114,7 @@ $ ./test17.sh -ac
 </pre>
 
 ### SOLUTION 1) Using the getopt command
-+ [ 입려 parameter 을 separate 하여 정리된 문자열로 출력해보자. ](http)
+[ 입력 parameter 을 separate 하여 정리된 문자열로 출력해보자. ]()
 
  **getopt** *optstring parameters*
  
@@ -134,7 +134,7 @@ $ ./script "test2 test3”
 test3"
 </pre>  
 ### SOLUTION 2) Advancing to getopts
-+ [입력 parameter 을 separate 하여 list로 출력해보자. ](http)
+[ 입력 parameter 을 separate 하여 list로 출력해보자. ]()
 
 **getopts** *optstring variable*  
 <pre>
@@ -188,7 +188,7 @@ done
 
 6.Getting User Input
 -----
-[runnig ps 상태에서 유저입력을 받아보자.]()
+[ 시작할때 parameter을 전달하는게 아닌 running 상태의 프로세스에 입력을 전달해보자.]()
 
 **read** *variables*
 
@@ -200,8 +200,19 @@ done
 |-n# |  When a preset number of characters has been entered, it automatically exits. |
 |-s | sets the text color to the same as the background color |
 
+<pre>
+#!/bin/bash
+read -p "ENTER[Y/N] :"n1 test
+if [ $test = 'y' ] || [ $test = 'Y' ] ; then
+        echo "yes!"
+elif [ $test = 'N' ] || [ $test = 'n' ]   ; then
+        echo "no!"
+fi
+</pre>
+
+
 ### 2) Reading from a file
-+ file에서 line 단위로 읽어들임
+[file에서 line 단위로 읽어들임 (pipe를 통해 입력해줘야함)]()
 <pre>
 #!/bin/bash
 cat test | while read line
