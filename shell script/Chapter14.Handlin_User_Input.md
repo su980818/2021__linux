@@ -79,7 +79,7 @@ done
 
 4.Working with Options
 -----
-+ 위에서 사용된 shift  + if(or case) 를 사용하여 입력 parameter 중에 option을 입력으로 받아보자. 
+[ 위에서 사용된 shift  + if(or case) 를 조합하여 parameter 과 -가 붙은 option을 구분해서 입력으로 받아보자. ]()
 
 <pre>
 #!/bin/bash
