@@ -26,7 +26,7 @@ $ ./script 100 "SEUNGWOO"
 
 
 ### 1) Reading the script name ( $0 and basname_command)
-+ [basename command를 이용하여 전체 실행 경로가 저장된 $0 에서 실행 command만 추출할수 있음. ]()
+[ basename command를 이용하여 (전체 실행 경로 + command)가 저장된 $0 에서 (command)만 추출할수 있음. ]()
 <pre>
 #!/bin/bash
 echo  $0  $(basename $0)
@@ -38,7 +38,7 @@ $ ./xx.sh aa "bb"
 
 ### 2) Testing parameters
 
-+ If the script is run without the parameters, bad things can happen so  check your parameters to make sure the data is there before using it:
+ If the script is run without the parameters, bad things can happen so  check your parameters to make sure the data is there before using it:
 <pre>
 #!/bin/bash
 if [ -n “$1” ] ; then
