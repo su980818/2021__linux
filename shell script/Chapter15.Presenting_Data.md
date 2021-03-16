@@ -1,10 +1,7 @@
 
-[Chapter 11 demonstrated how to redirect the
-output of a command to a file.]()
 
-[This chapter expands on that topic by showing you
-how you can redirect the output of your script to different locations on your Linux
-system.]()
+
+### [ Chapter 11 demonstrated how to redirect the output of a command to a file. This chapter expands on that topic by showing you how you can redirect the output of your script to different locations on your Linux system.]()
 
 
 1.Understanding Input and Output
