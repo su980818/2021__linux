@@ -157,12 +157,20 @@ $ cat /dev/null > testfile
 
 7.Using Temporary Files
 ----
-### 1) **/tmp directory** 
+###[ 임시파일을 만드는 2가지 방법]()
+
+### 1) **tmp directory** 
 automatically remove any files in the /tmp directory at bootup.
 ### 2)  **$ mktemp** *name.XXXXXX* 
-creating a temporary file
-
-
+creating a temporary file have unique name  in  local directory and return file.name (with no path)
+<pre>
+tempfile=$(mktemp test19.XXXXXX)
+</pre>
+||||
+|-|-|
+| -t  | forces mktemp to create the file in the temporary directory of the system|
+|-d| create a temporary directory instead of a file.|
+ 
 8.Logging Messages
 -----
 
