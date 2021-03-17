@@ -46,7 +46,7 @@
 ### 1) Temporary redirections
 ### [ descriptor number만 가지고 file_descriptor을 대표할수 있음]()
 
-**precede the file descriptor number with an ampersand (&)**
+**precede the file descriptor number with an ampersand (&) [ <,> 와 &사이에 space가 없어야함!! ]() **
 <pre>
 #!/bin/bash
 echo “This is an error” >&2
@@ -89,15 +89,79 @@ done
 
 4.Creating Your Own Redirection
 -----
+### [위에서 사용된 exec를 사용해 file_descriptor_num(3-8)을 file에 부여하자]()
+<pre>
+#!/bin/bash
+exec 3>test13out
+echo “HELLO” >&3
+</pre>
+
+### #) Creating a read/write file descriptor
++ As you read and write data to and from a file, the shell maintains an internal pointer, indicating where it is in the file. Any reading or writing occurs where the file pointer last left off
+<pre>
+#!/bin/bash
+exec 3<> input.txt
+read line <&3
+echo $line
+echo "new line" >&3
+</pre>
+
+<pre>
+cat input.txt
+This is line1
+new line
+ine2
+This is line3
+</pre>
+*# 1번 line을 읽고 그다음 줄로 internal pointer가 지정되있는 상태에서 new line이 write되어 원래있던 line2에 append됨*
+
+
+### #) Closing file descriptors
+If you create new input or output file descriptors, the shell automatically closes them when the script exit
+There are situations, however, when you need to manually close a file descriptor before the end of the script.
+`exec 3>&-`: Initialization internal pointer
 
 5.Listing Open File Descriptors
 ----
+### [ command lists all the open file descriptors on the entire Linux system]()
+
+**exec** : 모든 running process에 열려있는 file_descriptor를 출력  
+
+<pre>
+#!/bin/bash
+exec 3> output.txt
+exec 4< input.txt
+exec 5<> in_out.txt
+# (-a): 뒤에 option을 AND (-p): pid ($$): ps의 pid (-d): print descriptor_number
+lsof -a  -p $$ -d0,1,2,3,4,5
+</pre>
+<pre>
+$ ./script
+COMMAND PID     USER   FD   TYPE DEVICE SIZE              NODE NAME
+xx.sh   314 seungwoo    0u   CHR    4,2      18858823440106205 /dev/tty2
+xx.sh   314 seungwoo    1u   CHR    4,2      18858823440106205 /dev/tty2
+xx.sh   314 seungwoo    2u   CHR    4,2      18858823440106205 /dev/tty2
+xx.sh   314 seungwoo    3w   REG    0,2    0 18858823440083396 /home/seungwoo/output.txt
+xx.sh   314 seungwoo    4r   REG    0,2    0 30680772461793615 /home/seungwoo/input.txt
+xx.sh   314 seungwoo    5u   REG    0,2    0 22236523160630176 /home/seungwoo/in_out.txt
+</pre>
 
 6.Suppressing Command Output
 ----
+**/dev/null** :  null context file 
+ #) [file 을 clear out 할때도 일반적으로 사용됨]()
+<pre>
+$ ERROR-command 2> /dev/null
+$ cat /dev/null > testfile
+</pre>
 
 7.Using Temporary Files
 ----
+### 1) **/tmp directory** 
+automatically remove any files in the /tmp directory at bootup.
+### 2)  **$ mktemp** *name.XXXXXX* 
+creating a temporary file
+
 
 8.Logging Messages
 -----
