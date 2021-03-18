@@ -2,13 +2,13 @@
 
 #### [This chapter takes you through learning about the shell process.]()
 
-1.Investigating Shell Types
+1. Investigating Shell Types
 
-2.Understanding the Parent/Child Shell Relationship
+2. Understanding the Parent/Child Shell Relationship
 
-3.Using Subshells Creatively
+3. Using Subshells Creatively
 
-4.Investigating Built-in Shell Commands
+4. Investigating Built-in Shell Commands
 
 # 1. Investigating Shell Types
 
