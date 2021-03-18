@@ -34,7 +34,7 @@ done
 ### 2) Reading complex values in a list
 -----
 [list 에 value들을 어느 기준으로 구분할지 정해보자. ](http)
-#### a. Use the escape character (the backslash)
+#### a) Use the escape character (the backslash)
 <pre>
 $ cat test2
 #!/bin/bash
@@ -44,7 +44,7 @@ do
 done
 
 </pre>
-#### b. Use double quotation marks to define the values
+#### b) Use double quotation marks to define the values
 
 <pre>
 #!/bin/bash
