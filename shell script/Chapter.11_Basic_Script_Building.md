@@ -25,7 +25,6 @@ $ ./shellscript
 </pre>
 
 
--------
 |shell script |||
 |-|-|-|
 |; |semicolon| chain commands together into a single step|
@@ -78,8 +77,11 @@ echo value is $value
 
 ### 3) Command substitution
 -------
+
 [command 의 output 을 변수에 저장하기]() 
+
 **value=$(command)**
+
 *변수참조에 사용하는 ${valiable}와 다름*
 
 <pre>
@@ -100,14 +102,13 @@ sub shell 에서 선언한 변수의 경우 script shell에서는 선언이 되�
 
 ### [stdout인 teminal 이 아니라 지정한 file에 ouput을 출력해보자. ]()
 
-stdin이 아니라 지정한 file에서 input을 입력 해보자. 
 |command ||command||
 |-|-|-|-|
 |>| overwrite to file |<| input redirection |
 |>>|appand to file| |  |
 
 
-**inline input redirection** : 파일을 redirection 하는게 아닌 command line 을 순차적으로 input으로 사용해줌
+**(#) inline input redirection** : 파일을 redirection 하는게 아닌 command line 을 순차적으로 input으로 사용해줌
 <pre>
 $ sort << EOF
 > b
@@ -193,7 +194,7 @@ EOF
 |130 |Command terminated with Ctrl+C|
 |255| Exit status out of range|
 
-*exit command를 사용해 script 종료시 exit status 를 변경할수 있음
+**exit** : command를 사용해 script 종료시 exit status 를 변경할수 있음
 <pre>
 #!/bin/bash
 echo test 
