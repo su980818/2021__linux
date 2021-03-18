@@ -1,6 +1,6 @@
 # In This Chapter
 
-### [shell 형식 ,c언어 형식의 반복문을 알아보자!]()
+#### [shell 형식 ,c언어 형식의 반복문을 알아보자!]()
 
 1. The for Command
 2. Changing the field separator
@@ -11,18 +11,18 @@
 7. Controlling the Loop
 8. Processing the Output of a Loop
 
-1.The for Command
-------------
-### [반복문을 사용해 보자. (bash 형식)](http)
+# 1. The for Command
+
+#### [반복문을 사용해 보자. (bash 형식)](http)
 <pre>
 for var in list
 do
   command
 done
 </pre>
-### 1) Reading value in a list
-----------
-[most basic use of the for command is to iterate through a list of value](http)
+## 1) Reading value in a list
+
+#### [most basic use of the for command is to iterate through a list of value](http)
 
 <pre>
 for test in Alabama Alaska Arizona Arkansas California Colorado
@@ -31,10 +31,10 @@ do
 done
 </pre>
 *# c언어와 다르게 for문 안에서만 사용되는 변수가 아님*
-### 2) Reading complex values in a list
+## 2) Reading complex values in a list
 -----
-[list 에 value들을 어느 기준으로 구분할지 정해보자. ](http)
-#### a) Use the escape character (the backslash)
+#### [list 에 value들을 어느 기준으로 구분할지 정해보자. ](http)
+### a) Use the escape character (the backslash)
 <pre>
 $ cat test2
 #!/bin/bash
@@ -44,7 +44,7 @@ do
 done
 
 </pre>
-#### b) Use double quotation marks to define the values
+### b) Use double quotation marks to define the values
 
 <pre>
 #!/bin/bash
@@ -54,8 +54,8 @@ do
 +one
 </pre>
 
-### 3) Reading a list from a variable
------
+## 3) Reading a list from a variable
+
 <pre>
 #!/bin/bash
 list=“Alabama Alaska Arizona Arkansas Colorado”
@@ -68,8 +68,8 @@ echo “Have you ever visited $state?”
 done
 </pre>
 
-### 4) Reading values from a command
----------
+## 4) Reading values from a command
+
 + command 의 output을 입력으로 바꿔주는 $(command)를 사용하자!
 <pre>
 #!/bin/bash
@@ -79,9 +79,9 @@ do
 done
 </pre>
 
-2.Changing the field separator
------
-### [IFS(internal field separator) : 문자열이 입력될때 구분자로 사용되는 character들을 저장하고 있는 환경변수 ](http) 
+# 2. Changing the field separator
+
+#### [IFS(internal field separator) : 문자열이 입력될때 구분자로 사용되는 character들을 저장하고 있는 환경변수 ](http) 
 + defalut로 space , tab , newline 이 지정되어 있음. 
 
 + IFS=$IFS$'characters'  를 통해 separator을 추가할수 있음. 
@@ -96,9 +96,9 @@ done
           echo $x
  done
  </pre>
-3.Reading a directory using wildcards
-------
-### [*를 사용하여 파일의 이름을 list로 전달해보자.](http)
+# 3. Reading a directory using wildcards
+
+#### [를 사용하여 파일의 이름을 list로 전달해보자.](http)
 <pre>
    #!/bin/bash
    #user의 모든 file을 재귀적으로 출력하는 script 
@@ -124,12 +124,13 @@ done
 </pre>
 
 **WARNING** 
+
 a. The assignment of the variable value can contain spaces.
 b. The variable in the condition isn’t preceded with a dollar sign.
 c. The equation for the iteration process doesn’t use the expr command format( or bracket [ ] ).
 
-5.The while Command
------
+# 5. The while Command
+
 
 
 <pre>
@@ -155,8 +156,8 @@ done
 </pre>
 *# 조건문 안에 조건과 상관없는 command도 동시에 사용가능(같은 줄에다 사용하면 안됨)*
 
-6.The until Command
------
+# 6. The until Command
+
 <pre>
 until test commands
 do
@@ -166,9 +167,9 @@ done
 *# while과 동일한 format*
 
 
-7.Controlling the Loop
------
-### 1)break
+# 7.Controlling the Loop
+
+## 1)break
 <pre>
 #!/bin/bash
 while [ $var1 -lt 10 ]
@@ -196,8 +197,10 @@ do
     done
 done
 </pre>
-### 2)continue
-same format whit break
+
+## 2)continue
+
+#### same format whit break
 <pre>
 #!/bin/bash
 for(( a = 1; a<=5 ; a++ ))
@@ -214,9 +217,9 @@ echo “Iteration $a:”
 done
 </pre>
 
-8.Processing the Output of a Loop
------
-### [loop문 내부의 output만 출력해보자. ( loop 문이 하나의 커맨드 임으로 )](http)
+# 8. Processing the Output of a Loop
+
+#### [loop문 내부의 output만 출력해보자. ( loop 문이 하나의 커맨드 임으로 )](http)
 <pre>
 for file is $HOME/*
 do
