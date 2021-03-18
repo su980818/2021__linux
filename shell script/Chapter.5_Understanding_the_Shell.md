@@ -77,7 +77,7 @@ COPROC 라는 이름의 subshell을 back ground로 생성하고 이 안에서 co
 -----
 ### 1) Looking at external commands
 ------
-[Whenever an external command is executed, a child process is created . This action is termed forking]()
+#### [Whenever an external command is executed, a child process is created . This action is termed forking]()
 <pre>
 $ ps -f
 UID        PID  PPID  C STIME TTY          TIME CMD
@@ -90,7 +90,7 @@ seungwoo   172   159  0 21:47 tty1     00:00:00 ps -f
 
 ### 2) Looking at built-in commands
 ------
-[When using a built-in command, no forking is required. Therefore, built-in commands are less expensive]()
+#### [When using a built-in command, no forking is required. Therefore, built-in commands are less expensive]()
 
 `type command` 
 `which commnand` : 이를 이용하여 external <-> built-in command를 구분할수 있음.
