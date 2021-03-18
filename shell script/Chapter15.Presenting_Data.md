@@ -63,7 +63,7 @@ This is an error
 
 #### [ shell에게 특정 파일에 descriptor number을 부여함 for the duration of the script by using the exec command]()
 
-[**exec** *descriptor_num>*  *destination*]()
+`exec descriptor_num>  destination`
 
 ### a) output permanent redirect
 </pre>
