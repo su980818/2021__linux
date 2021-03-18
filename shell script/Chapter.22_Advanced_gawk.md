@@ -1,5 +1,5 @@
 # In This Chapter
-## [ produce formatted reports from raw data files]()
+### [ produce formatted reports from raw data files]()
 
 1. Reexamining gawk
 2. Using Variables
@@ -12,8 +12,8 @@
 9. Summary
 
 
-1.Reexamining gawk
----
+# 1. Reexamining gawk
+
 ### [ sed와 유사하게 하나의 input에서 라인단위로 입력을 받아 각각의 라인을 지정한 fomat으로 처리해 주는 자동화 기능 제공]()
 ### [ 단순 command로 동작하는 sed와 달리 사용환경을 하나의 gwak-language로 제공하기 때문에 (c-language와 유사) 여러가지 작업이 가능]()
 ### [ 위의 특성으로 데이터 처리에 유용하게 사용됨]()
@@ -130,8 +130,8 @@ BY
 PATTERN section : data를 record 기준으로 불러오고 처리하는 section  ( begin, end section은 date를 읽어들이지 않음 )
 
 
-2.Using variables in gawk
----
+# 2. Using variables in gawk
+
 ### [ gawk-languale는 shell commnad와 달리 $1 같은 field 를 나타내는 변수 이외에는 $를 쓰지 않고 사용 ( 햇갈림 ) ]()
 
 
@@ -267,8 +267,8 @@ index: b value: B
 
 
 
-3.Using Patterns
---
+# 3. Using Patterns
+
 
 ## 1) Regular expressions 
 
@@ -306,8 +306,8 @@ daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
 </pre>
  
-4.Structured Commands
---
+# 4. Structured Commands
+
 ### [c언어와 동일한 format 사용]()
 <pre>
 if (condition) { statement 1 } 
@@ -320,14 +320,14 @@ while (condition) { statements }
 for( variable assignment; condition; iteration process)
 </pre>
 
-5.Formatted Printing
---
+# 5. Formatted Printing
+
 **printf** *“format string“, var1, var2*
 
 `$ gawk '{ printf "%s  \n",$0 }' input.txt`
 
-6.Built-In Functions
----
+# 6. Built-In Functions
+
 ## 1) Mathematical functions
 
 
