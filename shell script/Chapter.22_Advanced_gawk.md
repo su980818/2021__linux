@@ -58,22 +58,26 @@ Chap.4
 
 ----
 [**-f**  *file*]() : ‘progrem’ 부분이 길어질수 있음으로 별도의 파일로 gawk-language 를 작성하여 사용
+
 <pre>
 $cat gawk.txt
- {print $1}
- </pre>
+{print $1}
+</pre>
  
- <pre>
- $ gawk   -f gawk.txt    linux.txt
+ 
+ 
+<pre>
+$ gawk   -f gawk.txt    linux.txt
 Chap.1 
 Chap.2  
 ...
 </pre>
 
 ----
- [**-F** *field separator*]() : field가 default-separator(space or tab)가 아닌 다른 문자로 구분될 경우 사용
+
+[**-F** *field separator*]() : field가 default-separator(space or tab)가 아닌 다른 문자로 구분될 경우 사용
  
- <pre>
+<pre>
 $ gawk      -F:       ‘{print $1}’         /etc/passwd
 root
 daemon
@@ -210,7 +214,7 @@ This is a test
 </pre>
 *# gawk variables can hold either numeric or text values*
 
-**b.** Assigning variables on the command line
+**b)** Assigning variables on the command line
 
 <pre>
 $ gawk -F: '{print $n}' n=1  /etc/passwd
@@ -234,10 +238,12 @@ print  “index:”, test ," value:", var[test]
 index: a value: A
 index: b value: B
 </pre>
+
 *# var[index] 값이 아닌 index값이  test 에  저장됨*
+
 *# for () 을 사용해야함!!*
 
-*) delete array[index] 
+***)** delete array[index] 
 
 
 
@@ -267,7 +273,8 @@ root:x:0:0:root:/root:/bin/bash
 </pre>
 
 ### 3) Mathematical expressions   
-[ mathematical 조건에 맞는 record 찾기] ()
+[ mathematical 조건에 맞는 record 찾기]()
+
 |$field_num  == y {print $0}|$field_num  != y {print $0}|
 |-|-|
 <pre>
@@ -275,14 +282,42 @@ $ gawk -F: '$3  <=10{print $0}' /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
- </pre>
+</pre>
  
 4.Structured Commands
 --
+### [c언어와 동일한 format 사용]()
+<pre>
+if (condition) { statement 1 } 
+else { statement 2 } 
+</pre>
+<pre>
+while (condition) { statements } 
+</pre>
+<pre>
+for( variable assignment; condition; iteration process)
+</pre>
+
 5.Formatted Printing
 --
+**printf** *“format string“, var1, var2*
+`$ gawk '{ printf "%s  \n",$0 }' input.txt`
+
 6.Built-In Functions
 ---
+### 4) User-Defined Function
+[ 일반적으로 BEGIN section 위에다가 선언]()
+**function name (variables)  { statements }**
+<pre>
+$ gawk '
+function myprint(variable){
+        print variable
+}
+BEGIN{
+        myprint(20)
+}'
+</pre>
+
 7.User-Defined Functions
 ---
 8.Working through a Practical Example
