@@ -58,7 +58,6 @@ Chap.4
 |-mr N |Specifies the maximum record size in the data file|
 |-W keyword| Specifies the compatibility mode or warning level for gawk|
 
-----
 [**-f**  *file*]() : ‘progrem’ 부분이 길어질수 있음으로 별도의 파일로 gawk-language 를 작성하여 사용
 
 <pre>
@@ -75,7 +74,7 @@ Chap.2
 ...
 </pre>
 
-----
+
 
 [**-F** *field separator*]() : field가 default-separator(space or tab)가 아닌 다른 문자로 구분될 경우 사용
  
@@ -346,10 +345,8 @@ BEGIN{
 </pre>
 
 
-#) body/pattern/end section 으로 구성된 script 와 user_difiend_funtion 으로 구성된 libarary 를 따로따로 작성해서 합칠수 있음
-
+### #) body/pattern/end section 으로 구성된 script 와 user_difiend_funtion 으로 구성된 libarary 를 따로따로 작성해서 합칠수 있음
 -----
-
 <pre>
 $ cat library
 function myprint()
@@ -358,6 +355,7 @@ printf “%-16s - %s\n”, $1, $4
 }
 $ gawk -f library -f script data2
 </pre>
+
 
 8.Working through a Practical Example
 ---
