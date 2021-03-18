@@ -2,10 +2,14 @@
 ### [ produce formatted reports from raw data files]()
 
 1. Reexamining gawk
-2. Using variables in gawk
-3. Using structured commands
-4. Formatting your printing
-5. Working with functions
+2. Using Variables
+3. Using Patterns
+4. Structured Commands
+5. Formatted Printing
+6. Built-In Functions
+7. User-Defined Functions
+8. Working through a Practical Example
+9. Summary
 
 
 1.Reexamining gawk
@@ -79,13 +83,13 @@ sys
 
 
 ### 4) Using multiple commands in the program script
-**a)** [**;**]()  :  shell 에서 mutiple command를 사용하는 경우와 동일
+**a)** [**;** ]()  :  shell 에서 mutiple command를 사용하는 경우와 동일
 
 <pre> 
 $ gawk ‘{ command1   ; command2 }’ input-file
 </pre>
 
-**b) [in-line**]() : shell 에서 in-line redirection을 사용하는 경우와 비슷
+**b)** [**in-line** ]() : shell 에서 in-line redirection을 사용하는 경우와 비슷
 <pre>
 $ gawk ‘{
 >  command1
@@ -97,7 +101,7 @@ $ gawk ‘{
 
 ### 5) Running scripts before processing data
 [ script를 BEGIN, PATTERN, END section으로 나누어 실행하자. ]()
-+ [각 sectino은 {}을 토해 구분됨]
+[ + 각 sectino은 {}을 통해 구분됨]()
 <pre>
 $ gawk -F: 'BEGIN {print "HELLO"} {print $1, $2 } END{ print "BY"}' data
 HELLO
@@ -230,44 +234,57 @@ print  “index:”, test ," value:", var[test]
 index: a value: A
 index: b value: B
 </pre>
-*# var[index] 값이 아닌 index값이  test 에  저장됨  +  for () 을 사용해야함!!*
+*# var[index] 값이 아닌 index값이  test 에  저장됨*
+*# for () 을 사용해야함!!*
 
-+ delete array[index] 
-
-
-
-
-
-
-3.Using structured commands
----
+*) delete array[index] 
 
 
 
 
-
-
-
-[c-language 와 매우 유사]()
-
-
-
-
-
-
-
-
-
-
-
-4.Formatting your printing
----
-
-**printf** *“format string“, var1, var2*]
+3.Using Patterns
+--
+-----
+### 1) Regular expressions 
+[ 일치하는 expresson을 갖는 record 찾기]()
+|/expression/{print $0}'|
+|-|
 <pre>
-$ gawk '{ printf "%s  \n",$0 }' input.txt
+$ gawk -F: '/root/{print $0}' /etc/passwd
+root:x:0:0:root:/root:/bin/bash
 </pre>
 
+-----
+### 2) The matching operator 
+[ 원하는 field 에 일치하는 expresson을 갖는 record 찾기]()
+|부분 일치 |‘$field_num ~ /expression/{print $0}' |‘$field_num !~ /expression/{print $0}'|
+|-|-|-|
+|**완전 일치**|**‘$field_num == “expression”{print $0}'** |**‘$field_num != “expression”{print $0}'** |
 
-5.Working with functions
-----
+<pre>
+$ gawk -F: '$5 ~/root/{print $0}' /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+</pre>
+
+### 3) Mathematical expressions   
+[ mathematical 조건에 맞는 record 찾기] ()
+|$field_num  == y {print $0}|$field_num  != y {print $0}|
+|-|-|
+<pre>
+$ gawk -F: '$3  <=10{print $0}' /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+ </pre>
+ 
+4.Structured Commands
+--
+5.Formatted Printing
+--
+6.Built-In Functions
+---
+7.User-Defined Functions
+---
+8.Working through a Practical Example
+---
+
