@@ -9,9 +9,9 @@
 
 
 
-1.Working with the if-then Statement
-------
-### [조건문은 command의 exit status에 의해 조작됨](http)
+# 1. Working with the if-then Statement
+
+#### [조건문은 command의 exit status에 의해 조작됨](http)
 
 If the exit status of the command is zero , command list under the then section are executed.
 
@@ -49,9 +49,9 @@ else
 fi
 </pre>
 
-2.Trying the test Command
--------
-### [if 문에 들어가는 조건문을 알아보자.(조건이 맞을시 exit = 0 , 조건이 틀릴시 exit != 0 을 반환하는 커맨드 )](http)
+# 2. Trying the test Command
+
+#### [if 문에 들어가는 조건문을 알아보자.(조건이 맞을시 exit = 0 , 조건이 틀릴시 exit != 0 을 반환하는 커맨드 )](http)
 
 * variable에 값이 있는지 판단 하기 
 * 아래에 나오는 1)2)3)의 if문 comparisons을 사용하기 위해서 둘중 하나를 사용하여 표현해야함. 
@@ -61,9 +61,9 @@ fi
 |**2**|**$ if [ variable ]**|
 
 
-### 1) Numeric comparisons
+## 1) Numeric comparisons
 -----
-[perform a comparison of two numeric values]()
+#### [perform a comparison of two numeric values]()
 
 |Comparison| Description|
 |-|-|
@@ -91,9 +91,9 @@ fi
 </pre>
 *#shell에서는 integers operation밖에 못하기 때문에 floating_point는 비교 불가.*
 
-### 2) String comparisons
+## 2) String comparisons
 ----
-[문자열을 비교해 보자.]() 
+#### [문자열을 비교해 보자.]() 
 
 |Comparison |Description|
 |-|-|
@@ -134,9 +134,9 @@ fi
 
 
 
-### 3) Using file comparisons
------
-[ test the status of file or directories]()
+## 3) Using file comparisons
+
+#### [ test the status of file or directories]()
 
 |Comparison| Description|
 |-|-|
@@ -175,9 +175,9 @@ fi
   fi
 </pre>
 
-3.Considering Compound Testing
-------
-### [조건문을 AND , OR 해보자. ]()
+# 3. Considering Compound Testing
+
+#### [조건문을 AND , OR 해보자. ]()
 |AND|[condition1] && [comdition]|
 |-|-|
 |**OR**|**[condition1] \|\| [comdition]**|
@@ -192,10 +192,11 @@ else
 fi
 </pre>
 
-4.Advanced if-then Features
------
-### [ 위에서 배운 numerical , string comparison보다 더 쉬운 표현식을 알아보자. ](http)
-### 1) Using Double parentheses for numerical
+# 4. Advanced if-then Features
+
+#### [ 위에서 배운 numerical , string comparison보다 더 쉬운 표현식을 알아보자. ](http)
+
+## 1) Using Double parentheses for numerical
 ------
 |Symbol| Description|
 |-|-|
@@ -225,8 +226,7 @@ fi
 
 *#조건문에도 쓸수 있지만 일반 계산에서도 사용할수 있음*
 
-### 2) Using Double brackets for String
-----
+## 2) Using Double brackets for String
 
 ~~Chepter 20 에서 추가~~
 
@@ -239,5 +239,7 @@ else
 fi
 </pre>
 
-5.Case Command 
------
+# 5. Case Command 
+
+
+
