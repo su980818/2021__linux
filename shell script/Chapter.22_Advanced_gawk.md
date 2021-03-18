@@ -36,7 +36,7 @@
 
 ## 2) gawk-command format
 
-#### [**gawk**   *options   program   file*]() 
+> ####  **gawk**   *options   program   file*
 <pre>
 $ gawk ‘{print $1}’ linux.txt
 Chap.1 
@@ -261,7 +261,7 @@ index: b value: B
 
 *# for () 을 사용해야함!!*
 
-#### (#) delete array[index] 
+> #### delete array[index] 
 
 
 
@@ -272,7 +272,7 @@ index: b value: B
 ## 1) Regular expressions 
 
 #### [ 일치하는 expresson을 갖는 record 찾기]()
-|/expression/{print $0}'|
+> /expression/{print $0}
 |-|
 <pre>
 $ gawk -F: '/root/{print $0}' /etc/passwd
@@ -321,7 +321,7 @@ for( variable assignment; condition; iteration process)
 
 # 5. Formatted Printing
 
-#### **printf** *“format string“, var1, var2*
+> #### **printf** *“format string“, var1, var2*
 
 <pre><cod>$ gawk '{ printf "%s  \n",$0 }' </code></pre>
 
