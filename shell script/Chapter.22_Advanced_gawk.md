@@ -301,13 +301,26 @@ for( variable assignment; condition; iteration process)
 5.Formatted Printing
 --
 **printf** *“format string“, var1, var2*
+
 `$ gawk '{ printf "%s  \n",$0 }' input.txt`
 
 6.Built-In Functions
 ---
-### 4) User-Defined Function
+### 1) Mathematical functions
+![image](https://user-images.githubusercontent.com/78835559/111585448-aa18db80-8802-11eb-9a45-d439ba745cea.png)
+
+### 2) String functions 
+![image](https://user-images.githubusercontent.com/78835559/111585463-b00ebc80-8802-11eb-8b01-e96c4e74d0f4.png)
+
+### 3) Time functions
+![image](https://user-images.githubusercontent.com/78835559/111585467-b3a24380-8802-11eb-8e92-ebd97e3a0f7c.png)
+
+7.User-Defined Functions
+---
 [ 일반적으로 BEGIN section 위에다가 선언]()
+
 **function name (variables)  { statements }**
+
 <pre>
 $ gawk '
 function myprint(variable){
@@ -318,8 +331,50 @@ BEGIN{
 }'
 </pre>
 
-7.User-Defined Functions
----
+
+#) body/pattern/end section 으로 구성된 script 와 user_difiend_funtion 으로 구성된 libarary 를 따로따로 작성해서 합칠수 있음
+
+<pre>
+$ cat library
+function myprint()
+{
+printf “%-16s - %s\n”, $1, $4
+}
+$ gawk -f library -f script data2
+</pre>
+
 8.Working through a Practical Example
 ---
 
+team 1에 속하는 record의 필드 3,4,5 값을 모두 더해 6으로 나눈값 과 team2의 값을 구하는 script
+<pre>
+Rich Blum,team1,100,115,95
+Barbara Blum,team1,110,115,100
+Christine Bresnahan,team2,120,115,118
+Tim Bresnahan,team2,125,112,116
+</pre>
+
+<pre>
+#!/bin/bash
+for team in $(gawk –F, ‘{print $2}’ scores.txt | uniq)
+do
+ gawk –v team=$team ‘
+
+ BEGIN{
+  FS=”,”
+  total=0
+ }
+
+ {
+  if ($2==team)
+  {
+   total += $3 + $4 + $5;
+  }
+ }
+
+ END {
+  avg = total / 6;
+  print “Total for”, team, “is”, total, “,the average is”,avg
+  }’ scores.txt
+done
+</pre>
