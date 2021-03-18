@@ -62,7 +62,7 @@ fi
 
 
 ## 1) Numeric comparisons
------
+
 #### [perform a comparison of two numeric values]()
 
 |Comparison| Description|
@@ -92,7 +92,7 @@ fi
 *#shell에서는 integers operation밖에 못하기 때문에 floating_point는 비교 불가.*
 
 ## 2) String comparisons
-----
+
 #### [문자열을 비교해 보자.]() 
 
 |Comparison |Description|
@@ -197,7 +197,7 @@ fi
 #### [ 위에서 배운 numerical , string comparison보다 더 쉬운 표현식을 알아보자. ](http)
 
 ## 1) Using Double parentheses for numerical
-------
+
 |Symbol| Description|
 |-|-|
 |val+ |Post-incrementv
