@@ -14,9 +14,9 @@
 
 1.Reexamining gawk
 ---
-## [- sed와 유사하게 하나의 input에서 라인단위로 입력을 받아 각각의 라인을 지정한 fomat으로 처리해 주는 자동화 기능 제공]()
-## [- 단순 command로 동작하는 sed와 달리 사용환경을 하나의 gwak-language로 제공하기 때문에 (c-language와 유사) 여러가지 작업이 가능]()
-## [- 위의 특성으로 데이터 처리에 유용하게 사용됨]()
+### [- sed와 유사하게 하나의 input에서 라인단위로 입력을 받아 각각의 라인을 지정한 fomat으로 처리해 주는 자동화 기능 제공]()
+### [- 단순 command로 동작하는 sed와 달리 사용환경을 하나의 gwak-language로 제공하기 때문에 (c-language와 유사) 여러가지 작업이 가능]()
+### [- 위의 특성으로 데이터 처리에 유용하게 사용됨]()
 
 ## 1) data의 구분
 
@@ -92,13 +92,15 @@ sys
 ## 4) Using multiple commands in the program script
 
 
-### a) [**;** ]()  :  shell 에서 mutiple command를 사용하는 경우와 동일
+### a) ;   
+#### shell 에서 mutiple command를 사용하는 경우와 동일
 
 <pre> 
 $ gawk ‘{ command1   ; command2 }’ input-file
 </pre>
 
-### b) [**in-line** ]() : shell 에서 in-line redirection을 사용하는 경우와 비슷
+### b) in-line
+### shell 에서 in-line redirection을 사용하는 경우와 비슷
 <pre>
 $ gawk ‘{
 >  command1
@@ -111,8 +113,9 @@ $ gawk ‘{
 ## 5) Running scripts before processing data
 
 
-[ script를 BEGIN, PATTERN, END section으로 나누어 실행하자. ]()
-[ + 각 sectino은 {}을 통해 구분됨]()
+#### [ script를 BEGIN, PATTERN, END section으로 나누어 실행하자. ]()
+
+#### [ + 각 sectino은 {}을 통해 구분됨]()
 <pre>
 $ gawk -F: 'BEGIN {print "HELLO"} {print $1, $2 } END{ print "BY"}' data
 HELLO
@@ -126,7 +129,7 @@ PATTERN section : data를 record 기준으로 불러오고 처리하는 section 
 
 2.Using variables in gawk
 ---
-## [- gawk-languale는 shell commnad와 달리 $1 같은 field 를 나타내는 변수 이외에는 $를 쓰지 않고 사용 ( 햇갈림 ) ]()
+### [- gawk-languale는 shell commnad와 달리 $1 같은 field 를 나타내는 변수 이외에는 $를 쓰지 않고 사용 ( 햇갈림 ) ]()
 
 
 ## 1) Built-in variables
@@ -140,7 +143,7 @@ PATTERN section : data를 record 기준으로 불러오고 처리하는 section 
 |OFS |Output field separator character|
 |ORS |Output record separator character|
 
-+ : 로 구분된 passwd 를 * 로 구분되게 변환 
+**(#)** passwd(FS 가 : 인 파일)를 * 로 구분되게 변환 
 <pre>
 $ gawk '  BEGIN{FS=":"; OFS="*"}          {print $1,$2} ' data
 root*x
@@ -149,7 +152,7 @@ bin*x
 sys*x
 </pre>
 
-+ [**FIELDWIDTHS**]() : gawk ignores the FS and calculates data fields based on the provided field width sizes
+[**FIELDWIDTHS**]() : gawk ignores the FS and calculates data fields based on the provided field width sizes
 <pre>
 $ cat data2
 abc123
@@ -163,7 +166,7 @@ def--789
 
 ## #) Data의 record가  \n으로 구분되어 있는경우  
 
-set the RS variable to an empty string, and leave a blank linebetween data 	records in the data stream
+### set the RS variable to an empty string, and leave a blank linebetween data 	records in the data stream
 
 <pre>
 $ cat data2
@@ -196,7 +199,7 @@ Haley Snell (313)555-4938
 |RLENGTH |The length of the substring matche|d in the match function|
 |RSTART| The start index of the substring mat|ched in the match function|
 
-[ An associative array ]() : uses text for the array index values instead of numeric values.
+[ **associative array** ]() : uses text for the array index values instead of numeric values.
 <pre>
 $ gawk 'BEGIN{  print ENVIRON["HOME"]    }'
 </pre>
@@ -208,7 +211,9 @@ NR :maintain its count into the other data file
      
 ## 2) User-difined variables  
 
-### a) Assigning variables in scripts : Assigning values to variables in gawk programs is similar to doing so in a shell script, using an assignment statement
+### a) Assigning variables in scripts 
+
+#### Assigning values to variables in gawk programs is similar to doing so in a shell script, using an assignment statement
 
 <pre>
 $ gawk ‘
@@ -223,7 +228,7 @@ This is a test
 </pre>
 *# gawk variables can hold either numeric or text values*
 
-**b)** Assigning variables on the command line
+### b) Assigning variables on the command line
 
 <pre>
 $ gawk -F: '{print $n}' n=1  /etc/passwd
@@ -252,7 +257,7 @@ index: b value: B
 
 *# for () 을 사용해야함!!*
 
-***)** delete array[index] 
+#### (#) delete array[index] 
 
 
 
@@ -262,7 +267,7 @@ index: b value: B
 
 ## 1) Regular expressions 
 
-[ 일치하는 expresson을 갖는 record 찾기]()
+### [ 일치하는 expresson을 갖는 record 찾기]()
 |/expression/{print $0}'|
 |-|
 <pre>
@@ -273,7 +278,7 @@ root:x:0:0:root:/root:/bin/bash
 
 ## 2) The matching operator 
 
-[ 원하는 field 에 일치하는 expresson을 갖는 record 찾기]()
+### [ 원하는 field 에 일치하는 expresson을 갖는 record 찾기]()
 |부분 일치 |‘$field_num ~ /expression/{print $0}' |‘$field_num !~ /expression/{print $0}'|
 |-|-|-|
 |**완전 일치**|**‘$field_num == “expression”{print $0}'** |**‘$field_num != “expression”{print $0}'** |
@@ -285,7 +290,7 @@ root:x:0:0:root:/root:/bin/bash
 
 ## 3) Mathematical expressions  
 
-[ mathematical 조건에 맞는 record 찾기]()
+### [ mathematical 조건에 맞는 record 찾기]()
 
 |$field_num  == y {print $0}|$field_num  != y {print $0}|
 |-|-|
@@ -298,7 +303,7 @@ bin:x:2:2:bin:/bin:/usr/sbin/nologin
  
 4.Structured Commands
 --
-## [c언어와 동일한 format 사용]()
+### [c언어와 동일한 format 사용]()
 <pre>
 if (condition) { statement 1 } 
 else { statement 2 } 
@@ -332,7 +337,7 @@ for( variable assignment; condition; iteration process)
 
 7.User-Defined Functions
 ---
-## [ 일반적으로 BEGIN section 위에다가 선언]()
+### [ 일반적으로 BEGIN section 위에다가 선언]()
 
 **function name (variables)  { statements }**
 
@@ -347,7 +352,7 @@ BEGIN{
 </pre>
 
 
-## #) body/pattern/end section 으로 구성된 script 와 user_difiend_funtion 으로 구성된 libarary 를 따로따로 작성해서 합칠수 있음
+### #) body/pattern/end section 으로 구성된 script 와 user_difiend_funtion 으로 구성된 libarary 를 따로따로 작성해서 합칠수 있음
 
 <pre>
 $ cat library
