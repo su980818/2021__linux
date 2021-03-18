@@ -1,6 +1,6 @@
 # In This Chapter
 
-## [This chapter takes you through learning about the shell process.]()
+#### [This chapter takes you through learning about the shell process.]()
 
 1.Investigating Shell Types
 
@@ -10,17 +10,17 @@
 
 4.Investigating Built-in Shell Commands
 
-1.Investigating Shell Types
-----
+# 1. Investigating Shell Types
+
 
 **/etc/passwd**  : 각 user의 default shell을 확인할수있음.
 
 **/bin/bash**   : 원하는 shell을 실행하여 사용하자.
 
 
-2.Understanding the Parent/Child Shell Relationship
-----
-### [shell_process 위에 shell_process 를 실행하는 경우에 각각을 parent, child shell로 구분 할수 있음.]()
+# 2. Understanding the Parent/Child Shell Relationship
+
+#### [shell_process 위에 shell_process 를 실행하는 경우에 각각을 parent, child shell로 구분 할수 있음.]()
 
 parent shell 이 생성한 child shell ( sub shell )에 parent의 환경 context 의 일부분이 상속됨. (chapter6 참조)
 
@@ -51,10 +51,10 @@ init─┬─init───bash───bash───pstree
 
 
 
-3.Using Subshells Creatively
------
-### [현재 shell에서 sub_shell을 back_ground로 실행함으로서 shell의 생산성을 향상시키는 것이 목적.]()
- [이러한 sub_shell 을 interactive_shell 이라고 부름.]()
+# 3.Using Subshells Creatively
+
+#### [현재 shell에서 sub_shell을 back_ground로 실행함으로서 shell의 생산성을 향상시키는 것이 목적.]()
+##### [이러한 sub_shell 을 interactive_shell 이라고 부름.]()
  
 **background mod** : 하나의 process가 완료될때까지 shell 이 $를 반환해주지 않는데 background에서 실행하게 함으로 현재 shell이 하나의 process에만 잡혀있지 않게 process를 실행하는 방법
  
@@ -73,12 +73,11 @@ COPROC 라는 이름의 subshell을 back ground로 생성하고 이 안에서 co
 
 *# process list 를 자동으로 back ground로 실행하는것과 비슷한 효과*
 
-4.Investigating Built-in Shell Commands
------
+# 4. Investigating Built-in Shell Commands
 
 ## 1) Looking at external commands
 
-### [Whenever an external command is executed, a child process is created . This action is termed forking]()
+#### [Whenever an external command is executed, a child process is created . This action is termed forking]()
 <pre>
 $ ps -f
 UID        PID  PPID  C STIME TTY          TIME CMD
@@ -90,7 +89,7 @@ seungwoo   172   159  0 21:47 tty1     00:00:00 ps -f
 
 
 ## 2) Looking at built-in commands
-### [When using a built-in command, no forking is required. Therefore, built-in commands are less expensive]()
+#### [When using a built-in command, no forking is required. Therefore, built-in commands are less expensive]()
 
 `type command` 
 `which commnand` : 이를 이용하여 external <-> built-in command를 구분할수 있음.
