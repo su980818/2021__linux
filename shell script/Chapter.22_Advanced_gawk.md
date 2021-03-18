@@ -19,6 +19,7 @@
 ### [- 위의 특성으로 데이터 처리에 유용하게 사용됨]()
 
 ### 1) data의 구분
+-----
 
 |fild(column)| 하나의 자료형 데이터를 저장하는 장소|
 |-|-|
@@ -32,6 +33,7 @@
 |**$n**|**represents the nth data field in the line of text.**|
 
 ### 2) gawk-command format
+-----
 [**gawk**   *options   program   file*]() : program part가 gawk-language 로 작성된 문자열임으로 ''이 필요
 <pre>
 $ gawk ‘{print $1}’ linux.txt
@@ -43,7 +45,7 @@ Chap.4
 
 
 ### 3) gawk Options
-
+----
 
 
 
@@ -87,6 +89,8 @@ sys
 
 
 ### 4) Using multiple commands in the program script
+------
+
 **a)** [**;** ]()  :  shell 에서 mutiple command를 사용하는 경우와 동일
 
 <pre> 
@@ -104,6 +108,8 @@ $ gawk ‘{
 
 
 ### 5) Running scripts before processing data
+------
+
 [ script를 BEGIN, PATTERN, END section으로 나누어 실행하자. ]()
 [ + 각 sectino은 {}을 통해 구분됨]()
 <pre>
@@ -123,7 +129,7 @@ PATTERN section : data를 record 기준으로 불러오고 처리하는 section 
 
 
 ### 1) Built-in variables
-
+---
 |Variable| Description|
 |-|-|
 |FIELDWIDTHS| A space-separated list of numbers defining the exact width (in spaces) of|
@@ -155,6 +161,7 @@ def--789
 
 
 ### #) Data의 record가  \n으로 구분되어 있는경우  
+-----
 set the RS variable to an empty string, and leave a blank linebetween data 	records in the data stream
 
 <pre>
@@ -188,17 +195,18 @@ Haley Snell (313)555-4938
 |RLENGTH |The length of the substring matche|d in the match function|
 |RSTART| The start index of the substring mat|ched in the match function|
 
------
 [ An associative array ]() : uses text for the array index values instead of numeric values.
 <pre>
 $ gawk 'BEGIN{  print ENVIRON["HOME"]    }'
 </pre>
 
 ### #) FNR vs NR
+-----
 FNR : value was reset when gawk processed the other data file.
 NR :maintain its count into the other data file
      
-### 2) User-difined variables    
+### 2) User-difined variables  
+-------
 **a)** Assigning variables in scripts : Assigning values to variables in gawk programs is similar to doing so in a shell script, using an assignment statement
 
 <pre>
@@ -250,8 +258,9 @@ index: b value: B
 
 3.Using Patterns
 --
------
+
 ### 1) Regular expressions 
+-----
 [ 일치하는 expresson을 갖는 record 찾기]()
 |/expression/{print $0}'|
 |-|
@@ -260,8 +269,9 @@ $ gawk -F: '/root/{print $0}' /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 </pre>
 
------
+
 ### 2) The matching operator 
+-----
 [ 원하는 field 에 일치하는 expresson을 갖는 record 찾기]()
 |부분 일치 |‘$field_num ~ /expression/{print $0}' |‘$field_num !~ /expression/{print $0}'|
 |-|-|-|
@@ -272,7 +282,8 @@ $ gawk -F: '$5 ~/root/{print $0}' /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 </pre>
 
-### 3) Mathematical expressions   
+### 3) Mathematical expressions  
+----
 [ mathematical 조건에 맞는 record 찾기]()
 
 |$field_num  == y {print $0}|$field_num  != y {print $0}|
@@ -307,12 +318,15 @@ for( variable assignment; condition; iteration process)
 6.Built-In Functions
 ---
 ### 1) Mathematical functions
+----
 
 
 ### 2) String functions 
+----
 
 
 ### 3) Time functions
+----
 
 
 7.User-Defined Functions
@@ -333,6 +347,8 @@ BEGIN{
 
 
 #) body/pattern/end section 으로 구성된 script 와 user_difiend_funtion 으로 구성된 libarary 를 따로따로 작성해서 합칠수 있음
+
+-----
 
 <pre>
 $ cat library
