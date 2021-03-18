@@ -185,7 +185,7 @@ tempfile=$(mktemp test19.XXXXXX)
  
 # 8. Logging Messages
 
-[output을 STDOUT과 file 두곳 모두에 출력하고 싶을때]()
+#### [output을 STDOUT과 file 두곳 모두에 출력하고 싶을때]()
 
 tee command: T-connector for pipes , STDIN 으로 부터 입력을 받아옴.
 
