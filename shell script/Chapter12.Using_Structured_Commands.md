@@ -2,10 +2,9 @@
 ------
 ### [조건문은 command의 exit status에 의해 조작됨](http)
 
+If the exit status of the command is zero , command list under the then section are executed.
 
-* If the exit status of the command is zero , command list under the then section are executed.
-
-* 기본 format 
+ **기본 format** 
 <pre>
 if command
 then 
@@ -19,7 +18,7 @@ fi
 </pre> 
 
 
-* If the exit status of the command is non-zero , command list under the else section are executed.
+ If the exit status of the command is non-zero , command list under the else section are executed.
 <pre>
 if command  ; then
   commands
@@ -28,7 +27,7 @@ else
 fi
 </pre>
 
-* else if 
+ else if 
 <pre>
 if command  ; then
   commands
@@ -52,7 +51,8 @@ fi
 
 
 ### 1) Numeric comparisons
-*perform a comparison of two numeric values
+-----
+[perform a comparison of two numeric values]()
 
 |Comparison| Description|
 |-|-|
@@ -81,7 +81,8 @@ fi
 *#shell에서는 integers operation밖에 못하기 때문에 floating_point는 비교 불가.*
 
 ### 2) String comparisons
-+ 문자열을 비교해 보자. 
+----
+[문자열을 비교해 보자.]() 
 
 |Comparison |Description|
 |-|-|
@@ -123,7 +124,8 @@ fi
 
 
 ### 3) Using file comparisons
-+ test the status of file or directories
+-----
+[ test the status of file or directories]()
 
 |Comparison| Description|
 |-|-|
@@ -164,7 +166,7 @@ fi
 
 3.Considering Compound Testing
 ------
-### [command 와 test (or [] ) 을 결합해서 사룡해 보자.](http)
+### [조건문을 AND , OR 해보자. ]()
 |AND|[condition1] && [comdition]|
 |-|-|
 |**OR**|**[condition1] \|\| [comdition]**|
@@ -181,8 +183,9 @@ fi
 
 4.Advanced if-then Features
 -----
-### [2.에서 배운 numerical , string comparison보다 더 쉬운 표현식을 알아보자. ](http)
+### [ 위에서 배운 numerical , string comparison보다 더 쉬운 표현식을 알아보자. ](http)
 ### 1) Using Double parentheses for numerical
+------
 |Symbol| Description|
 |-|-|
 |val+ |Post-incrementv
@@ -212,6 +215,7 @@ fi
 *#조건문에도 쓸수 있지만 일반 계산에서도 사용할수 있음*
 
 ### 2) Using Double brackets for String
+----
 
 ~~Chepter 20 에서 추가~~
 
