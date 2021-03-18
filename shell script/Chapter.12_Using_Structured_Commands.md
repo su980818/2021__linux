@@ -198,6 +198,8 @@ fi
 
 ## 1) Using Double parentheses for numerical
 
+#### [if (( numerical comparison ))]()
+
 |Symbol| Description|
 |-|-|
 |val+ |Post-incrementv
@@ -214,6 +216,7 @@ fi
 |&&| Logical AND|
 |\|\| |Logical OR|
 
+
 <pre>
 #!/bin/bash
 val1=10
@@ -229,6 +232,9 @@ fi
 ## 2) Using Double brackets for String
 
 ~~Chepter 20 에서 추가~~
+
+
+#### [if [[ Strgin comparison ]]]()
 
 <pre>
 !/bin/bash
