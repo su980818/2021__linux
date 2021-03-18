@@ -37,7 +37,7 @@
 ## 2) gawk-command format
 
 ### [**gawk**   *options   program   file*]() 
-#### program part가 gawk-language 로 작성된 문자열임으로 ''이 필요
+### program part가 gawk-language 로 작성된 문자열임으로 ''이 필요
 <pre>
 $ gawk ‘{print $1}’ linux.txt
 Chap.1 
@@ -61,7 +61,7 @@ Chap.4
 |-mr N |Specifies the maximum record size in the data file|
 |-W keyword| Specifies the compatibility mode or warning level for gawk|
 
-### a) **-f**  *file*
+### (a) **-f**  *file*
 #### ‘progrem’ 부분이 길어질수 있음으로 별도의 파일로 gawk-language 를 작성하여 사용
 
 <pre>
@@ -80,7 +80,7 @@ Chap.2
 
 
 
-### b) **-F** *field separator* 
+### (b) **-F** *field separator* 
 #### field가 default-separator(space or tab)가 아닌 다른 문자로 구분될 경우 사용
  
 <pre>
@@ -95,14 +95,14 @@ sys
 ## 4) Using multiple commands in the program script
 
 
-### a) ;   
+### (a) ;   
 #### shell 에서 mutiple command를 사용하는 경우와 동일
 
 <pre> 
 $ gawk ‘{ command1   ; command2 }’ input-file
 </pre>
 
-### b) in-line
+### (b) in-line
 #### shell 에서 in-line redirection을 사용하는 경우와 비슷
 <pre>
 $ gawk ‘{
@@ -132,7 +132,7 @@ PATTERN section : data를 record 기준으로 불러오고 처리하는 section 
 
 2.Using variables in gawk
 ---
-### [- gawk-languale는 shell commnad와 달리 $1 같은 field 를 나타내는 변수 이외에는 $를 쓰지 않고 사용 ( 햇갈림 ) ]()
+### [ gawk-languale는 shell commnad와 달리 $1 같은 field 를 나타내는 변수 이외에는 $를 쓰지 않고 사용 ( 햇갈림 ) ]()
 
 
 ## 1) Built-in variables
@@ -146,7 +146,7 @@ PATTERN section : data를 record 기준으로 불러오고 처리하는 section 
 |OFS |Output field separator character|
 |ORS |Output record separator character|
 
-### a) FS,OFS
+### (a) FS,OFS
 #### passwd(FS 가 : 인 파일)를 * 로 구분되게 변환 
 <pre>
 $ gawk '  BEGIN{FS=":"; OFS="*"}          {print $1,$2} ' data
@@ -156,7 +156,7 @@ bin*x
 sys*x
 </pre>
 
-### b) FIELDWIDTHS
+### (b) FIELDWIDTHS
 #### gawk ignores the FS and calculates data fields based on the provided field width sizes
 <pre>
 $ cat data2
@@ -216,7 +216,7 @@ NR :maintain its count into the other data file
      
 ## 2) User-difined variables  
 
-### a) Assigning variables in scripts 
+### (a) Assigning variables in scripts 
 
 #### Assigning values to variables in gawk programs is similar to doing so in a shell script, using an assignment statement
 
@@ -233,7 +233,7 @@ This is a test
 </pre>
 *# gawk variables can hold either numeric or text values*
 
-### b) Assigning variables on the command line
+### (b) Assigning variables on the command line
 
 <pre>
 $ gawk -F: '{print $n}' n=1  /etc/passwd
@@ -243,7 +243,7 @@ daemon
 </pre>
 *# -v option을 사용하고 변수를 선언해야 BEGIN-section에서 사용가능*
 
-### c) Working with associative arrays
+### (c) Working with associative arrays
 
 <pre>
 $ gawk 'BEGIN{
