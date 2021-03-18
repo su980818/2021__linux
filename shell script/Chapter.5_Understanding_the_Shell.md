@@ -25,8 +25,8 @@
 parent shell 이 생성한 child shell ( sub shell )에 parent의 환경 context 의 일부분이 상속됨. (chapter6 참조)
 
 ### 1) sub_shell이 생성되는 경우
-
-**(a)** shell 을 command를 통해 실행.
+-----------
+#### a) shell 을 command를 통해 실행.
 <pre>
 $ bash
 bash start
@@ -35,9 +35,9 @@ init─┬─init───bash───bash───pstree
      └─{init}
 </pre>
 
-**(b)** shell_script 를 실행하면 자동으로 sub shell을 생성하여 이를 이용해 shell_script를 실행시킴.
+#### b) shell_script 를 실행하면 자동으로 sub shell을 생성하여 이를 이용해 shell_script를 실행시킴.
 
-**(c)** process list : `$ (command1 ; command2)`
+#### c) process list : `$ (command1 ; command2)`
 <pre>
 $ (sleep 1 ; pstree)
 init─┬─init───bash───bash───pstree
@@ -60,11 +60,13 @@ init─┬─init───bash───bash───pstree
  
 
 ### 1) start background sub_shell
-**(a)**  Putting process lists into the background
+-------
+
+#### a)  Putting process lists into the background
 
 `$ (command1 ; command2)&`
 
-**(b)**  Co-processing 
+#### b)  Co-processing 
 COPROC 라는 이름의 subshell을 back ground로 생성하고 이 안에서 command를 실행. 
 
 `$ coproc *command`
@@ -74,6 +76,7 @@ COPROC 라는 이름의 subshell을 back ground로 생성하고 이 안에서 co
 4.Investigating Built-in Shell Commands
 -----
 ### 1) Looking at external commands
+------
 [Whenever an external command is executed, a child process is created . This action is termed forking]()
 <pre>
 $ ps -f
@@ -86,6 +89,7 @@ seungwoo   172   159  0 21:47 tty1     00:00:00 ps -f
 
 
 ### 2) Looking at built-in commands
+------
 [When using a built-in command, no forking is required. Therefore, built-in commands are less expensive]()
 
 `type command` 
@@ -97,6 +101,7 @@ seungwoo   172   159  0 21:47 tty1     00:00:00 ps -f
 
 
 ### #) Using the history command
+------
 `history` :  show a recently used commands list (built-in)
 
 ~~Command history is kept in the hidden .bash_history file, which is located in the user’s
@@ -104,6 +109,7 @@ home directory. Be careful here. The bash command history is stored in memory an
 written out into the history file when the shell is exited:~~
 
 ### #) Using command aliases
+-------
 `alias -p` : alias 된 command 출력
 
 `alias alias_variable=command` : command 를 variable을 통해 빠르게 사용가능.
