@@ -14,9 +14,9 @@
 
 1.Reexamining gawk
 ---
-### [- sed와 유사하게 하나의 input에서 라인단위로 입력을 받아 각각의 라인을 지정한 fomat으로 처리해 주는 자동화 기능 제공]()
-### [- 단순 command로 동작하는 sed와 달리 사용환경을 하나의 gwak-language로 제공하기 때문에 (c-language와 유사) 여러가지 작업이 가능]()
-### [- 위의 특성으로 데이터 처리에 유용하게 사용됨]()
+### [ sed와 유사하게 하나의 input에서 라인단위로 입력을 받아 각각의 라인을 지정한 fomat으로 처리해 주는 자동화 기능 제공]()
+### [ 단순 command로 동작하는 sed와 달리 사용환경을 하나의 gwak-language로 제공하기 때문에 (c-language와 유사) 여러가지 작업이 가능]()
+### [ 위의 특성으로 데이터 처리에 유용하게 사용됨]()
 
 ## 1) data의 구분
 
@@ -36,7 +36,8 @@
 
 ## 2) gawk-command format
 
-[**gawk**   *options   program   file*]() : program part가 gawk-language 로 작성된 문자열임으로 ''이 필요
+### [**gawk**   *options   program   file*]() 
+#### program part가 gawk-language 로 작성된 문자열임으로 ''이 필요
 <pre>
 $ gawk ‘{print $1}’ linux.txt
 Chap.1 
@@ -60,7 +61,8 @@ Chap.4
 |-mr N |Specifies the maximum record size in the data file|
 |-W keyword| Specifies the compatibility mode or warning level for gawk|
 
-[**-f**  *file*]() : ‘progrem’ 부분이 길어질수 있음으로 별도의 파일로 gawk-language 를 작성하여 사용
+### a) **-f**  *file*
+#### ‘progrem’ 부분이 길어질수 있음으로 별도의 파일로 gawk-language 를 작성하여 사용
 
 <pre>
 $cat gawk.txt
@@ -78,7 +80,8 @@ Chap.2
 
 
 
-[**-F** *field separator*]() : field가 default-separator(space or tab)가 아닌 다른 문자로 구분될 경우 사용
+### b) **-F** *field separator* 
+#### field가 default-separator(space or tab)가 아닌 다른 문자로 구분될 경우 사용
  
 <pre>
 $ gawk      -F:       ‘{print $1}’         /etc/passwd
@@ -113,9 +116,9 @@ $ gawk ‘{
 ## 5) Running scripts before processing data
 
 
-#### [ script를 BEGIN, PATTERN, END section으로 나누어 실행하자. ]()
+### [ script를 BEGIN, PATTERN, END section으로 나누어 실행하자. ]()
 
-#### [ 각 sectino은 {}을 통해 구분됨]()
+### [ 각 sectino은 {}을 통해 구분됨]()
 <pre>
 $ gawk -F: 'BEGIN {print "HELLO"} {print $1, $2 } END{ print "BY"}' data
 HELLO
