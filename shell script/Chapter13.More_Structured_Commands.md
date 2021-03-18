@@ -1,3 +1,15 @@
+In This Chapter
+### [shell 형식 ,c언어 형식의 반복문을 알아보자!]()
+
+1.The for Command
+2.Changing the field separator
+3.Reading a directory using wildcards
+4.The C-Style for Command
+5.The while Command
+6.The until Command
+7.Controlling the Loop
+8.Processing the Output of a Loop
+
 1.The for Command
 ------------
 ### [반복문을 사용해 보자. (bash 형식)](http)
@@ -8,6 +20,7 @@ do
 done
 </pre>
 ### 1) Reading value in a list
+----------
 [most basic use of the for command is to iterate through a list of value](http)
 
 <pre>
@@ -18,7 +31,8 @@ done
 </pre>
 *# c언어와 다르게 for문 안에서만 사용되는 변수가 아님*
 ### 2) Reading complex values in a list
-[list 에 value들을 잘 구분해 보자](http)
+-----
+[list 에 value들을 어느 기준으로 구분할지 정해보자. ](http)
 #### a. Use the escape character (the backslash)
 <pre>
 $ cat test2
@@ -40,11 +54,12 @@ do
 </pre>
 
 ### 3) Reading a list from a variable
+-----
 <pre>
 #!/bin/bash
 list=“Alabama Alaska Arizona Arkansas Colorado”
 
-list=$list” Connecticut”                 #  variable 의 마지막에 추가할수있음  ( variable이 string임으로 "를 사용해서 이어 붙임 )
+list=$list” Connecticut”      #  variable 의 마지막에 추가할수있음  ( variable이 string임으로 "를 사용해서 이어 붙임 )
 
 for state in $list
 do
@@ -53,10 +68,11 @@ done
 </pre>
 
 ### 4) Reading values from a command
+---------
 + command 의 output을 입력으로 바꿔주는 $(command)를 사용하자!
 <pre>
 #!/bin/bash
-for variable in $(ls)                             # space로 구분되는 ls의 output을 입력
+for variable in $(ls)     # space로 구분되는 ls의 output을 입력
 do
   echo "$variable”
 done
@@ -81,7 +97,7 @@ done
  </pre>
 3.Reading a directory using wildcards
 ------
-### [*를 사용하여 Directory 내부에 파일을 list로 전달해보자.](http)
+### [*를 사용하여 파일의 이름을 list로 전달해보자.](http)
 <pre>
    #!/bin/bash
    #user의 모든 file을 재귀적으로 출력하는 script 
@@ -198,7 +214,8 @@ done
 </pre>
 
 8.Processing the Output of a Loop
-### [loop문 내부의 output만 redirect or pipe 시켜보자. ( loop 문이 하나의 커맨드 임으로 )](http)
+-----
+### [loop문 내부의 output만 출력해보자. ( loop 문이 하나의 커맨드 임으로 )](http)
 <pre>
 for file is $HOME/*
 do
