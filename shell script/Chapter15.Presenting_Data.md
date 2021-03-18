@@ -157,7 +157,7 @@ $ cat /dev/null > testfile
 
 7.Using Temporary Files
 ----
-###[ 임시파일을 만드는 2가지 방법]()
+### [ 임시파일을 만드는 2가지 방법]()
 
 ### 1) **tmp directory** 
 automatically remove any files in the /tmp directory at bootup.
@@ -166,13 +166,31 @@ creating a temporary file have unique name  in  local directory and return file.
 <pre>
 tempfile=$(mktemp test19.XXXXXX)
 </pre>
-||||
+
+|option | |
 |-|-|
-| -t  | forces mktemp to create the file in the temporary directory of the system|
+| -t  | forces mktemp to create the file in the temporary directory of the system(/temp)|
 |-d| create a temporary directory instead of a file.|
  
 8.Logging Messages
 -----
+[output을 STDOUT과 file 두곳 모두에 출력하고 싶을때]()
+
+**tee** command: T-connector for pipes , STDIN 으로 부터 입력을 받아옴.
+
+**tee** *filename*      ==     ( 1> &1 ) +  ( 1> *filename* )
+
+|-a| append data to the file|
+|-|-|
+
+<pre>
+$ echo HELLO | tee tempfile
+HELLO
+$ echo BY | tee -a tempfile
+BY
+</pre>
+
+
 
 9.Practical Example
 -----
