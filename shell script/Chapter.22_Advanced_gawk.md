@@ -1,5 +1,5 @@
 # In This Chapter
-### [ produce formatted reports from raw data files]()
+## [ produce formatted reports from raw data files]()
 
 1. Reexamining gawk
 2. Using Variables
@@ -14,12 +14,12 @@
 
 1.Reexamining gawk
 ---
-### [- sed와 유사하게 하나의 input에서 라인단위로 입력을 받아 각각의 라인을 지정한 fomat으로 처리해 주는 자동화 기능 제공]()
-### [- 단순 command로 동작하는 sed와 달리 사용환경을 하나의 gwak-language로 제공하기 때문에 (c-language와 유사) 여러가지 작업이 가능]()
-### [- 위의 특성으로 데이터 처리에 유용하게 사용됨]()
+## [- sed와 유사하게 하나의 input에서 라인단위로 입력을 받아 각각의 라인을 지정한 fomat으로 처리해 주는 자동화 기능 제공]()
+## [- 단순 command로 동작하는 sed와 달리 사용환경을 하나의 gwak-language로 제공하기 때문에 (c-language와 유사) 여러가지 작업이 가능]()
+## [- 위의 특성으로 데이터 처리에 유용하게 사용됨]()
 
-### 1) data의 구분
------
+## 1) data의 구분
+
 
 |fild(column)| 하나의 자료형 데이터를 저장하는 장소|
 |-|-|
@@ -34,8 +34,8 @@
 ![image](https://user-images.githubusercontent.com/78835559/111578303-3de4aa80-87f7-11eb-8806-ef81ab025d09.png)
 
 
-### 2) gawk-command format
------
+## 2) gawk-command format
+
 [**gawk**   *options   program   file*]() : program part가 gawk-language 로 작성된 문자열임으로 ''이 필요
 <pre>
 $ gawk ‘{print $1}’ linux.txt
@@ -46,8 +46,8 @@ Chap.4
 </pre>
 
 
-### 3) gawk Options
-----
+## 3) gawk Options
+
 
 
 
@@ -89,16 +89,16 @@ sys
 </pre>
 
 
-### 4) Using multiple commands in the program script
-------
+## 4) Using multiple commands in the program script
 
-**a)** [**;** ]()  :  shell 에서 mutiple command를 사용하는 경우와 동일
+
+### a) [**;** ]()  :  shell 에서 mutiple command를 사용하는 경우와 동일
 
 <pre> 
 $ gawk ‘{ command1   ; command2 }’ input-file
 </pre>
 
-**b)** [**in-line** ]() : shell 에서 in-line redirection을 사용하는 경우와 비슷
+### b) [**in-line** ]() : shell 에서 in-line redirection을 사용하는 경우와 비슷
 <pre>
 $ gawk ‘{
 >  command1
@@ -108,8 +108,8 @@ $ gawk ‘{
 
 
 
-### 5) Running scripts before processing data
-------
+## 5) Running scripts before processing data
+
 
 [ script를 BEGIN, PATTERN, END section으로 나누어 실행하자. ]()
 [ + 각 sectino은 {}을 통해 구분됨]()
@@ -126,11 +126,11 @@ PATTERN section : data를 record 기준으로 불러오고 처리하는 section 
 
 2.Using variables in gawk
 ---
-### [- gawk-languale는 shell commnad와 달리 $1 같은 field 를 나타내는 변수 이외에는 $를 쓰지 않고 사용 ( 햇갈림 ) ]()
+## [- gawk-languale는 shell commnad와 달리 $1 같은 field 를 나타내는 변수 이외에는 $를 쓰지 않고 사용 ( 햇갈림 ) ]()
 
 
-### 1) Built-in variables
----
+## 1) Built-in variables
+
 |Variable| Description|
 |-|-|
 |FIELDWIDTHS| A space-separated list of numbers defining the exact width (in spaces) of|
@@ -161,8 +161,8 @@ def--789
 *# this method can not accommodate variable-length data fields.*
 
 
-### #) Data의 record가  \n으로 구분되어 있는경우  
------
+## #) Data의 record가  \n으로 구분되어 있는경우  
+
 set the RS variable to an empty string, and leave a blank linebetween data 	records in the data stream
 
 <pre>
@@ -201,14 +201,14 @@ Haley Snell (313)555-4938
 $ gawk 'BEGIN{  print ENVIRON["HOME"]    }'
 </pre>
 
-### #) FNR vs NR
------
+## #) FNR vs NR
+
 FNR : value was reset when gawk processed the other data file.
 NR :maintain its count into the other data file
      
-### 2) User-difined variables  
--------
-**a)** Assigning variables in scripts : Assigning values to variables in gawk programs is similar to doing so in a shell script, using an assignment statement
+## 2) User-difined variables  
+
+### a) Assigning variables in scripts : Assigning values to variables in gawk programs is similar to doing so in a shell script, using an assignment statement
 
 <pre>
 $ gawk ‘
@@ -233,7 +233,7 @@ daemon
 </pre>
 *# -v option을 사용하고 변수를 선언해야 BEGIN-section에서 사용가능*
 
-**c)** Working with associative arrays
+### c) Working with associative arrays
 
 <pre>
 $ gawk 'BEGIN{
@@ -260,8 +260,8 @@ index: b value: B
 3.Using Patterns
 --
 
-### 1) Regular expressions 
------
+## 1) Regular expressions 
+
 [ 일치하는 expresson을 갖는 record 찾기]()
 |/expression/{print $0}'|
 |-|
@@ -271,8 +271,8 @@ root:x:0:0:root:/root:/bin/bash
 </pre>
 
 
-### 2) The matching operator 
------
+## 2) The matching operator 
+
 [ 원하는 field 에 일치하는 expresson을 갖는 record 찾기]()
 |부분 일치 |‘$field_num ~ /expression/{print $0}' |‘$field_num !~ /expression/{print $0}'|
 |-|-|-|
@@ -283,8 +283,8 @@ $ gawk -F: '$5 ~/root/{print $0}' /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 </pre>
 
-### 3) Mathematical expressions  
-----
+## 3) Mathematical expressions  
+
 [ mathematical 조건에 맞는 record 찾기]()
 
 |$field_num  == y {print $0}|$field_num  != y {print $0}|
@@ -298,7 +298,7 @@ bin:x:2:2:bin:/bin:/usr/sbin/nologin
  
 4.Structured Commands
 --
-### [c언어와 동일한 format 사용]()
+## [c언어와 동일한 format 사용]()
 <pre>
 if (condition) { statement 1 } 
 else { statement 2 } 
@@ -318,21 +318,21 @@ for( variable assignment; condition; iteration process)
 
 6.Built-In Functions
 ---
-### 1) Mathematical functions
-----
+## 1) Mathematical functions
 
 
-### 2) String functions 
-----
+
+## 2) String functions 
 
 
-### 3) Time functions
-----
+
+## 3) Time functions
+
 
 
 7.User-Defined Functions
 ---
-### [ 일반적으로 BEGIN section 위에다가 선언]()
+## [ 일반적으로 BEGIN section 위에다가 선언]()
 
 **function name (variables)  { statements }**
 
@@ -347,8 +347,8 @@ BEGIN{
 </pre>
 
 
-### #) body/pattern/end section 으로 구성된 script 와 user_difiend_funtion 으로 구성된 libarary 를 따로따로 작성해서 합칠수 있음
------
+## #) body/pattern/end section 으로 구성된 script 와 user_difiend_funtion 으로 구성된 libarary 를 따로따로 작성해서 합칠수 있음
+
 <pre>
 $ cat library
 function myprint()
