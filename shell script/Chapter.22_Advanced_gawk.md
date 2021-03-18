@@ -1,5 +1,5 @@
 # In This Chapter
-### [ produce formatted reports from raw data files]()
+#### [ produce formatted reports from raw data files]()
 
 1. Reexamining gawk
 2. Using Variables
@@ -118,7 +118,7 @@ $ gawk ‘{
 
 #### [ script를 BEGIN, PATTERN, END section으로 나누어 실행하자. ]()
 
-### [ 각 sectino은 {}을 통해 구분됨]()
+#### [ 각 sectino은 {}을 통해 구분됨]()
 <pre>
 $ gawk -F: 'BEGIN {print "HELLO"} {print $1, $2 } END{ print "BY"}' data
 HELLO
@@ -322,7 +322,7 @@ for( variable assignment; condition; iteration process)
 
 # 5. Formatted Printing
 
-### **printf** *“format string“, var1, var2*
+#### **printf** *“format string“, var1, var2*
 
 <pre><cod>$ gawk '{ printf "%s  \n",$0 }' </code></pre>
 
