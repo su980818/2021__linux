@@ -60,10 +60,12 @@ This is an error
 </pre>
 
 ## 2) Permanent redirections
+
 #### [ shell에게 특정 파일에 descriptor number을 부여함 for the duration of the script by using the exec command]()
 
-**exec** *descriptor_num>*  *destination*
-**a)** output permanent redirect
+[**exec** *descriptor_num>*  *destination*]()
+
+### a) output permanent redirect
 </pre>
 #!/bin/bash
 exec 1> output.txt
@@ -75,7 +77,7 @@ It is originally directed to STDOUT
 </pre>
 *# 1>은 exec 에서 사용될때는  destination에 file_descriptor_num을 부여 하는것으로 사용되고 redirection을 위해 사용될때는 정상출력 output을 redirect하는것을 의미* 
 
-**b)** input permanaet redirect
+### b) input permanaet redirect
 <pre>
 #!/bin/bash
 exec 0< input.txt
@@ -97,7 +99,7 @@ echo “HELLO” >&3
 </pre>
 
 ## #) Creating a read/write file descriptor
-+ As you read and write data to and from a file, the shell maintains an internal pointer, indicating where it is in the file. Any reading or writing occurs where the file pointer last left off
+As you read and write data to and from a file, the shell maintains an internal pointer, indicating where it is in the file. Any reading or writing occurs where the file pointer last left off
 <pre>
 #!/bin/bash
 exec 3<> input.txt
@@ -119,6 +121,7 @@ This is line3
 ## #) Closing file descriptors
 If you create new input or output file descriptors, the shell automatically closes them when the script exit
 There are situations, however, when you need to manually close a file descriptor before the end of the script.
+
 `exec 3>&-`: Initialization internal pointer
 
 # 5. Listing Open File Descriptors
@@ -149,6 +152,7 @@ xx.sh   314 seungwoo    5u   REG    0,2    0 22236523160630176 /home/seungwoo/in
 # 6. Suppressing Command Output
 
 **/dev/null** :  null context file 
+
  #) [file 을 clear out 할때도 일반적으로 사용됨]()
 <pre>
 $ ERROR-command 2> /dev/null
@@ -176,7 +180,7 @@ tempfile=$(mktemp test19.XXXXXX)
 
 [output을 STDOUT과 file 두곳 모두에 출력하고 싶을때]()
 
-**tee** command: T-connector for pipes , STDIN 으로 부터 입력을 받아옴.
+tee command: T-connector for pipes , STDIN 으로 부터 입력을 받아옴.
 
 **tee** *filename*      ==     ( 1> &1 ) +  ( 1> *filename* )
 
