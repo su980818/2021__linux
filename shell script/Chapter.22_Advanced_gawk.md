@@ -339,8 +339,8 @@ for( variable assignment; condition; iteration process)
 
 
 
-7.User-Defined Functions
----
+# 7. User-Defined Functions
+
 #### [ 일반적으로 BEGIN section 위에다가 선언]()
 
 **function name (variables)  { statements }**
@@ -368,8 +368,8 @@ $ gawk -f library -f script data2
 </pre>
 
 
-8.Working through a Practical Example
----
+# 8. Working through a Practical Example
+
 
 team 1에 속하는 record의 필드 3,4,5 값을 모두 더해 6으로 나눈값 과 team2의 값을 구하는 script
 <pre>
