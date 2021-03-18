@@ -14,9 +14,9 @@
 
 # 1. Reexamining gawk
 
-### [ sed와 유사하게 하나의 input에서 라인단위로 입력을 받아 각각의 라인을 지정한 fomat으로 처리해 주는 자동화 기능 제공]()
-### [ 단순 command로 동작하는 sed와 달리 사용환경을 하나의 gwak-language로 제공하기 때문에 (c-language와 유사) 여러가지 작업이 가능]()
-### [ 위의 특성으로 데이터 처리에 유용하게 사용됨]()
+#### [ sed와 유사하게 하나의 input에서 라인단위로 입력을 받아 각각의 라인을 지정한 fomat으로 처리해 주는 자동화 기능 제공]()
+#### [ 단순 command로 동작하는 sed와 달리 사용환경을 하나의 gwak-language로 제공하기 때문에 (c-language와 유사) 여러가지 작업이 가능]()
+#### [ 위의 특성으로 데이터 처리에 유용하게 사용됨]()
 
 ## 1) data의 구분
 
@@ -36,8 +36,8 @@
 
 ## 2) gawk-command format
 
-### [**gawk**   *options   program   file*]() 
-### program part가 gawk-language 로 작성된 문자열임으로 ''이 필요
+#### [**gawk**   *options   program   file*]() 
+#### program part가 gawk-language 로 작성된 문자열임으로 ''이 필요
 <pre>
 $ gawk ‘{print $1}’ linux.txt
 Chap.1 
@@ -116,7 +116,7 @@ $ gawk ‘{
 ## 5) Running scripts before processing data
 
 
-### [ script를 BEGIN, PATTERN, END section으로 나누어 실행하자. ]()
+#### [ script를 BEGIN, PATTERN, END section으로 나누어 실행하자. ]()
 
 ### [ 각 sectino은 {}을 통해 구분됨]()
 <pre>
@@ -132,7 +132,7 @@ PATTERN section : data를 record 기준으로 불러오고 처리하는 section 
 
 # 2. Using variables in gawk
 
-### [ gawk-languale는 shell commnad와 달리 $1 같은 field 를 나타내는 변수 이외에는 $를 쓰지 않고 사용 ( 햇갈림 ) ]()
+#### [ gawk-languale는 shell commnad와 달리 $1 같은 field 를 나타내는 변수 이외에는 $를 쓰지 않고 사용 ( 햇갈림 ) ]()
 
 
 ## 1) Built-in variables
@@ -171,7 +171,7 @@ def--789
 
 ## #) Data의 record가  \n으로 구분되어 있는경우  
 
-### set the RS variable to an empty string, and leave a blank linebetween data 	records in the data stream
+#### set the RS variable to an empty string, and leave a blank linebetween data 	records in the data stream
 
 <pre>
 $ cat data2
@@ -272,7 +272,7 @@ index: b value: B
 
 ## 1) Regular expressions 
 
-### [ 일치하는 expresson을 갖는 record 찾기]()
+#### [ 일치하는 expresson을 갖는 record 찾기]()
 |/expression/{print $0}'|
 |-|
 <pre>
@@ -283,7 +283,7 @@ root:x:0:0:root:/root:/bin/bash
 
 ## 2) The matching operator 
 
-### [ 원하는 field 에 일치하는 expresson을 갖는 record 찾기]()
+#### [ 원하는 field 에 일치하는 expresson을 갖는 record 찾기]()
 |부분 일치 |‘$field_num ~ /expression/{print $0}' |‘$field_num !~ /expression/{print $0}'|
 |-|-|-|
 |**완전 일치**|**‘$field_num == “expression”{print $0}'** |**‘$field_num != “expression”{print $0}'** |
@@ -295,7 +295,7 @@ root:x:0:0:root:/root:/bin/bash
 
 ## 3) Mathematical expressions  
 
-### [ mathematical 조건에 맞는 record 찾기]()
+#### [ mathematical 조건에 맞는 record 찾기]()
 
 |$field_num  == y {print $0}|$field_num  != y {print $0}|
 |-|-|
@@ -342,7 +342,7 @@ for( variable assignment; condition; iteration process)
 
 7.User-Defined Functions
 ---
-### [ 일반적으로 BEGIN section 위에다가 선언]()
+#### [ 일반적으로 BEGIN section 위에다가 선언]()
 
 **function name (variables)  { statements }**
 
