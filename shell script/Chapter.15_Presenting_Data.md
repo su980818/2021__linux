@@ -63,18 +63,23 @@ This is an error
 
 #### [ shell에게 특정 파일에 descriptor number을 부여함 for the duration of the script by using the exec command]()
 
-> exec descriptor_num>  destination
+> **exec** *descriptor_num>  destination*
 
 ### a) output permanent redirect
-</pre>
+
+<pre>
 #!/bin/bash
 exec 1> output.txt
 echo "It is originally directed to STDOUT "
 </pre>
+
+
 <pre>
 $ cat output.txt
 It is originally directed to STDOUT
 </pre>
+
+
 *# 1>은 exec 에서 사용될때는  destination에 file_descriptor_num을 부여 하는것으로 사용되고 redirection을 위해 사용될때는 정상출력 output을 redirect하는것을 의미* 
 
 ### b) input permanaet redirect
@@ -91,12 +96,14 @@ done
 
 # 4. Creating Your Own Redirection
 
+
 #### [위에서 사용된 exec를 사용해 file_descriptor_num(3-8)을 file에 부여하자]()
 <pre>
 #!/bin/bash
 exec 3>test13out
 echo “HELLO” >&3
 </pre>
+
 
 ## #) Creating a read/write file descriptor
 As you read and write data to and from a file, the shell maintains an internal pointer, indicating where it is in the file. Any reading or writing occurs where the file pointer last left off
