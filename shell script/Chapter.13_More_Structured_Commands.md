@@ -32,8 +32,9 @@ done
 </pre>
 *# c언어와 다르게 for문 안에서만 사용되는 변수가 아님*
 ## 2) Reading complex values in a list
------
+
 #### [list 에 value들을 어느 기준으로 구분할지 정해보자. ](http)
+
 ### a) Use the escape character (the backslash)
 <pre>
 $ cat test2
@@ -70,7 +71,7 @@ done
 
 ## 4) Reading values from a command
 
-+ command 의 output을 입력으로 바꿔주는 $(command)를 사용하자!
+#### [command 의 output을 입력으로 바꿔주는 $(command)를 사용하자!]()
 <pre>
 #!/bin/bash
 for variable in $(ls)     # space로 구분되는 ls의 output을 입력
@@ -98,7 +99,7 @@ done
  </pre>
 # 3. Reading a directory using wildcards
 
-#### [를 사용하여 파일의 이름을 list로 전달해보자.](http)
+#### [* 를 사용하여 파일의 이름을 list로 전달해보자.](http)
 <pre>
    #!/bin/bash
    #user의 모든 file을 재귀적으로 출력하는 script 
@@ -126,7 +127,9 @@ done
 **WARNING** 
 
 a. The assignment of the variable value can contain spaces.
+
 b. The variable in the condition isn’t preceded with a dollar sign.
+
 c. The equation for the iteration process doesn’t use the expr command format( or bracket [ ] ).
 
 # 5. The while Command
@@ -182,7 +185,7 @@ do
 done
 </pre>
 
-+ break n : where n indicates the level of the loop to break out of
+break n : where n indicates the level of the loop to break out of
 <pre>
 #!/bin/bash
 for (( a = 1; a < 4; a++ ))
