@@ -36,7 +36,7 @@
 
 ## 2) gawk-command format
 
-> ####  **gawk**   *options   program   file*
+>  **gawk**   *options   program   file*
 <pre>
 $ gawk ‘{print $1}’ linux.txt
 Chap.1 
