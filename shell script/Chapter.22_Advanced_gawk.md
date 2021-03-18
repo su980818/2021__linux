@@ -102,7 +102,7 @@ $ gawk ‘{ command1   ; command2 }’ input-file
 </pre>
 
 ### (b) in-line
-#### shell 에서 in-line redirection을 사용하는 경우와 비슷
+**shell 에서 in-line redirection을 사용하는 경우와 비슷**
 <pre>
 $ gawk ‘{
 >  command1
