@@ -61,8 +61,8 @@ fi
 
 # 3. Being Shifty with shift_command
 ----
-#### + The shift command literally shifts the command line parameters in their relative positions.
-#### + This is another great way to iterate through command line parameters, especially if you don’t know how many parameters are available. 
+#### The shift command literally shifts the command line parameters in their relative positions.
+#### This is another great way to iterate through command line parameters, especially if you don’t know how many parameters are available. 
 
 > **shift** *# (default 1)*
 <pre>
