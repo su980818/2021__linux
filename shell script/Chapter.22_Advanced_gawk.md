@@ -307,17 +307,17 @@ for( variable assignment; condition; iteration process)
 6.Built-In Functions
 ---
 ### 1) Mathematical functions
-![image](https://user-images.githubusercontent.com/78835559/111585448-aa18db80-8802-11eb-9a45-d439ba745cea.png)
+
 
 ### 2) String functions 
-![image](https://user-images.githubusercontent.com/78835559/111585463-b00ebc80-8802-11eb-8b01-e96c4e74d0f4.png)
+
 
 ### 3) Time functions
-![image](https://user-images.githubusercontent.com/78835559/111585467-b3a24380-8802-11eb-8e92-ebd97e3a0f7c.png)
+
 
 7.User-Defined Functions
 ---
-[ 일반적으로 BEGIN section 위에다가 선언]()
+### [ 일반적으로 BEGIN section 위에다가 선언]()
 
 **function name (variables)  { statements }**
 
