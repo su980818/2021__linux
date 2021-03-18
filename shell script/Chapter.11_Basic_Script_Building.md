@@ -11,7 +11,7 @@
 
 2.shell script실행하기
 -------
-다른 command의 경우 file 이름만 입력하면 실행이 되는데 이는 입력된 file의 경로를 shell이 자동으로 찾아주기 때문에 가능하다. 
+### [다른 command의 경우 file 이름만 입력하면 실행이 되는데 이는 입력된 file의 경로를 shell이 자동으로 찾아주기 때문에 가능하다.]() 
 
 그럼으로 shellscript를 실행하기 위해서는 $PATH에 shell script 경로를 추가해 주어야 한다. 
 <pre>
@@ -33,7 +33,7 @@ $ ./shellscript
 
 3.String 
 ----
-string 을 출력해 보자. 
+### string 을 출력해 보자. 
 |command ||
 |-|-|
 |echo "string"|string 출력|
@@ -50,6 +50,7 @@ Variable : temporarily store information within the shell script for use with ot
 |${variable}|위와 동일|
 
 ### 1) Environment variables
+------
 |command ||
 |-|-|
 |$set | list of environment variables |
@@ -66,6 +67,7 @@ $ cost is 5
 *위의 경우 쉘이$를 변수를 참조하는 $로 인식하기 때문에 \$ 를 사용하여 이를 방지하여야 한다.*
 
 ### 2) User variables
+-------
 
 =(equal sign) 을  통해 변수설정 가능 
 *중간에 공백이 있으면 안됨 , 변수를 설정할때는 $ 사용 x , 변수를 참조할때만 $ 사용*
@@ -75,8 +77,11 @@ echo value is $value
 </pre>
 
 ### 3) Command substitution
-command 의 output 을 변수에 저장하기 **value=$(command)**
+-------
+[command 의 output 을 변수에 저장하기]() 
+**value=$(command)**
 *변수참조에 사용하는 ${valiable}와 다름*
+
 <pre>
 test_value=$(date)
 echo "the date is " $test_value
@@ -93,7 +98,7 @@ sub shell 에서 선언한 변수의 경우 script shell에서는 선언이 되�
 5.Redirection Input and Output
 ------
 
-stdout인 teminal 이 아니라 지정한 file에 ouput을 출력해보자. 
+### [stdout인 teminal 이 아니라 지정한 file에 ouput을 출력해보자. ]()
 
 stdin이 아니라 지정한 file에서 input을 입력 해보자. 
 |command ||command||
@@ -114,7 +119,7 @@ $ sort << EOF
 
 6.Pipes
 ----
-1번command의 output을 2번command 의 출력으로 redirection해줌
+### [1번command의 output을 2번command 의 입력으로 redirection해줌]()
 <pre>
 $ 1st_command | 2st_command
 $ ls -l | sort 
@@ -122,8 +127,9 @@ $ ls -l | sort
 
 7.Performing Math
 ------
-+shell script 안에서 mathmatical operation 을 사용해보자. 
+### [hell script 안에서 mathmatical operation 을 사용해보자. ]()
 ### 1) The expr command 
+----
 <pre>
 $ expr 1 + 5
 $ 6
@@ -131,7 +137,8 @@ $ 6
 *shell 에서는 사용이 편리할수 있지만 script안에서는 expr의 operator들이 다른 의미를 갖기때문에 \과 함께 사용해야 하는 불편함이 있음*
 
 ### 2) Using brackets
-+expr보다 편하게 사용해보자. 
+----
+[expr보다 편하게 사용해보자. ]()
 <pre>
 $  var1=$[1 + 5]
 $  var2=$[$var1 * 6]
@@ -142,6 +149,7 @@ $  var2=$[$var1 * 6]
 -------
 
 ### 1) The basics of bc
+-----
 <pre>
 bc  -q   # bc calculator 로 access , -q : 인삿말 삭제 
 scale=2  # bc calculator의 한경변수 scale로 decimal place를 지정할수 있음.
@@ -151,7 +159,8 @@ quit     # quite bc calculator
 </pre>
 
 ### 2) Using bc in script 
-pipe를 통해 bc에 input을 넣어주자. 
+------
+[pipe를 통해 bc에 input을 넣어주자. ]()
 <pre>
 #!/bin/bash
 var1=$(echo "scale =4 ; 3.44 / 5 "| bc)
@@ -169,7 +178,7 @@ EOF
 
 9.Exiting the Script 
 -----
-enviroment variable인 exit status 는 쉘에서 실행된는 모든 command가 끝날때 마다 command의 실행여부에 따라 특정 값이(0 - 255) exit에 전달됨. 
+### [enviroment variable인 exit status 는 쉘에서 실행된는 모든 command가 끝날때 마다 command의 실행여부에 따라 특정 값이(0 - 255) exit에 전달됨.]() 
 **$?** 를 사용하여 참조 가능. 
 
 |Code| Description|
