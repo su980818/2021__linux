@@ -28,7 +28,7 @@
 |**$n**|**represents the nth data field in the line of text.**|
 
 ### 2) gawk-command format
-**gawk**   *options   program   file* : program part가 gawk-language 로 작성된 문자열임으로 ''이 필요
+[**gawk**   *options   program   file*]() : program part가 gawk-language 로 작성된 문자열임으로 ''이 필요
 <pre>
 $ gawk ‘{print $1}’ linux.txt
 Chap.1 
@@ -53,7 +53,7 @@ Chap.4
 |-W keyword| Specifies the compatibility mode or warning level for gawk|
 
 ----
-**-f**  *file* : ‘progrem’ 부분이 길어질수 있음으로 별도의 파일로 gawk-language 를 작성하여 사용
+[**-f**  *file*]() : ‘progrem’ 부분이 길어질수 있음으로 별도의 파일로 gawk-language 를 작성하여 사용
 <pre>
 $cat gawk.txt
  {print $1}
@@ -67,7 +67,7 @@ Chap.2
 </pre>
 
 ----
- **-F** *field separator* : field가 default-separator(space or tab)가 아닌 다른 문자로 구분될 경우 사용
+ [**-F** *field separator*]() : field가 default-separator(space or tab)가 아닌 다른 문자로 구분될 경우 사용
  
  <pre>
 $ gawk      -F:       ‘{print $1}’         /etc/passwd
@@ -77,12 +77,15 @@ bin
 sys
 </pre>
 
+
 ### 4) Using multiple commands in the program script
-**a)** **;** : shell 에서 mutiple command를 사용하는 경우와 동일
+**a)** [**;**]()  :  shell 에서 mutiple command를 사용하는 경우와 동일
+
 <pre> 
 $ gawk ‘{ command1   ; command2 }’ input-file
 </pre>
-**b) in-line** : shell 에서 in-line redirection을 사용하는 경우와 비슷
+
+**b) [in-line**]() : shell 에서 in-line redirection을 사용하는 경우와 비슷
 <pre>
 $ gawk ‘{
 >  command1
@@ -90,8 +93,11 @@ $ gawk ‘{
 >  }’ input-file
 </pre>
 
+
+
 ### 5) Running scripts before processing data
 [ script를 BEGIN, PATTERN, END section으로 나누어 실행하자. ]()
++ [각 sectino은 {}을 토해 구분됨]
 <pre>
 $ gawk -F: 'BEGIN {print "HELLO"} {print $1, $2 } END{ print "BY"}' data
 HELLO
@@ -106,8 +112,9 @@ PATTERN section : data를 record 기준으로 불러오고 처리하는 section 
 2.Using variables in gawk
 ---
 ### [- gawk-languale는 shell commnad와 달리 $1 같은 field 를 나타내는 변수 이외에는 $를 쓰지 않고 사용 ( 햇갈림 ) ]()
-### 1) Built-in variables
 
+
+### 1) Built-in variables
 
 |Variable| Description|
 |-|-|
@@ -127,7 +134,7 @@ bin*x
 sys*x
 </pre>
 
-+ **FIELDWIDTHS** : gawk ignores the FS and calculates data fields based on the provided field width sizes
++ [**FIELDWIDTHS**]() : gawk ignores the FS and calculates data fields based on the provided field width sizes
 <pre>
 $ cat data2
 abc123
@@ -138,11 +145,129 @@ def--789
 </pre>
 *# this method can not accommodate variable-length data fields.*
 
+
+### #) Data의 record가  \n으로 구분되어 있는경우  
+set the RS variable to an empty string, and leave a blank linebetween data 	records in the data stream
+
+<pre>
+$ cat data2
+Riley Mullen
+(312)555-1234
+
+Frank Williams
+(317)555-9876
+$ gawk ‘BEGIN{FS=”\n”; RS=””} {print $1,$2}’ data2
+Riley Mullen (312)555-1234
+Frank Williams (317)555-9876
+Haley Snell (313)555-4938
+</pre>
+*# The gawk program interprets each blank line as arecord separator.*
+
+|Variable |Description|
+|-|-|
+|ARGC |The number of command line parameters present|
+|ARGIND |The index in ARGV of the current file being p|rocessed|
+|ARGV| An array of command line parameters||
+|CONVFMT | The conversion format for numbe|rs (see the printf statement), with a default value of %.6 g|
+|ENVIRON| An associative array of the curren|t shell environment variables and their values|
+|ERRNO |The system error if an error occurs w|hen reading or closing input files|
+|FILENAME |The filename of the data file used |for input to the gawk program|
+|FNR| The current record number in the data fil|e|
+|IGNORECASE |If set to a non-zero value, ignores| the case of characters in strings used in the gawk command|
+|NF| The total number of data fields in the data |file|
+|NR| The number of input records processed||
+|OFMT| The output format for displaying num|bers, with a default of %.6 g|
+|RLENGTH |The length of the substring matche|d in the match function|
+|RSTART| The start index of the substring mat|ched in the match function|
+
+-----
+[ An associative array ]() : uses text for the array index values instead of numeric values.
+<pre>
+$ gawk 'BEGIN{  print ENVIRON["HOME"]    }'
+</pre>
+
+### #) FNR vs NR
+FNR : value was reset when gawk processed the other data file.
+NR :maintain its count into the other data file
+     
+### 2) User-difined variables    
+**a)** Assigning variables in scripts : Assigning values to variables in gawk programs is similar to doing so in a shell script, using an assignment statement
+
+<pre>
+$ gawk ‘
+> BEGIN{
+> testing=“This is a test”
+> print testing
+> testing=45
+> print testing
+> }’
+This is a test
+45
+</pre>
+*# gawk variables can hold either numeric or text values*
+
+**b.** Assigning variables on the command line
+
+<pre>
+$ gawk -F: '{print $n}' n=1  /etc/passwd
+root
+daemon
+...
+</pre>
+*# -v option을 사용하고 변수를 선언해야 BEGIN-section에서 사용가능*
+
+**c)** Working with associative arrays
+
+<pre>
+$ gawk 'BEGIN{
+var["a"] ="A"
+var["b"] ="B"
+for (test in var )
+{
+print  “index:”, test ," value:", var[test]
+}}'
+
+index: a value: A
+index: b value: B
+</pre>
+*# var[index] 값이 아닌 index값이  test 에  저장됨  +  for () 을 사용해야함!!*
+
++ delete array[index] 
+
+
+
+
+
+
 3.Using structured commands
 ---
 
-4.Formatting your printing
 
+
+
+
+
+
+[c-language 와 매우 유사]()
+
+
+
+
+
+
+
+
+
+
+
+4.Formatting your printing
 ---
+
+**printf** *“format string“, var1, var2*]
+<pre>
+$ gawk '{ printf "%s  \n",$0 }' input.txt
+</pre>
+
+
 5.Working with functions
 ----
