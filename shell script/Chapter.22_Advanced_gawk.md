@@ -25,12 +25,14 @@
 |-|-|
 |**record(row)**| **다른 자료형에 속할수 있는 필드의 모임**|
 
-![image](https://user-images.githubusercontent.com/78835559/111578303-3de4aa80-87f7-11eb-8806-ef81ab025d09.png)
 
 |$0|represents the entire line of text.|
 |-|-|
 |**$1**|**represents the first data field in the line of text**|
 |**$n**|**represents the nth data field in the line of text.**|
+
+![image](https://user-images.githubusercontent.com/78835559/111578303-3de4aa80-87f7-11eb-8806-ef81ab025d09.png)
+
 
 ### 2) gawk-command format
 -----
