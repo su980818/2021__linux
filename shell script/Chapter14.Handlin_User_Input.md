@@ -1,5 +1,5 @@
 # Handling User Input
-### [you need to write a script that has to interact with the person running the script, so let learn retrieving data from people.]()
+#### [you need to write a script that has to interact with the person running the script, so let learn retrieving data from people.]()
 
 1. Passing Parameters
 2. Using Special Parameter Variables
@@ -10,8 +10,8 @@
 
 
 
-1.Passing Parameters
------
+# 1. Passing Parameters
+
 + space separator로 분리됨.
 + string , numerical_value 둘다 parameter로 pass할수 있음.
 + $1 부터 시작해서 separate된 순으로  각각 $num에 저장됨.
@@ -25,8 +25,8 @@ $ ./script 100 "SEUNGWOO"
 </pre>
 
 
-### 1) Reading the script name ( $0 and basname_command)
-[ basename command를 이용하여 (전체 실행 경로 + command)가 저장된 $0 에서 (command)만 추출할수 있음. ]()
+## 1) Reading the script name ( $0 and basname_command)
+#### [ basename command를 이용하여 (전체 실행 경로 + command)가 저장된 $0 에서 (command)만 추출할수 있음. ]()
 <pre>
 #!/bin/bash
 echo  $0  $(basename $0)
@@ -36,9 +36,9 @@ $ ./xx.sh aa "bb"
 ./xx.sh xx.sh
 </pre>
 
-### 2) Testing parameters
+## 2) Testing parameters
 
- If the script is run without the parameters, bad things can happen so  check your parameters to make sure the data is there before using it:
+ ### If the script is run without the parameters, bad things can happen so  check your parameters to make sure the data is there before using it:
 <pre>
 #!/bin/bash
 if [ -n “$1” ] ; then
@@ -48,8 +48,8 @@ echo “Sorry, you did not identify yourself. “
 fi
 </pre>
 
-2.Using Special Parameter Variable
-----
+# 2. Using Special Parameter Variable
+
 
 |variable||
 |-|-|
@@ -59,12 +59,12 @@ fi
   
 *# 마지막 parameter을  ${$#}으로 참조할수 있을꺼 같지만 ${!#}을 사용해야 사용가능 ( 이유불명 )*
 
-3.Being Shifty with shift_command
+# 3. Being Shifty with shift_command
 ----
-+ The shift command literally shifts the command line parameters in their relative positions.
-+ This is another great way to iterate through command line parameters, especially if you don’t know how many parameters are available. 
+#### + The shift command literally shifts the command line parameters in their relative positions.
+#### + This is another great way to iterate through command line parameters, especially if you don’t know how many parameters are available. 
 
-**shift** *# (default 1)*
+> **shift** *# (default 1)*
 <pre>
 #!/bin/bash
 # parameter를 left shift를 하여 $1로 모든 parameter 을 사용할수 있음.
@@ -77,13 +77,12 @@ shift
 done
 </pre>
 
-4.Working with Options
------
-[ 위에서 사용된 shift  + if(or case) 를 조합하여 parameter 과 -가 붙은 option을 구분해서 입력으로 받아보자. ]()
+# 4. Working with Options
+
+#### [ 위에서 사용된 shift  + if(or case) 를 조합하여 parameter 과 -가 붙은 option을 구분해서 입력으로 받아보자. ]()
 
 <pre>
 #!/bin/bash
-
 while [ -n "$1" ]
 do
         if [[ "$1" == "-a" ]] ; then
@@ -107,40 +106,43 @@ do
 done
 </pre>
 
-[**But** this doesn’t work if you try to combine multiple options in one parameter: ]() 
+#### [**But** this doesn’t work if you try to combine multiple options in one parameter: ]() 
 <pre> 
 $ ./test17.sh -ac 
 -ac is not options
 </pre>
 
-### SOLUTION 1) Using the getopt command
+## SOLUTION 1) Using the getopt command
 [ 입력 parameter 을 separate 하여 정리된 문자열로 출력해보자. ]()
 
  **getopt** *optstring parameters*
  
 list each command line option letter you’re going to use in your script in the optstring. Then place a colon after each option letter that requires a parameter value. 
 
-+  invalid parameter는 오류를 출력( -q 출력 quit ) ,  추가적인 parameter는 -- 를 통해 option과 구분해서 보여줌 
+
 <pre>
 $ getopt ab:c  -a -b "b's_parameter"  -c -d xx
 getopt: invalid option -- 'd'
  -a -b b's_parameter -c -- xx
 </pre>
+*# invalid parameter는 오류를 출력( -q : 출력을 quit ) ,  추가적인 parameter는 -- 를 통해 option과 구분해서 보여줌* 
+
  
-[**But** It interpreted the space as the parameter separator, instead of following the double quotation marks ](http)
+#### [**But** It interpreted the space as the parameter separator, instead of following the double quotation marks ](http)
 <pre>
 $ ./script "test2 test3”  
 "test2
 test3"
 </pre>  
-### SOLUTION 2) Advancing to getopts
-[ 입력 parameter 을 separate 하여 list로 출력해보자. ]()
 
-**getopts** *optstring variable*  
+
+
+## SOLUTION 2) Advancing to getopts
+#### [ 입력 parameter 을 separate 하여 list로 출력해보자. ]()
+
+> **getopts** *optstring variable*  
 <pre>
 #!/bin/bash
-
-
 
 while  getopts ab:c opt
 do
@@ -165,7 +167,7 @@ done
 </pre>
 *# getopt 와 다르게 -a -> a로 변경해서 저장하고있음*
 
-### 참고) Standardzing Options (관행 표현)
+## #) Standardzing Options (관행 표현)
 
 |Option| Description|
 |-|-|
@@ -186,13 +188,13 @@ done
 |-x| Excludes an object|
 |-y| Answers yes to all questions|
 
-6.Getting User Input
------
-[ 시작할때 parameter을 전달하는게 아닌 running 상태의 프로세스에 입력을 전달해보자.]()
+# 6. Getting User Input
 
-**read** *variables*
+####[ 시작할때 parameter을 전달하는게 아닌 running 상태의 프로세스에 입력을 전달해보자.]()
 
-### 1) options
+> **read** *variables*
+
+## 1) options
 |options|-|
 |-|-|
 |-p "string" | specify a string directly in the read command line|
@@ -211,8 +213,8 @@ fi
 </pre>
 
 
-### 2) Reading from a file
-[file에서 line 단위로 읽어들임 (pipe를 통해 입력해줘야함)]()
+## 2) Reading from a file
+#### [file에서 line 단위로 읽어들임 (pipe를 통해 입력해줘야함)]()
 <pre>
 #!/bin/bash
 cat test | while read line
