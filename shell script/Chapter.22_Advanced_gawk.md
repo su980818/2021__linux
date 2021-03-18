@@ -307,7 +307,7 @@ bin:x:2:2:bin:/bin:/usr/sbin/nologin
  
 # 4. Structured Commands
 
-### [c언어와 동일한 format 사용]()
+#### [c언어와 동일한 format 사용]()
 <pre>
 if (condition) { statement 1 } 
 else { statement 2 } 
