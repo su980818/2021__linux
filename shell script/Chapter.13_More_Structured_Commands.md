@@ -2,14 +2,14 @@
 
 ### [shell 형식 ,c언어 형식의 반복문을 알아보자!]()
 
-1.The for Command
-2.Changing the field separator
-3.Reading a directory using wildcards
-4.The C-Style for Command
-5.The while Command
-6.The until Command
-7.Controlling the Loop
-8.Processing the Output of a Loop
+1. The for Command
+2. Changing the field separator
+3. Reading a directory using wildcards
+4. The C-Style for Command
+5. The while Command
+6. The until Command
+7. Controlling the Loop
+8. Processing the Output of a Loop
 
 1.The for Command
 ------------
