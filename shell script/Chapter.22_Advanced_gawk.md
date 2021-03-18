@@ -37,7 +37,6 @@
 ## 2) gawk-command format
 
 #### [**gawk**   *options   program   file*]() 
-#### program part가 gawk-language 로 작성된 문자열임으로 ''이 필요
 <pre>
 $ gawk ‘{print $1}’ linux.txt
 Chap.1 
@@ -45,7 +44,7 @@ Chap.2
 Chap.3  
 Chap.4 
 </pre>
-
+*# program part가 gawk-language 로 작성된 문자열임으로 ''이 필요*
 
 ## 3) gawk Options
 
