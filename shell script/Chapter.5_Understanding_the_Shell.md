@@ -96,7 +96,9 @@ seungwoo   172   159  0 21:47 tty1     00:00:00 ps -f
 #### [When using a built-in command, no forking is required. Therefore, built-in commands are less expensive]()
 
 > **type command**
+> 
 > **which commnand** 
+> 
 > 이를 이용하여 external <-> built-in command를 구분할수 있음.
 
 *# external command program is typically located in /bin, /usr/bin, /sbin, or /usr/sbin.*
