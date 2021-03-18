@@ -10,7 +10,7 @@
 
 4.Investigating Built-in Shell Commands
 
-# 1. Investigating Shell Types
+# 1.Investigating Shell Types
 ----
 
 **/etc/passwd**  : 각 user의 default shell을 확인할수있음.
@@ -18,7 +18,7 @@
 **/bin/bash**   : 원하는 shell을 실행하여 사용하자.
 
 
-# 2. Understanding the Parent/Child Shell Relationship
+# 2.Understanding the Parent/Child Shell Relationship
 ----
 ### [shell_process 위에 shell_process 를 실행하는 경우에 각각을 parent, child shell로 구분 할수 있음.]()
 
