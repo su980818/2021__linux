@@ -113,9 +113,9 @@ $ ./test17.sh -ac
 </pre>
 
 ## SOLUTION 1) Using the getopt command
-[ 입력 parameter 을 separate 하여 정리된 문자열로 출력해보자. ]()
+#### [ 입력 parameter 을 separate 하여 정리된 문자열로 출력해보자. ]()
 
- **getopt** *optstring parameters*
+> **getopt** *optstring parameters*
  
 list each command line option letter you’re going to use in your script in the optstring. Then place a colon after each option letter that requires a parameter value. 
 
@@ -190,7 +190,7 @@ done
 
 # 6. Getting User Input
 
-####[ 시작할때 parameter을 전달하는게 아닌 running 상태의 프로세스에 입력을 전달해보자.]()
+#### [ 시작할때 parameter을 전달하는게 아닌 running 상태의 프로세스에 입력을 전달해보자.]()
 
 > **read** *variables*
 
