@@ -322,9 +322,9 @@ for( variable assignment; condition; iteration process)
 
 # 5. Formatted Printing
 
-**printf** *“format string“, var1, var2*
+### **printf** *“format string“, var1, var2*
 
-`$ gawk '{ printf "%s  \n",$0 }' input.txt`
+<pre><cod>$ gawk '{ printf "%s  \n",$0 }' </code></pre>
 
 # 6. Built-In Functions
 
