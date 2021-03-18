@@ -100,7 +100,7 @@ $ gawk ‘{ command1   ; command2 }’ input-file
 </pre>
 
 ### b) in-line
-### shell 에서 in-line redirection을 사용하는 경우와 비슷
+#### shell 에서 in-line redirection을 사용하는 경우와 비슷
 <pre>
 $ gawk ‘{
 >  command1
@@ -115,7 +115,7 @@ $ gawk ‘{
 
 #### [ script를 BEGIN, PATTERN, END section으로 나누어 실행하자. ]()
 
-#### [ + 각 sectino은 {}을 통해 구분됨]()
+#### [ 각 sectino은 {}을 통해 구분됨]()
 <pre>
 $ gawk -F: 'BEGIN {print "HELLO"} {print $1, $2 } END{ print "BY"}' data
 HELLO
@@ -143,7 +143,8 @@ PATTERN section : data를 record 기준으로 불러오고 처리하는 section 
 |OFS |Output field separator character|
 |ORS |Output record separator character|
 
-**(#)** passwd(FS 가 : 인 파일)를 * 로 구분되게 변환 
+### a) FS,OFS
+#### passwd(FS 가 : 인 파일)를 * 로 구분되게 변환 
 <pre>
 $ gawk '  BEGIN{FS=":"; OFS="*"}          {print $1,$2} ' data
 root*x
@@ -152,7 +153,8 @@ bin*x
 sys*x
 </pre>
 
-[**FIELDWIDTHS**]() : gawk ignores the FS and calculates data fields based on the provided field width sizes
+### b) FIELDWIDTHS
+#### gawk ignores the FS and calculates data fields based on the provided field width sizes
 <pre>
 $ cat data2
 abc123
