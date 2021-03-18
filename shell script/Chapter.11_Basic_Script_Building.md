@@ -5,8 +5,9 @@
 # 1. Creating a Script File
 
 
-#!/bin/bash
-*첫번째줄에 사용되는 #은 일반적인 #의 사용법과 달리 와 달리 !와 합쳐저 이 file이 shell script임을 설정해준다.*
+#### #!/bin/bash
+
+#### 첫번째줄에 사용되는 #은 일반적인 #의 사용법과 달리 와 달리 !와 합쳐저 이 file이 shell script임을 설정해준다.
 
 
 # 2. shell script실행하기
@@ -130,7 +131,7 @@ $ ls -l | sort
 
 #### [hell script 안에서 mathmatical operation 을 사용해보자. ]()
 ## 1) The expr command 
-----
+
 <pre>
 $ expr 1 + 5
 $ 6
@@ -138,7 +139,7 @@ $ 6
 *shell 에서는 사용이 편리할수 있지만 script안에서는 expr의 operator들이 다른 의미를 갖기때문에 \과 함께 사용해야 하는 불편함이 있음*
 
 ## 2) Using brackets
-----
+
 [expr보다 편하게 사용해보자. ]()
 <pre>
 $  var1=$[1 + 5]
