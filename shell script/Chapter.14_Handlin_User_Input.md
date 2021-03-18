@@ -38,7 +38,7 @@ $ ./xx.sh aa "bb"
 
 ## 2) Testing parameters
 
- ### If the script is run without the parameters, bad things can happen so  check your parameters to make sure the data is there before using it:
+#### If the script is run without the parameters, bad things can happen so  check your parameters to make sure the data is there before using it:
 <pre>
 #!/bin/bash
 if [ -n “$1” ] ; then
