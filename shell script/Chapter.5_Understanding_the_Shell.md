@@ -20,13 +20,13 @@
 
 2.Understanding the Parent/Child Shell Relationship
 ----
-## [shell_process 위에 shell_process 를 실행하는 경우에 각각을 parent, child shell로 구분 할수 있음.]()
+### [shell_process 위에 shell_process 를 실행하는 경우에 각각을 parent, child shell로 구분 할수 있음.]()
 
 parent shell 이 생성한 child shell ( sub shell )에 parent의 환경 context 의 일부분이 상속됨. (chapter6 참조)
 
 ## 1) sub_shell이 생성되는 경우
 -----------
-#### a) shell 을 command를 통해 실행.
+### a) shell 을 command를 통해 실행.
 <pre>
 $ bash
 bash start
@@ -35,9 +35,9 @@ init─┬─init───bash───bash───pstree
      └─{init}
 </pre>
 
-#### b) shell_script 를 실행하면 자동으로 sub shell을 생성하여 이를 이용해 shell_script를 실행시킴.
+### b) shell_script 를 실행하면 자동으로 sub shell을 생성하여 이를 이용해 shell_script를 실행시킴.
 
-#### c) process list : `$ (command1 ; command2)`
+### c) process list : `$ (command1 ; command2)`
 <pre>
 $ (sleep 1 ; pstree)
 init─┬─init───bash───bash───pstree
@@ -59,14 +59,14 @@ init─┬─init───bash───bash───pstree
 **background mod** : 하나의 process가 완료될때까지 shell 이 $를 반환해주지 않는데 background에서 실행하게 함으로 현재 shell이 하나의 process에만 잡혀있지 않게 process를 실행하는 방법
  
 
-### 1) start background sub_shell
+## 1) start background sub_shell
 -------
 
-#### a)  Putting process lists into the background
+### a)  Putting process lists into the background
 
 `$ (command1 ; command2)&`
 
-#### b)  Co-processing 
+### b)  Co-processing 
 COPROC 라는 이름의 subshell을 back ground로 생성하고 이 안에서 command를 실행. 
 
 `$ coproc *command`
@@ -75,9 +75,9 @@ COPROC 라는 이름의 subshell을 back ground로 생성하고 이 안에서 co
 
 4.Investigating Built-in Shell Commands
 -----
-### 1) Looking at external commands
+## 1) Looking at external commands
 ------
-#### [Whenever an external command is executed, a child process is created . This action is termed forking]()
+### [Whenever an external command is executed, a child process is created . This action is termed forking]()
 <pre>
 $ ps -f
 UID        PID  PPID  C STIME TTY          TIME CMD
@@ -88,9 +88,9 @@ seungwoo   172   159  0 21:47 tty1     00:00:00 ps -f
 
 
 
-### 2) Looking at built-in commands
+## 2) Looking at built-in commands
 ------
-#### [When using a built-in command, no forking is required. Therefore, built-in commands are less expensive]()
+### [When using a built-in command, no forking is required. Therefore, built-in commands are less expensive]()
 
 `type command` 
 `which commnand` : 이를 이용하여 external <-> built-in command를 구분할수 있음.
@@ -100,7 +100,7 @@ seungwoo   172   159  0 21:47 tty1     00:00:00 ps -f
 *# 몇몇 경우에 두가지 flavor을 모두 가지는 command 존재 ( type -a 를 통해 확인가능 )*
 
 
-### #) Using the history command
+## #) Using the history command
 ------
 `history` :  show a recently used commands list (built-in)
 
@@ -108,7 +108,7 @@ seungwoo   172   159  0 21:47 tty1     00:00:00 ps -f
 home directory. Be careful here. The bash command history is stored in memory and then
 written out into the history file when the shell is exited:~~
 
-### #) Using command aliases
+## #) Using command aliases
 -------
 `alias -p` : alias 된 command 출력
 
