@@ -14,12 +14,17 @@
 # 1. Creating a Script File
 
 
+
+
+## 1) shell script 선언하기
+
 #### #!/bin/bash
 
-#### 첫번째줄에 사용되는 #은 일반적인 #의 사용법과 달리 와 달리 !와 합쳐저 이 file이 shell script임을 설정해준다.
+
+#### [첫번째줄에 사용되는 #은 일반적인 #의 사용법과 달리 와 달리 !와 합쳐저 이 file이 shell script임을 설정해준다.]()
 
 
-## 1) shell script실행하기
+## 2) shell script실행하기
 
 #### [다른 command의 경우 file 이름만 입력하면 실행이 되는데 이는 입력된 file의 경로를 shell이 자동으로 찾아주기 때문에 가능하다.]() 
 
