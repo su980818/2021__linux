@@ -64,27 +64,29 @@ Variable : temporarily store information within the shell script for use with ot
 |${variable}|위와 동일|
 
 ## 1) Environment variables
-------
-|command ||
-|-|-|
-|$set | list of environment variables |
 
+
+> $set : list of environment variables 
+
+**<$ 과 함께 사용하여 script 내부에서 원하는 환경 변수를 참조할수 있음>**
 <pre>
 $ echo "user info for userid : $USER , $UID , $HOME"
 </pre>
-*$( dollar sing ) 과 함께 사용하면 script 내부에서 원하는 환경 변수를 참조할수 있음*
 
+**<escape 문자/ 사용 예시>**
 <pre>
 $ echo "cost is $15"
-$ cost is 5
+cost is 5
 </pre>
-*위의 경우 쉘이$를 변수를 참조하는 $로 인식하기 때문에 \$ 를 사용하여 이를 방지하여야 한다.*
+*# 위의 경우 쉘이$를 변수를 참조하는 $로 인식하기 때문에 \$ 를 사용하여 이를 방지하여야 한다.*
 
 ## 2) User variables
 
 
-=(equal sign) 을  통해 변수설정 가능 
-*중간에 공백이 있으면 안됨 , 변수를 설정할때는 $ 사용 x , 변수를 참조할때만 $ 사용*
+#### = 을  통해 변수설정 가능 
+
+중간에 공백이 있으면 안됨 , 변수를 설정할때는 $ 사용 x , 변수를 참조할때만 $ 사용
+
 <pre>
 value=10
 echo value is $value
@@ -97,7 +99,7 @@ echo value is $value
 
 **value=$(command)**
 
-*변수참조에 사용하는 ${valiable}와 다름*
+*변수참조에 사용하는 ${valiable}와 다름!!!*
 
 <pre>
 test_value=$(date)
@@ -106,7 +108,8 @@ echo test > log.$test_value
 #파일 이름에도 value를 참조하여 사용할수 있음. 
 </pre>
 
-**Caution** 
+**Caution**
+
 script를 실행하는 shell위에 새로운 subshell을 생성하여 comand substitution을 수행하기 때문에 
 sub shell 에서 선언한 변수의 경우 script shell에서는 선언이 되지 않음.
 
