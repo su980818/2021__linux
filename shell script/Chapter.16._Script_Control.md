@@ -11,7 +11,7 @@
 
 
 
-# 1. Handling signals     [trap]()
+# 1. Handling signals       [(trap)]()
 #### [script 안에서 signal에 따른user_defiend_operation 을 설정해 보자]()
 
 ##### ( Table 16.1 Linux Signals )
@@ -86,9 +86,9 @@ section 2
 *# - 을 사용하여 삭제할수 있음*
 
 
-# 2. Running scripts in the background    [$]()
+# 2. Running scripts in the background     [($)]()
 > **command** & 
-# 3. Forbidding hang-ups     [nohup]()
+# 3. Forbidding hang-ups     [(nohup)]()
 #### script 가 hang-up signal 을 무시하여 터미널이 종료되더라도 작업을 유지
 
 **hangup signal ( signal num 1 )** : 로그아웃과 같이 터미널에서 접속이 끊겼을 때 보내지는 시그널 
@@ -97,7 +97,7 @@ command 의 출력이 STDOUT에서 자동으로 nohup.out 으로 redirect됨.
 > $ **nohup** *command* & 
 
 
-# 4. Controlling a Job  [bg fg jobs]()
+# 4. Controlling a Job  [(bg fg jobs)]()
 
 > **bg** *1*  : job_# 1번을 bg로 실행
 > 
@@ -125,7 +125,7 @@ $ jobs
 
 
 
-# 5. Modifying script priority  [nice, renice]()
+# 5. Modifying script priority  [(nice, renice)]()
 **priority** :  kernel이 ps 에 cpu를 할당해주는데 priority 를 보고 상대적인 cpu time 을 할당해줌
 **nice** : user가 실제 priority 값을 조정하여 ps에 os 보다 높은 우선 순위를 주게 되는 경우와 같이 priority 값을 direct로 조정하는것은 위험함으로 priority값을 이렇게 should 해달라고 제안하는 값
 
@@ -142,7 +142,7 @@ seungwoo 10 sleep 100
 </code></pre> 
 
 
-# 6. Automating script execution [at crontab anacron]()
+# 6. Automating script execution [(at crontab anacron)]()
 #### [ps예약 (at), 지속적인 ps예약 (crontab)을 지정해 보자.]()
 
 ## 1) at
