@@ -34,8 +34,7 @@
 
 
 > **trap** *commands  signals*
-<pre><code>
-#!/bin/bash
+<pre><code> #!/bin/bash
 
 trap      “echo ‘ Sorry! I have trapped Ctrl-C”’            SIGINT
 
@@ -55,8 +54,7 @@ done
 ## 1) 일반적인 종료상황 
 #### siganl자리에 EXIT를 사용하면 모든 종료 signal에 대하여 지정한 작업을 수행
 
-<pre><code>
-#!/bin/bash
+<pre><code> #!/bin/bash
 trap      “echo ‘ script exit ”’           EXIT
 </code></pre> 
 
