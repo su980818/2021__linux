@@ -34,7 +34,7 @@
 
 
 > **trap** *commands  signals*
-<pre><code> #!/bin/bash
+<pre> #!/bin/bash
 
 trap      “echo ‘ Sorry! I have trapped Ctrl-C”’            SIGINT
 
@@ -45,7 +45,7 @@ echo “Loop : $count”
 sleep 1
 count=$[ $count + 1 ]
 done
-</code></pre>
+</pre>
 
 *# trap이 설정되지 않았으면 defalut 로 설정된 작업을 수행*
 *# trap을 설정하면 shell 로 부터 signal을 받았을떼 수행할 작업을 선택할수 있음.* 
@@ -54,13 +54,14 @@ done
 ## 1) 일반적인 종료상황 
 #### siganl자리에 EXIT를 사용하면 모든 종료 signal에 대하여 지정한 작업을 수행
 
-<pre><code> #!/bin/bash
+<pre>
+#!/bin/bash
 trap      “echo ‘ script exit ”’           EXIT
-</code></pre> 
+</pre> 
 
 ## 2) trap 수정 or 삭제
 
-<pre><code>
+<pre>
 #!/bin/bash
 trap       “echo ‘ Sorry! I have trapped Ctrl-C”’       SIGINT
 
@@ -69,10 +70,10 @@ section 1
 trap      “echo ‘ i modified the trap ”’            SIGINT
 
 section 2
-</code></pre> 
+</pre> 
 *# 각 section마다 위에 있는 trap중 가장 가까운 trap에서 signal을 trap함
 
-<pre><code>
+<pre>
 #!/bin/bash
 trap      “echo ‘ script exit ”’            SIGINT
 
@@ -81,7 +82,7 @@ section 1
 trap      -          SIGINT
 
 section 2
-</code></pre> 
+</pre> 
 *# - 을 사용하여 삭제할수 있음*
 
 
@@ -90,8 +91,8 @@ section 2
 # 3. Forbidding hang-ups
 #### script 가 hang-up signal 을 무시하여 터미널이 종료되더라도 작업을 유지
 
-+ **hangup signal ( signal num 1 )** : 로그아웃과 같이 터미널에서 접속이 끊겼을 때 보내지는 시그널 
-+ command 의 출력이 STDOUT에서 자동으로 nohup.out 으로 redirect됨.
+**hangup signal ( signal num 1 )** : 로그아웃과 같이 터미널에서 접속이 끊겼을 때 보내지는 시그널 
+command 의 출력이 STDOUT에서 자동으로 nohup.out 으로 redirect됨.
 
 > $ **nohup** *command* & 
 
@@ -99,15 +100,18 @@ section 2
 # 4. Controlling a Job
 
 > **bg** *1*  : job_# 1번을 bg로 실행
+> 
 > **fg** *1* : job_# 1번을 fg로 실행
+> 
 > **jobs** : current_user의 ps를 보여줌
 
-<pre><code>
+<pre>
 $ jobs 
 [1]+ 200 stop
 [2]-  201 running 
-</code></pre> 
+</pre> 
 *# + : default process ( job # 없이 fg, bg등을 사용시 적용대상 )*
+
 *# - : next default process  ( + ps 종료시 다음 default process )*
 
 **<Table 16.2 The jobs Command Parameters>**
@@ -139,7 +143,7 @@ seungwoo 10 sleep 100
 
 
 # 6. Automating script execution
-#### [ps예약 (at), 지속적인 ps예약 (crontab)을 지정해 보자.]
+#### [ps예약 (at), 지속적인 ps예약 (crontab)을 지정해 보자.]()
 
 ## 1) at
 ### a) script 예약 실행 
@@ -151,7 +155,7 @@ seungwoo 10 sleep 100
 
 ### #) 추가
 
-|||
+|추가||
 |-|-|
 |$ atq|check the queue of at jobs that are set to run|
 |$ atrm 11|Delete at job number 11|
@@ -160,24 +164,24 @@ seungwoo 10 sleep 100
 
 ## 2) batch
 as soon as possible run the process
-<pre><code>
+<pre>
 $ batch 
 at> find /mnt/isos | grep jpg$ > /tmp/mypics
 at> <Ctrl+d> <EOT>
-</code></pre> 
+</pre> 
 
 
 ## 2) Crontap  
 ### a) user’s crontab 설정하기 
 각 유저는 고유의 crontab 파일이 존재 하고 이를 조작하여 예약을 설정 
 
-|||
+|crontab||
 |-|-|
 |$ crontab -e|edite a personal crontab file|
 |$ crontab -l|List contents of your crontab file|
 |$ crontab -r|Delete your crontab file|
 | $ sudo service cron start| start cron|
-
+\
 **<crontab file 설정 방법>**
 <pre>
 min    hour   dayofmonth    month     dayofweek        command 
@@ -188,7 +192,7 @@ min    hour   dayofmonth    month     dayofweek        command
 
 ### b) linux’s crontab 설정하기
 
-**<crontab folder 안에 script들이 주기적으로 실행됨>
+**crontab folder 안에 script들이 주기적으로 실행됨**
 <pre>
 /etc/cron.daily/ 
 /etc/cron.monthly/
@@ -201,7 +205,9 @@ min    hour   dayofmonth    month     dayofweek        command
 #### linux’s crontab folder 에 있는 script들이  system이 꺼저있어서 수행이 되지 않았다면  system이 켜젔을때 이를 확인하고 여유시간을 갖고 재실행 해주는 별도의 program
 
 `$ sudo cat /var/spool/anacron/cron.*` : (timestamp file)  언제 crontab folder 의 script들이 실행 됬는지 기록해 놓은 file
+
 `$ sudo cat /etc/anacrontab` : anacron setup file
+
 <pre>
 * period   delayinminutes    identifier   command
 </pre>
