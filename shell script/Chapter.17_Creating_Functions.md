@@ -33,10 +33,7 @@
 
 just specify the name
 
-**NOTICE**
-
-The function definition doesn’t have to be the first thing in your shell script, but be
-careful. If you attempt to use a function before it’s defined, you’ll get an error message:
+**NOTICE** *_The function definition doesn’t have to be the first thing in your shell script, but be careful. If you attempt to use a function before it’s defined, you’ll get an error message:*
 
 
 # 2. Returning a value
@@ -87,15 +84,25 @@ result=$(dbl)
 #### [the bash shell treats functions just like mini-scripts. This means that you can pass parameters to a function just like a regular script]()
 > **fuc_name** *parameter.1 parameter.2 ....*
 
-**NOTICE** 
-
-fuc 과 fuc 을 실행하는 script는 별개의 script임으로 $1 과 같은 parameter 변수는 공유되지 않음
+**NOTICE** *_fuc 과 fuc 을 실행하는 script는 별개의 script임으로 $1 과 같은 parameter 변수는 공유되지 않음*
 
 
 ## 2) Handling variables in a function
 #### Functions use two types of variables
 a. **Global**
+
+: are valid anywhere within the shell script
+
+: By default, any variables you define in the script are global variables. Variables defined
+outside of a function can be accessed within the function just fine:
+
 b. **Local**
+
+: The local keyword ensures that the variable is limited to only within the function. If a
+variable with the same name appears outside the function in the script, the shell keeps the
+two variable values separate.
+
+> **local** *var*
 
 
 
