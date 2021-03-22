@@ -80,6 +80,23 @@ result=$(dbl)
 *# 단순하게 $() 을 이용하여 script 의 output을 변수에 redirection 해주자.*
 
 # 3. Using variables in functions
+#### This section goes over a few techniques for handling variables both inside and outside your shell script functions.
+## 1) Passing parameters to a function
+#### [the bash shell treats functions just like mini-scripts. This means that you can pass parameters to a function just like a regular script]()
+> **fuc_name** *parameter.1 parameter.2 ....*
+
+**NOTICE** 
+fuc 과 fuc 을 실행하는 script는 별개의 script임으로 $1 과 같은 parameter 변수는 공유되지 않음
+
+
+## 2) Handling variables in a function
+#### Functions use two types of variables
+a. **Global**
+b. **Local**
+
+
+
+
 # 4. Array and variable functions
 # 5. Function recursion
 # 6. Creating a library
