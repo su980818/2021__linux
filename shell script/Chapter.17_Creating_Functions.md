@@ -48,7 +48,7 @@ By default, the exit status of a function is the exit status returned by the las
 
 [So that you have no way of knowing if any of the other commands in the function completed successfully or not.]()
 
-**<exit 값의 한계>**
+**<exit 값 예시>**
 <pre>
 #!/bin/bash
 func1() {
@@ -61,6 +61,23 @@ echo “The exit status is: $?”
 </pre>
 *# [$?]() exit 값을 참조할수 있는 변수*
 
+## 2) Using the return command
+#### exit a function with a specific exit status.
+> **return** *#*
+
+## 3) Using function output
+#### [Just as you can capture the output of a command to a shell variable, you can also capture the output of a function to a shell variable.]()
+
+**<echo 를 이용한 계산값 전달 예시>**
+<pre>
+#!/bin/bash
+function dbl {
+read -p “Enter a value: ” value
+echo $[ $value * 2 ]
+}
+result=$(dbl)
+</pre>
+*# 단순하게 $() 을 이용하여 script 의 output을 변수에 redirection 해주자.*
 
 # 3. Using variables in functions
 # 4. Array and variable functions
