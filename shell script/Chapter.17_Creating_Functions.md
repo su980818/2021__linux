@@ -95,7 +95,7 @@ result=$(dbl)
 By default, any variables you define in the script are global variables. Variables defined
 outside of a function can be accessed within the function just fine:
 
-**b. **Local**
+**b. Local**
 
 : The local keyword ensures that the variable is limited to only within the function. If a
 variable with the same name appears outside the function in the script, the shell keeps the
