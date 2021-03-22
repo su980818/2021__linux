@@ -92,8 +92,7 @@ result=$(dbl)
 a. **Global**
 
 : are valid anywhere within the shell script
-
-: By default, any variables you define in the script are global variables. Variables defined
+By default, any variables you define in the script are global variables. Variables defined
 outside of a function can be accessed within the function just fine:
 
 b. **Local**
