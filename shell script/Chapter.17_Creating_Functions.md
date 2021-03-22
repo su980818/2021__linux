@@ -146,7 +146,7 @@ addem 10 20
 #### [The key to using function libraries is the source command.]()
 The source command executes commands within the current shell context instead of creating a new shell to execute them.
 The source command has a shortcut alias, called the dot operator.
-> . PATH/myfuncs
+> .  PATH/myfuncs
 
 
 
