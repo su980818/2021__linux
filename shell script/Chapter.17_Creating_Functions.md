@@ -33,7 +33,9 @@
 
 just specify the name
 
-**NOTICE**  _The function definition doesn’t have to be the first thing in your shell script, but be
+**NOTICE**
+
+The function definition doesn’t have to be the first thing in your shell script, but be
 careful. If you attempt to use a function before it’s defined, you’ll get an error message:
 
 
@@ -86,6 +88,7 @@ result=$(dbl)
 > **fuc_name** *parameter.1 parameter.2 ....*
 
 **NOTICE** 
+
 fuc 과 fuc 을 실행하는 script는 별개의 script임으로 $1 과 같은 parameter 변수는 공유되지 않음
 
 
