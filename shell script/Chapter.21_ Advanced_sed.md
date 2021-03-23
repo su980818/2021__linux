@@ -167,6 +167,7 @@ This is line number 3.
 ####  위에서 배운 addresing 과 결합하여 line을 Insert , apeend 해보자. 
 
 > $ sed '**address i/insert_text**' txt
+
 <pre>
 $ sed '/one/i\This is new line' <<EOF
 This is one line
@@ -174,11 +175,13 @@ EOF
 This is new line
 This is one line
 </pre>
+
 *# i다음에 /이 아닌 \ 를 사용!!*
 
 ## 5) Changing lines
 
 > $ sed '**address c/changeing_text**' txt
+
 <pre>
 $ sed '3c\This is change line' <<EOF
 this is on line
@@ -189,4 +192,6 @@ this is on line
 this is two line
 This is change line
 </pre>
+
+
 *# c다음에 /이 아닌 \ 를 사용!!*
