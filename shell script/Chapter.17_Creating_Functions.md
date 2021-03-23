@@ -109,14 +109,66 @@ two variable values separate.
 
 # 4. Array and variable functions
 
+## 1) Passing arrays to functions
+#### The art of passing an array variable to a script function can be confusing.
 
 
+**<변수 명을 이용해 전달>**
+<pre>
+#!/bin/bash
+array=(1 2 3 4 5)
+echo ${array[*]}
+echo ${array}
+</pre>
+*# array[*]와 다르게 array만 입력하면 array[0]이 출력되는걸 볼수 있음*
+
+**SOLUTION)**_ To solve this problem, you must disassemble the array variable into its individual values
+and use the values as function parameters. 
+
+**<분해후 $@을 이용해 조립>**
+<pre>
+#!/bin/bash
+function testit {
+local newarray=$(echo $@)
+echo ${newarray[*]}
+}
+array=(1 2 3 4 5)
+testit ${array[*]}
+</pre>
+
+
+## 2) Returning arrays from functions
+
+**<echo를 통한 output전달 이용( 2. 3) 확인 )>**
+<pre>
+#!/bin/bash
+function testit {
+newarray=(1 2 3 4 5)
+echo ${newarray[*]}
+}
+array=$(testit)
+echo ${array[*]}
+</pre>
 
 
 # 5. Function recursion
 
+**<factorial을 이용한 예시>**
+<pre>
+function factorial {
+if [ $1 -eq 1 ]
+then
+echo 1
+else
+local temp=$[ $1 - 1 ]
+local result=‘factorial $temp’
+echo $[ $result * $1 ]
+fi
+}
+</pre>
+*# local 을 이용하여 변수를 지정해야 실수를 방지할수 있음*
 
-
+ 
 
 
 # 6. Creating a library
@@ -151,3 +203,27 @@ The source command has a shortcut alias, called the dot operator.
 
 
 # 7. Using functions on the command line
+
+#### function을 command line에서 바로 사용하는 방법
+#### [PROS : script와 달리 , you can use it from any directory on the system; you don’t have to worry about a script being in your PATH environment variable.]()
+
+
+
+## 1) Creating functions on the command line
+
+**< define a function directly on the command line >**
+<pre>
+$ function divem { echo $[ $1 / $2 ]; }
+</pre>
+
+**< Defining functions in the .bashrc file >**
+<pre>
+cat .bashrc
+# .bashrc
+. /home/rich/libraries/myfuncs
+</pre>
+*# dot command를 사용해야 command라인이 있는 bash에서 사용할수 있음*
+
+
+
+
