@@ -96,12 +96,13 @@ use two form
 > }
 
 
-### a. Addressing the numeric line When using numeric line addressi
+### a. Addressing the numeric line When using numeric line addressing
 #### 줄 번호를 이용한 addrressing
 
 > $ sed '**number***s/pattern/replacement/*' txt
 
 ###### <단일 line 지정>
+
 <pre>
 $ sed ‘2s/dog/cat/’ data1.txt
 The quick brown fox jumps over the lazy dog
@@ -110,6 +111,7 @@ The quick brown fox jumps over the lazy dog
 </pre>
 
 ###### <range of line addresses>
+ 
 <pre>
 $ sed ‘2,$s/dog/cat/’ data1.txt
 The quick brown fox jumps over the lazy dog
@@ -120,5 +122,71 @@ The quick brown fox jumps over the lazy cat
 *# $를 이용해 마지막 줄 자동 지정 -> 2 에서 4 까지 addressing*
  
 ### b. Using text pattern filters
- 
- 
+> $ sed '/**Text_pattern**/*s/pattern/replacement/*' txt
+<pre>
+$ sed '/line1/s/This/That/' << EOF
+> This is line1
+> This is line2
+> EOF
+That is line1
+This is line2
+</pre>
+
+Text_pattern이 일치하는 line을 addressing  
+
+[regular expression(chapter 20)]()을 이용하여 더 넓은 활용가능.
+
+> $  sed '/**Text_pattern1**/,/**Text_pattern2**/s/pattern/replacement' a.txt 
+<pre>
+$ sed '/one/,/two/s/this/This/' << EOF
+> this is one
+> this is two
+> this is three
+> this is four
+> EOF
+This is one
+This is two
+this is three
+this is four
+</pre>
+*# pattern1 = one 에서 patter2 = two 까지 range addressing*
+
+Text_pattern1이 발견되면 turn on 이 되어 Text_patter2가 나올때까지 addressing함으로 Text_patter2가 나오지 않으면 끝까지 addressing이 되버림. 
+
+
+## 3) Deleting lines
+####  위에서 배운 addresing 과 결합하여 substitude 뿐만 아니라 일치하는 line을 지워보자. 
+> $ sed '**address d**ing' txt
+<pre>
+$ sed ‘/number 1/d’ data6.txt
+This is line number 2.
+This is line number 3.
+</pre>
+
+## 4) Inserting and appending text
+####  위에서 배운 addresing 과 결합하여 line을 Insert , apeend 해보자. 
+
+> $ sed '**address i/insert_text**' txt
+<pre>
+$ sed '/one/i\This is new line' <<EOF
+This is one line
+EOF
+This is new line
+This is one line
+</pre>
+*# i다음에 /이 아닌 \ 를 사용!!*
+
+## 5) Changing lines
+
+> $ sed '**address c/changeing_text**' txt
+<pre>
+$ sed '3c\This is change line' <<EOF
+this is on line
+this is two line
+this is three line
+EOF
+this is on line
+this is two line
+This is change line
+</pre>
+
