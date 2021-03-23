@@ -11,10 +11,10 @@
 #### The sed editor is called a stream editor, A stream editor edits a stream of data based on a set of rules you supply ahead of time, before the editor processes the data.
 
 **< sed editor >**
-a. Reads one data line at a time from the input
-b. Matches that data with the supplied editor commands
-c. Changes data in the stream as specified in the commands
-d. Outputs the new data to STDOUT
+1. Reads one data line at a time from the input
+2. Matches that data with the supplied editor commands
+3. Changes data in the stream as specified in the commands
+4. Outputs the new data to STDOUT
 
 ![image](https://user-images.githubusercontent.com/78835559/112078885-8834a580-8bc2-11eb-8405-82ab1afc06f4.png)
 
