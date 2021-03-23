@@ -27,11 +27,11 @@
 |-n| Doesn’t produce output for each command, but waits for the print command|
 
 
-# 2. Commanding at the sed Editor Basics
+# 2. Command at the sed Editor Basics
 
 ## 1) Introducing  substitution options
 #### 특정 문자를 다른 문자로 바꾸는 script
-> s/pattern/replacement/
+> **s** */pattern/replacement/*
 <pre>
 $ sed 's/test/trial/' << EOF
 > 1. test is test
@@ -43,7 +43,7 @@ $ sed 's/test/trial/' << EOF
 *# it replaces only the first occurrence in each line*
 
 **SOLUTION**_ use a substitution flag!
-> s/pattern/replacement/flags
+> **s** */pattern/replacement/flags*
 
 |flags||
 |-|-|
@@ -70,4 +70,19 @@ $ sed -n 's/test/trial/p' << EOF
 > EOF
 1. this is trial
 </pre>
+
+### 추가) / 문자를 바꾸고 싶을때
+<pre>
+$ sed ‘s/\/bin\/bash/\/bin\/csh/’ /etc/passwd
+$ sed ‘s!/bin/bash!/bin/csh!’ /etc/passwd
+</pre>
+*# 두번째 예시처럼 script delimiter ! 을 이용할수도 있음*
+
+
+## 2) Using addresses
+#### [If you want to apply a command only to a specific line or a group of lines, you must use line addressing]()
+
+There are two forms of line addressing in the sed editor:
++ A numeric range of lines
++ A text pattern that filters out a line
 
