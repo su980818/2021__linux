@@ -90,20 +90,16 @@ use two form
 > [address]command
 
 > address {
-> 
 > command1
-> 
 > command2
-> 
 > command3
-> 
 > }
 
 
 ### a. Addressing the numeric line When using numeric line addressi
 #### 줄 번호를 이용한 addrressing
 
-> $ sed '**number** *s/pattern/replacement/*' txt
+> $ sed '**number***s/pattern/replacement/*' txt
 
 ###### <단일 line 지정>
 <pre>
