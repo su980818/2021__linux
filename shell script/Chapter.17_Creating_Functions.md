@@ -205,6 +205,7 @@ The source command has a shortcut alias, called the dot operator.
 # 7. Using functions on the command line
 
 #### function을 command line에서 바로 사용하는 방법
+#### command line 이 있는 shell에 선언을 하기 때문에 command line에서 계속 사용 가능. 
 #### [PROS : script와 달리 , you can use it from any directory on the system; you don’t have to worry about a script being in your PATH environment variable.]()
 
 
