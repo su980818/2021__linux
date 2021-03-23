@@ -184,7 +184,7 @@ This is new line
 This is one line
 </pre>
 
-*# i다음에 /이 아닌 \ 를 사용!!*
+###### *# i다음에 /이 아닌 \ 를 사용!!*
 
 ## 5) Changing lines
 
@@ -201,5 +201,21 @@ this is two line
 This is change line
 </pre>
 
+###### *# c다음에 /이 아닌 \ 를 사용!!*
 
-*# c다음에 /이 아닌 \ 를 사용!!*
+
+## 6) Transforming characters
+substitute와 비슷하지만 이와 다르게  performs a one-to-one mapping of the inchars and the
+outchars values , 즉 문자열이 아닌 문자를 대체
+
+> $ sed '**y/inchars/outchars/**'
+<pre>
+$ sed 'y/123/456/' << EOF
+> 321
+> EOF
+654
+</pre>
+###### *# 기본적으로 flag_g(of substitute)로 작동함*
+
+## 7) Printing revisited
+
