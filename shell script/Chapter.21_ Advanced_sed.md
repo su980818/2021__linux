@@ -46,12 +46,13 @@ $ sed 's/test/trial/' << EOF
 > s/pattern/replacement/flags
 
 |flags||
+|-|-|
 |number| indicating the pattern occurrence for which new text should be substituted|
 |g| indicating that new text should be substituted for all occurrences of the existing text|
 |p| indicating that the contents of the original line should be printed|
 |w file| which means to write the results of the substitution to a file|
 
-<g 를 이용해 모든 test substitude>
+###### <g 를 이용해 모든 test substitude>
 <pre>
 $ sed 's/test/trial/g' << EOF
 1. test is test
@@ -61,7 +62,7 @@ EOF
 2. Test is trial
 </pre>
 
-<옵션-n과 flag p 를 이용해 처리가 이루어진 line출력>
+###### <옵션-n과 flag p 를 이용해 처리가 이루어진 line출력>
 <pre>
 $ sed -n 's/test/trial/p' << EOF
 > 1. this is test
