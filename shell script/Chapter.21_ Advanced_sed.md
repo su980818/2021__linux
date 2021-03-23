@@ -137,6 +137,8 @@ Text_pattern이 일치하는 line을 addressing
 [regular expression(chapter 20)]()을 이용하여 더 넓은 활용가능.
 
 > $  sed '/**Text_pattern1**/,/**Text_pattern2**/s/pattern/replacement' a.txt 
+
+
 <pre>
 $ sed '/one/,/two/s/this/This/' << EOF
 > this is one
@@ -149,6 +151,7 @@ This is two
 this is three
 this is four
 </pre>
+
 *# pattern1 = one 에서 patter2 = two 까지 range addressing*
 
 Text_pattern1이 발견되면 turn on 이 되어 Text_patter2가 나올때까지 addressing함으로 Text_patter2가 나오지 않으면 끝까지 addressing이 되버림. 
@@ -156,7 +159,11 @@ Text_pattern1이 발견되면 turn on 이 되어 Text_patter2가 나올때까지
 
 ## 3) Deleting lines
 ####  위에서 배운 addresing 과 결합하여 substitude 뿐만 아니라 일치하는 line을 지워보자. 
+
+
+
 > $ sed '**address d**ing' txt
+
 <pre>
 $ sed ‘/number 1/d’ data6.txt
 This is line number 2.
@@ -166,12 +173,13 @@ This is line number 3.
 ## 4) Inserting and appending text
 ####  위에서 배운 addresing 과 결합하여 line을 Insert , apeend 해보자. 
 
+
 > $ sed '**address i/insert_text**' txt
 
 <pre>
 $ sed '/one/i\This is new line' <<EOF
-This is one line
-EOF
+> This is one line
+> EOF
 This is new line
 This is one line
 </pre>
@@ -184,10 +192,10 @@ This is one line
 
 <pre>
 $ sed '3c\This is change line' <<EOF
-this is on line
-this is two line
-this is three line
-EOF
+> this is on line
+> this is two line
+> this is three line
+> EOF
 this is on line
 this is two line
 This is change line
