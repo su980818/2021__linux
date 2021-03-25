@@ -37,16 +37,60 @@ a.txt  b.txt  c.txt
 
 text matching 을 실험하기 위해 
 > $ echo “test” | sed -n ‘/test/p’ 
+
 input stream에 test라는 pattern이 포함되면 출력하는 command 를 사용하자. 
 
+## 1) Plain text
+
+###### <대소문자x>
+<pre>
+$ echo “This” | sed -n ‘/this/p’
+$
+$ echo “This” | sed -n ‘/This/p’
+This is a test
+</pre>
+
+###### <matching text anywhere in the data stream>
+<pre>
+$ echo “books” | sed -n ‘/book/p’
+books
+</pre>
+
+###### <You can include spaces>
+<pre>
+$ echo “This is line number 1” | sed -n ‘/ber 1/p’
+This is line number 1
+</pre>
 
 
+## 2) Special characters
 
+Regular expression patterns assign a special meaning to a few characters
+These special characters are recognized by regular expressions
+#### .*[]^${}\+?|()
 
+If you want to use one of the special characters as a text character, you need to escape character(\).
 
+### [a. Anchor characters]()
+You can use two special characters to anchor a pattern to either the beginning or the end of lines in the data stream.
 
+#### The caret character (∧) defines a pattern that starts at the beginning of a line of text in the data stream.
 
+<pre>
+$ echo “The book store” | sed -n ‘/^book/p’
+$
+$ echo “books are great” | sed -n ‘/^book/p’
+books are great
+</pre>
 
+If you position the caret character in any place other than at the beginning of the pattern, it
+acts like a normal character and not as a special character:
+<pre>
+$ echo “This ^ is a test” | sed -n ‘/s ^/p’
+This ^ is a test
+</pre>
+
+#### The opposite of looking for a pattern at the start of a line is looking for it at the end of a line. The dollar sign ($) special character defines the end anchor
 
 
 
