@@ -18,6 +18,8 @@
 #### [ 단순 command로 동작하는 sed와 달리 사용환경을 하나의 gwak-language로 제공하기 때문에 (c-language와 유사) 여러가지 작업이 가능]()
 #### [ 위의 특성으로 데이터 처리에 유용하게 사용됨]()
 
+
+
 ## 1) data의 구분
 
 
@@ -118,6 +120,12 @@ $ gawk ‘{
 #### [ script를 BEGIN, PATTERN, END section으로 나누어 실행하자. ]()
 
 #### [ 각 sectino은 {}을 통해 구분됨]()
+
+![image](https://user-images.githubusercontent.com/78835559/112432278-01c7c180-8d84-11eb-81e3-26ef4fcfb90d.png)
+
+
+
+
 <pre>
 $ gawk -F: 'BEGIN {print "HELLO"} {print $1, $2 } END{ print "BY"}' data
 HELLO
