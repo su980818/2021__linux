@@ -80,7 +80,7 @@ These special characters are recognized by regular expressions
 
 If you want to use one of the special characters as a text character, you need to escape character(\).
 
-### [a. Anchor characters]()
+### a. [Anchor characters]()
 You can use two special characters to anchor a pattern to either the beginning or the end of lines in the data stream.
 
 #### The caret character (∧) defines a pattern that starts at the beginning of a line of text in the data stream.
@@ -124,7 +124,7 @@ $ echo "" | sed -n '/^$/p'
 
 
 
-### [b. The dot character]()
+### b. [The dot character]()
 
 The dot special character is used to match **any single character** except a newline character.
 <pre>
@@ -141,7 +141,7 @@ hat
 ####### *# space 도 single character로 인식*
 
 
-### [c. Character classes]()
+### c. [Character classes]()
 The dot special character is great for matching a character position against any character,
 but what if you want to limit what characters to match?
 
@@ -159,7 +159,7 @@ $ echo 603 | sed -n '/[0123456789][0123456789][0123456789]/p'
 </pre>
 
 
-### [d. Negating character classes]()
+### d. [Negating character classes]()
 
 you can also reverse the effect of a character class
 <pre>
@@ -168,7 +168,7 @@ $ sed -n '/[^ch]at/p' data
 </pre>
 ###### *# c, h 이외에 다른 문자가 무조건 하나 있어야함*
 
-### [e. Using ranges]()
+### e. [Using ranges]()
 You can use a range of characters within a (c. character class)
 <pre>
 $ echo 603 | sed -n '/^[0-9][0-9][0-9]$/p'
@@ -182,7 +182,7 @@ cat
 hat
 </pre>
 
-### [f. Special character classes]()
+### f. [Special character classes]()
 
 |Class| Description|
 |-|-|
@@ -206,7 +206,7 @@ abc
 
 
 
-### [g. The asterisk]()
+### g. [The asterisk]()
 
 Placing an asterisk after a character signifies that the character must appear zero or more
 times in the text to match the pattern: **(It's different from the * used alone.)**
@@ -253,7 +253,7 @@ input stream에 test라는 pattern이 포함되면 그 stream을 출력하는 co
 
 --------------------------------------------------
 
-### [a. The question mark]()
+### a. [The question mark]()
 The question mark is similar to the asterisk, The question mark
 indicates that the preceding character can appear zero or one time, but that’s all. It doesn’t
 match repeating occurrences of the character
@@ -280,7 +280,7 @@ $ echo “baet” | gawk ‘/b[ae]?t/{print $0}’
 ###### *# a나 e 가 하나만 나오던가 안나와야함*
 
 
-### [b. The plus sign]()
+### b. [The plus sign]()
 The plus sign is another pattern symbol that’s similar to the asterisk,
 The plus sign indicates that the preceding character can
 appear one or more times, but must be present at least once.
@@ -359,7 +359,7 @@ People in the United States use several common ways to display a phone number:
 </pre>
 
 
-##### first. 왼쪽 에 ()가 나타나거나 아니거나 부터 처리 
+**first.** 왼쪽 에 ()가 나타나거나 아니거나 부터 처리 
 
 `^\(?`
 
@@ -370,11 +370,11 @@ People in the United States use several common ways to display a phone number:
 ? : ?의 앞에 문자가 나타나거나 하나만 나타나던가
 
 
-##### second. phone number 구분자를 space , - , . 중 하나를 적용
+**second.** phone number 구분자를 space , - , . 중 하나를 적용
 
 `(| |-|.)`
 
-##### third. 숫자 3개가 나오게 적용
+**third.** 숫자 3개가 나오게 적용
 `[0-9]{3}`
 
 
@@ -389,9 +389,9 @@ $ gawk --re-interval    '/^\(?[0-9]{3}\)?(| |-|.|)[0-9]{3}(| |-|.|)[0-9]{4}$/{pr
 
 ## 2) Parsing an e-mail address
  
-user@domain 으로 구성된 e-mail address
+user@sub_domain.top_domain 으로 구성된 e-mail address
 
-user부분은 any alphanumeric character, along with several special characters
+**first.** user부분은 any alphanumeric character, along with several special characters
 
 `^([a-zA-Z0-9_-.\+]+)`
 
@@ -400,12 +400,12 @@ user부분은 any alphanumeric character, along with several special characters
 []+ : []안에 문자중 아무거나 한개이상 등장하는가
 
 
-sub doman부분은  only alphanumeric characters
+**secound.** sub doman부분은  only alphanumeric characters
 
 `([a-zA-Z0-9_-.]+)`
 
 
-Top-level domain 부분은 only alphabetic
+**third.** Top-level domain 부분은 only alphabetic
 characters, and they must be no fewer than two characters (used in country codes) and no
 more than five characters in length.
 
