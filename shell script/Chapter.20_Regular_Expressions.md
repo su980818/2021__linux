@@ -348,3 +348,45 @@ cab
 # 4. Creating expressions
 #### [The following sections demonstrate some common regular expression examples within shell scripts.]()
 
+## 1) Validating a phone number
+People in the United States use several common ways to display a phone number:
+
+<pre>
+(123)456-7890
+(123) 456-7890
+123-456-7890
+123.456.7890
+</pre>
+
+
+##### first. 왼쪽 에 ()가 나타나거나 아니거나 부터 처리 
+> ^\(?
+
+^ 처음부분에 ( 가 등장하는가
+
+\ escape character를 위해 사용
+
+? 의 앞에 문자가 나타나거나 하나만 나타나던가
+
+> \)?
+
+위와 동일
+
+##### second. phone number 구분자를 space , - , . 중 하나를 적용
+
+> (| |-|.)
+
+##### third. 숫자 3개가 나오게 적용
+> [0-9]{3}
+
+
+<pre>
+$ gawk --re-interval    '/^\(?[0-9]{3}\)?(| |-|.|)[0-9]{3}(| |-|.|)[0-9]{4}$/{print $0}'   phone.txt
+(123)456-7890
+(123) 456-7890
+123-456-7890
+123.456.7890
+</pre>
+
+
+
