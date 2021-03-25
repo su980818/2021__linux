@@ -387,4 +387,38 @@ $ gawk --re-interval    '/^\(?[0-9]{3}\)?(| |-|.|)[0-9]{3}(| |-|.|)[0-9]{4}$/{pr
 </pre>
 
 
+## 2) Parsing an e-mail address
+ 
+user@domain 으로 구성된 e-mail address
+
+user부분은 any alphanumeric character, along with several special characters
+
+`^([a-zA-Z0-9_-.\+]+)`
+
+^ : () 안의 문자가 맨앞line에 등장하는가
+
+[]+ : []안에 문자중 아무거나 한개이상 등장하는가
+
+
+sub doman부분은  only alphanumeric characters
+
+`([a-zA-Z0-9_-.]+)`
+
+
+Top-level domain 부분은 only alphabetic
+characters, and they must be no fewer than two characters (used in country codes) and no
+more than five characters in length.
+
+`.([a-zA-Z]{2,5})$`
+
+[]{} : []안의 문자가 2~5 개만 나오는가
+
+()$ : ()안의 문자가 line의 맨뒤에 등장하는가. 
+
+
+<pre>
+echo su980818@gmail.com | gawk --re-interval '/^([a-zA-Z0-9_-.\+]+)@[a-zA-Z0-9_-.]+\.([a-zA-Z]{2,5})$
+/{print $0}'
+su980818@gmail.com
+</pre>
 
