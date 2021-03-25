@@ -34,13 +34,13 @@ $ ls *.txt
 a.txt  b.txt  c.txt
 </pre>
 
-# 2. Looking at the basics
+# 2. Looking at the basics ( BRE and ERE )
 
 
 text matching 을 실험하기 위해 
-> $ echo “test” | sed -n ‘/test/p’ 
+> $ echo “This is test” | sed -n ‘/test/p’ 
 
-input stream에 test라는 pattern이 포함되면 출력하는 command 를 사용하자. 
+input stream에 test라는 pattern이 포함되면 그 stream을 출력하는 command 를 사용하자. 
 
 ## 1) Plain text
 
@@ -48,14 +48,13 @@ input stream에 test라는 pattern이 포함되면 출력하는 command 를 사�
 
 <pre>
 $ echo “This” | sed -n ‘/this/p’
-$
+
 $ echo “This” | sed -n ‘/This/p’
 This is a test
 </pre>
 
 
 ###### <matching text anywhere in the data stream>
-
 
 <pre>
 $ echo “books” | sed -n ‘/book/p’
@@ -64,15 +63,11 @@ books
 
 
 ###### <You can include spaces>
-  
-  
+
 <pre>
 $ echo “This is line number 1” | sed -n ‘/ber 1/p’
 This is line number 1
 </pre>
-
-
-
 
 ## 2) Special characters
 
@@ -221,12 +216,81 @@ $ echo “ieek” | sed -n ‘/ie*k/p’
 ieek
 </pre>
 
+Another handy feature is combining the dot special character with the asterisk special
+character
+
+<pre>
+$ echo “this is a regular pattern expression” | sed -n ‘/regular.*expression/p’
+this is a regular pattern expression
+</pre>
+
+
+The asterisk can also be applied to a character class. This allows you to specify a group or
+range of characters that can appear more than once (including not appearing)  in the text:
+<pre>
+$ echo AabbabB | sed -n '/A[ab]*B/p'
+AabbabB
+$ echo AAB | sed -n '/A[ab]*B/p'
+AAB
+</pre>
+*# ab이외에 AB도 되는 이유는 모르겠음*
 
 
 
 
+# 3. Extending our patterns ( only ERE )
+
+This section describes the more commonly found ERE pattern symbols that you can use in
+your gawk program scripts
+
+text matching 을 실험하기 위해 
+> $ echo “This is test” | gawk '/test/{print $0}'
+
+input stream에 test라는 pattern이 포함되면 그 stream을 출력하는 command 를 사용하자. 
 
 
-# 3. Extending our patterns
+
+### [a. The question mark]()
+The question mark is similar to the asterisk, The question mark
+indicates that the preceding character can appear zero or one time, but that’s all. It doesn’t
+match repeating occurrences of the character
+
+<pre>
+$ echo “bet” | gawk ‘/be?t/{print $0}’
+bet
+$ echo “beet” | gawk ‘/be?t/{print $0}’
+
+$ echo beet | sed -n '/be*t/p'
+beet
+</pre>
+*# *와 다르게 하나 초과로 등장은 reject됨*
+
+
+question mark is similar to the asterisk,  so of course, combining character class are also possible.
+<pre>
+$ echo “bet” | gawk ‘/b[ae]?t/{print $0}’
+bet
+$ echo “baet” | gawk ‘/b[ae]?t/{print $0}’
+
+</pre>
+*# a나 e 가 하나만 나오던가 안나와야함*
+
+
+### [b. The plus sign]()
+The plus sign is another pattern symbol that’s similar to the asterisk,
+The plus sign indicates that the preceding character can
+appear one or more times, but must be present at least once.
+
+<pre>
+$ echo “beet” | gawk ‘/b[ae]+t/{print $0}’
+beet
+$ echo “beeat” | gawk ‘/b[ae]+t/{print $0}’
+beeat
+</pre>
+
+![image](https://user-images.githubusercontent.com/78835559/112408530-4be87d00-8d5b-11eb-9dda-6b8239db3994.png)
+
+
+
 
 # 4. Creating expressions
