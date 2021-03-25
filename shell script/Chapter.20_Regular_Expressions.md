@@ -42,6 +42,9 @@ text matching 을 실험하기 위해
 
 input stream에 test라는 pattern이 포함되면 그 stream을 출력하는 command 를 사용하자. 
 
+
+--------------------
+
 ## 1) Plain text
 
 ###### <대소문자x>
@@ -135,7 +138,7 @@ cat
 hat
  at
 </pre>
-*# space 도 single character로 인식*
+####### *# space 도 single character로 인식*
 
 
 ### [c. Character classes]()
@@ -163,7 +166,7 @@ you can also reverse the effect of a character class
 $ sed -n '/[^ch]at/p' data
  at
 </pre>
-*# c, h 이외에 다른 문자가 무조건 하나 있어야함*
+###### *# c, h 이외에 다른 문자가 무조건 하나 있어야함*
 
 ### [e. Using ranges]()
 You can use a range of characters within a (c. character class)
@@ -233,7 +236,7 @@ AabbabB
 $ echo AAB | sed -n '/A[ab]*B/p'
 AAB
 </pre>
-*# ab이외에 AB도 되는 이유는 모르겠음*
+###### *# ab이외에 AB도 되는 이유는 모르겠음*
 
 
 
@@ -248,7 +251,7 @@ text matching 을 실험하기 위해
 
 input stream에 test라는 pattern이 포함되면 그 stream을 출력하는 command 를 사용하자. 
 
-
+--------------------------------------------------
 
 ### [a. The question mark]()
 The question mark is similar to the asterisk, The question mark
@@ -263,7 +266,7 @@ $ echo “beet” | gawk ‘/be?t/{print $0}’
 $ echo beet | sed -n '/be*t/p'
 beet
 </pre>
-*# *와 다르게 하나 초과로 등장은 reject됨*
+####### *# *와 다르게 문자가 하나 초과로 등장하면 reject됨*
 
 
 question mark is similar to the asterisk,  so of course, combining character class are also possible.
@@ -273,7 +276,7 @@ bet
 $ echo “baet” | gawk ‘/b[ae]?t/{print $0}’
 
 </pre>
-*# a나 e 가 하나만 나오던가 안나와야함*
+###### *# a나 e 가 하나만 나오던가 안나와야함*
 
 
 ### [b. The plus sign]()
