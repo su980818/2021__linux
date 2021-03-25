@@ -13,7 +13,9 @@
 3. Changes data in the stream as specified in the commands
 4. Outputs the new data to STDOUT
 
-![image](https://user-images.githubusercontent.com/78835559/112078885-8834a580-8bc2-11eb-8405-82ab1afc06f4.png)
+
+![image](https://user-images.githubusercontent.com/78835559/112430298-469e2900-8d81-11eb-98e0-6d006a2fa644.png)
+*# The script parameter specifies a single command to apply against the stream data.*
 
 
 
