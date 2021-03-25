@@ -43,6 +43,7 @@ input stream에 test라는 pattern이 포함되면 출력하는 command 를 사�
 ## 1) Plain text
 
 ###### <대소문자x>
+
 <pre>
 $ echo “This” | sed -n ‘/this/p’
 $
@@ -51,12 +52,14 @@ This is a test
 </pre>
 
 ###### <matching text anywhere in the data stream>
+
 <pre>
 $ echo “books” | sed -n ‘/book/p’
 books
 </pre>
 
 ###### <You can include spaces>
+  
 <pre>
 $ echo “This is line number 1” | sed -n ‘/ber 1/p’
 This is line number 1
