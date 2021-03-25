@@ -43,7 +43,7 @@ text matching 을 실험하기 위해
 input stream에 test라는 pattern이 포함되면 그 stream을 출력하는 command 를 사용하자. 
 
 
---------------------
+
 
 ## 1) Plain text
 
@@ -266,7 +266,8 @@ $ echo “beet” | gawk ‘/be?t/{print $0}’
 $ echo beet | sed -n '/be*t/p'
 beet
 </pre>
-####### *# *와 다르게 문자가 하나 초과로 등장하면 reject됨*
+
+###### *# *와 다르게 문자가 하나 초과로 등장하면 reject됨*
 
 
 question mark is similar to the asterisk,  so of course, combining character class are also possible.
@@ -294,6 +295,56 @@ beeat
 ![image](https://user-images.githubusercontent.com/78835559/112408530-4be87d00-8d5b-11eb-9dda-6b8239db3994.png)
 
 
+### c.[ braces]()
+allow you to specify a limit on a repeatable regular expression. **you can think simply it like custom asterisk**
+
+**By default,** _ the gawk program doesn’t recognize regular expression intervals. You
+must specify the —re-interval command line option for the gawk program to
+recognize regular expression intervals.
+
+
+You can express the interval in two formats
+
++ m : The regular expression appears exactly m times.
++ m,n : The regular expression appears at least m times, but no more than n times.
+
+<pre>
+$ echo “bt” | gawk —re-interval ‘/be{1}t/{print $0}’
+
+$ echo “bet” | gawk —re-interval ‘/be{1}t/{print $0}’
+bet
+</pre>
+
+### d.[ The pipe symbol]()
+specify two or more patterns that the regular expression engine uses in a **logical OR** formula
+<pre>
+$ echo “The cat is asleep” | gawk ‘/cat|dog/{print $0}’
+cat 
+$ echo “The dog is asleep” | gawk ‘/cat|dog/{print $0}’
+dog
+</pre>
+
+### e.[ Grouping expressions]()
+Regular expression patterns can also be grouped by using parentheses
+
+
+<pre>
+$ echo “Saturday” | gawk ‘/Sat(urday)?/{print $0}’
+Saturday
+</pre>
+###### *# urday가 zero or one time 등장하면 accept*
+
+
+It’s common to use grouping along with the pipe symbol
+
+<pre>
+$ echo “cat” | gawk ‘/ca(b|t)/{print $0}’
+cat
+$ echo “cab” | gawk ‘/ca(b|t)/{print $0}’
+cab
+</pre>
 
 
 # 4. Creating expressions
+#### [The following sections demonstrate some common regular expression examples within shell scripts.]()
+
