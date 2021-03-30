@@ -5,7 +5,7 @@
 
 CLI에 접근하는 2가지 방법
 
-+ Console Terminals ["CLI terminals “outside the GUI.”"]()
+#### A.Console Terminals ["CLI terminals “outside the GUI.”"]()
 
 take the Linux system out of graphical desktop mode and place it in text mode.
 
@@ -16,7 +16,8 @@ linux는 시작과 동시에 기본 tty 이외에 다른 선으로 연결된 컴
 
 
 
-+ Graphical Terminals ["CLI terminals “in theGUI""]()
+#### B.Graphical Terminals ["CLI terminals “in theGUI""]()
+
 use a terminal emulation package from within the Linux graphical desktop environment. 
 
 terminal emulator에 경우 pts 를 통해 CLI를 제공.
