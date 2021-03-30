@@ -4,8 +4,8 @@
 
 구조 : 파일 시스템은 일반적으로 크기가 일정한 블록들의 배열(섹터라고도 불리며 통상 512바이트, 1키비바이트, 2키비바이트같은 - 2를 제곱한 수만큼의 크기를 갖는다)에 접근할 수 있는 자료 보관 장치 위에 생성되어 이러한 배열들을 조직함으로 파일이나 디렉터리를 만들며 어느 부분이 파일이고 어느 부분이 공백인지를 구분하기 위하여 각 배열에 표시를 해 둔다
 
-Partiion
-------------
+## Partiion
+
 하나의 물리적인 드라이브( ssd , 하드디스크 )를 논리적으로 여러 부분으로 분할하는 것.
 
 리눅스를 설치한 드라이브는 default 로 3가지의 파티션으로 분할 되어 있음. 
@@ -21,8 +21,8 @@ Partiion
 
 
 
-1.Changing Disk Partitions with fdisk
--------------
+# 1. Changing Disk Partitions with fdisk
+
 <pre>
 $ sudo fdisk -l List disk partitions for every disk
 Disk /dev/sda: 82.3 GB, 82348277760 bytes
@@ -47,8 +47,8 @@ sudo fdisk /dev/sdb
 
 
 
-2.Changing Disk Partitions with parted
------
+# 2. Changing Disk Partitions with parted
+
 fdisk와 같이 partion을 관리하지만 유용한 기능이 추가된 command
 
 |commnad||
@@ -62,8 +62,8 @@ to your partitions, without explicitly writing the changes to disk.
 
 
 
-3.Working with Filesystem Labels
----
+# 3. Working with Filesystem Labels
+
 disk 나 partiton (sda, sdb, sda1 ..)에 이름(label)을 지정하여 사용성을 높임 
 *\*file system이 지정되 있어야 label지정 가능*
 
@@ -83,8 +83,8 @@ disk 나 partiton (sda, sdb, sda1 ..)에 이름(label)을 지정하여 사용성
 
 
 
-4.Copying Partition Tables with sfdisk
-----
+# 4. Copying Partition Tables with sfdisk
+
 partition table 을 백업및 복구하는 방법
 
 |commnad||
@@ -97,8 +97,8 @@ partition table 을 백업및 복구하는 방법
 
 
 
-5.Creating a Filesystem on a Disk Partition
-----
+# 5. Creating a Filesystem on a Disk Partition
+
 각 partion에 filesystem을 지정해주자. 
 
 |commnad||
@@ -110,12 +110,12 @@ partition table 을 백업및 복구하는 방법
 
 
 
-6.Creating a Virtual Filesystem
------
+# 6. Creating a Virtual Filesystem
+
 virtual filesystem : 하나의 디스크에만 고정되지않고 다른 디스크로 쉽게 이동할수 있고 원하는 filesystem으로 전환 할 수 있는 filesystem.
 
-7.Viewing and Changing Filesystem Attributes
-------
+# 7. Viewing and Changing Filesystem Attributes
+
  filesystems ( ext2, ext3, and ext4 ) 의 attribute를 확인 변경하자. 
  
 |commnad||
