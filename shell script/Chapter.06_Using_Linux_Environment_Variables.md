@@ -195,3 +195,17 @@ script start
 
 # 7. Using variable arrays
 
+To set multiple values for an environment variable, just list them in parentheses, with
+values separated by spaces:
+> mytest=(one two three four five)
+
+
+###### < 사용 >
+<pre>
+$ echo $mytest
+one
+$ echo ${mytest[2]}
+three
+$ echo ${mytest[*]}
+one two three four five
+</pre>
