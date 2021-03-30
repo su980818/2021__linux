@@ -20,7 +20,7 @@ linux는 시작과 동시에 기본 tty 이외에 다른 선으로 연결된 컴
 
 use a terminal emulation package from within the Linux graphical desktop environment. 
 
-terminal emulator에 경우 pts 를 통해 CLI를 제공.
+terminal emulator에 경우도 결국 virtual tty인것은 변함 없음으로 pts(tty7)를 통해 CLI를 제공.
 
 # 2. Reaching CLI via a Linux console terminal
 Ctrl+Alt key combination and then press a function key (F1 through F7)
