@@ -28,7 +28,7 @@ Ctrl+Alt key combination and then press a function key (F1 through F7)
 *# tty3 (Teletypewriter is a old machine used for sending messages) 는 3번 virtual console 에 있음을 보여줌*
 
 
-###### <setterm Options for Foreground and Background Appearance>
+###### < setterm Options for Foreground and Background Appearance >
 
 | Option| Parameter Choices |Description|
 |-|-|-|
@@ -51,7 +51,9 @@ Ctrl+Alt key combination and then press a function key (F1 through F7)
 Ctrl+Alt+T 로 시작 
 여러가지 편의 기능은 Shitft+Ctrl 을 조합해서 사용되는게 일반적
 
-###### <The File Menu>
+###### < The File Menu >
+
+
 |Name |Shortcut Key |Description|
 |-|-|-|
 |Open Terminal|Shift+Ctrl+N |Starts a new shell session in a new GNOME Terminal window|
@@ -61,7 +63,7 @@ Ctrl+Alt+T 로 시작
 |Close Tab |Shift+Ctrl+W |Closes the current tab session|
 |Close Window |Shift+Ctrl+Q |Closes the current GNOME Terminal session|
 
-###### <The Edit Menu>
+###### < The Edit Menu >
 |Name |Shortcut Key |Description|
 |-|-|-|
 |Copy |Shift+Ctrl+C |Copies selected text to the GNOME clipboard|
@@ -72,7 +74,7 @@ Ctrl+Alt+T 로 시작
 |Keyboard Shortcuts| None| Creates key combinations to quickly access GNOME Terminal features|
 |Profile Preferences| None |Edits the current session profile|
 
-###### <The View Menu>
+###### < The View Menu >
 |Name |Shortcut Key| Description|
 |-|-|-|
 |Show Menubar| None| Toggles on/off the menu bar display|
