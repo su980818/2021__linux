@@ -22,7 +22,6 @@
 
 #### [shell_process 위에 shell_process 를 실행하는 경우에 각각을 parent, child shell로 구분 할수 있음.]()
 
-parent shell 이 생성한 child shell ( sub shell )에 parent의 환경 context 의 일부분이 상속됨. (chapter6 참조)
 
 ## 1) sub_shell이 생성되는 경우
 
