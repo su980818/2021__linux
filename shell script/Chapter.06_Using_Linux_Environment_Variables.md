@@ -145,7 +145,7 @@ Linux system, the bash shell starts as a login shell. The login shell typically 
 + $HOME/.profile
 
 
-#### a.Viewing the /etc/profile file
+### a. Viewing the /etc/profile file
 The /etc/profile file is the main default startup file for the bash shell on the system. [All
 users]() on the system execute this startup file when they log in.
 <pre>
@@ -160,20 +160,14 @@ $ cat /etc/profile
 *# etc/profile.d 안에 script를 모두 실행시키는것을 볼수 있음.*
 
 
-#### b.Viewing the $HOME startup files
+### b. Viewing the $HOME startup files
 
 $HOME/.bashrc provide a [user-specific]() startup file for defining user-specific environment variables.
 
 
-#### c.
+### c. BASH_ENV
 
-login_shell 에서느 profile , bashrc 가 모두 실행되지만
-
-bash를 통해 실행되는 interactive_shell에서는 bashrc만 실행됨
-
-
-script를 실행하면 생성되는 non-interactive_shell 은 아무것도 실행하지 않음. 
-
+login_shell 에서느 profile , bashrc 가 모두 실행되지만 bash를 통해 실행되는 interactive_shell에서는 bashrc만 실행됨
 
 <pre>
 PROFILE START
@@ -181,6 +175,22 @@ bash start
 $ bash
 bash start
 </pre>
+
+[script를 실행하면 생성되는 non-interactive_shell 은 아무것도 실행하지 않음.]()
+
+[대신 non-interactive_shell에서는 BASH_ENV 를 확인하여 BASH_ENV안에 있는 commnad를 자동실행함]()
+###### < script에서 .bashrc 를 startup파일로 지정하는 예시 >
+<pre>
+$ export BASH_ENV=$HOME/.bashrc
+$ ./script.sh
+bash start
+script start
+</pre>
+###### *# non-interactive_sub_shell을 실행시 export를 해야 변수가 상속이 됨으로 export를 꼭 쓰자!*
+
+## 2) Making environment variables persistent
+
+위에서 배운 startup file 중에 하나에다가 선언하면 영구적으로 사용가능
 
 
 # 7. Using variable arrays
