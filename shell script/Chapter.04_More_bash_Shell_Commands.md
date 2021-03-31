@@ -1,10 +1,10 @@
 # In This Chapter
 
 1. Managing processes (ps , top , kill , killall)
-2. Mounting new disks
-3. Monitor disk space
-4. Sorting data
-5. Archiving data
+2. Mounting new disks ( mount , umount)
+3. Monitor disk space ( df , du)
+4. process data ( sort , grep )
+5. Archiving data ( gzip , tar )
 
 # 1. Managing processes
 ps have 3 types style
@@ -151,7 +151,8 @@ $ du -h
 
 
 
-# 4. Sorting data
+# 4. process data
+## 1) Sorting data
 > $ **sort** *file_name*
 
 + defalut : 문자를 기준으로 sort 
@@ -175,8 +176,7 @@ $ du -h
 </pre>
 
 
-
-# 5. Archiving data
+## 2) Searching for data 
 > **grep** *[options] pattern [file]*
 
 
@@ -188,4 +188,61 @@ $ du -h
 `$ grep -e a -e b file` 보다는 regular expression을 사용가능함으로 `grep [ab] file`을 사용하자. 
 
 
-+ egrep : extended
++ egrep : extended reglar expression
++ fgrep : matching pattern as a list of fixed-string values
+
+# 5. Archiving data 
+
+## 1) compressing
+
+|Utility| File Extension| Description|
+|-|-|-|
+|bzip2 |.bz2| Uses the Burrows-Wheeler block sorting text compression algorithm and Huffman coding|
+|compress |.Z |Original Unix file compression utility; starting to fade away into obscurity|
+|gzip |.gz| The GNU Project’s compression utility; uses Lempel-Ziv coding|
+|zip |.zip |The Unix version of the PKZIP program for Windows|
+
+
+linux use gzip 
+
++ gzip for compressing files
++ gzcat for displaying the contents of compressed text files
++ gunzip for uncompressing files
+
+## 2) tar 
+
+Although the zip command works great for compressing and archiving data into a single
+file, it’s not the standard utility used in the Unix and Linux worlds. By far the most
+popular archiving tool used in Unix and Linux is the tar command
+
+
+> **tar** *function [options] object1 object2 …*
+
+###### < The tar Command Functions >
+|Function |Long Name |Description|
+|-|-|-|
+|-A|—concatenate |Appends an existing tar archive file to another existing tar archive file|
+|-c |—create| Creates a new tar archive file|
+|-d |—diff |Checks the differences between a tar archive file and the filesystem|
+| | —delete| Deletes from an existing tar archive file|
+|-r| —append| Appends files to the end of an existing tar archive file|
+|-t |—list |Lists the contents of an existing tar archive file|
+|-u |—update| Appends files to an existing tar archive file that are newer than a file with the same name in the existing archive|
+|-x |—extract| Extracts files from an existing archive file|
+
+###### < The tar Command Options>
+|Option| Description|
+|-|-|
+|-C dir |Changes to the specified directory|
+|-f file |Outputs results to file (or device) file|
+|-j |Redirects output to the bzip2 command for compression|
+|-p |Preserves all file permissions|
+|-v| (Verbose) Lists files as they are processed|
+|-z |Redirects the output to the gzip command for compression|
+
+`tar -cvf test.tar test/ test2/`
+: create test.tar 
+
+`tar -tf test.tar` : lists (but doesn’t extract) the contents of the tar file test.tar. 
+
+`tar -xvf test.tar` : extracts the contents of tar file
