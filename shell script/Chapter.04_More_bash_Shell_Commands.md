@@ -2,8 +2,9 @@
 
 1. Managing processes (ps , top , kill , killall)
 2. Mounting new disks
-3. Sorting data
-4. Archiving data
+3. Monitor disk space
+4. Sorting data
+5. Archiving data
 
 # 1. Managing processes
 ps have 3 types style
@@ -70,8 +71,11 @@ process 는 signal을 통해서 관리됨
 ##### kill command allows you to send signals to process based on their process ID
 
 > $ kill 3940
+
 3940 pid 에 defalut로 TERM 을 보내는데 일반적으로 무시되는 signal
+
 > $ kill -s HUP 3940
+
 HUP signal을 보냄
 
 
@@ -106,15 +110,17 @@ provides four pieces of information
 + The access status of the mounted media
 
 
-###  Basic command for manually mounting a media device:
+### a. Basic command for manually mounting a media device:
 > **mount** *-t type device directory*
 
-### Unmount
+### b. Unmount
 
 > **umount** *directory*
 
 
-### How much disk space 
+# 3. Monitor disk space
+
+### a. How much disk space 
 
 > $ df
 <pre>
@@ -127,7 +133,7 @@ E:\              5230592   3442332   1788260  66% /mnt/e
 
 ###### *-h : print human-readable form*
 
-### the disk usage for a specific directory (by default, the current directory)
+### b. the disk usage for a specific directory (by default, the current directory)
 
 > $ du
 <pre>
@@ -145,8 +151,8 @@ $ du -h
 
 
 
-# 3. Sorting data
-> $ sort file_name
+# 4. Sorting data
+> $ **sort** *file_name*
 
 + defalut : 문자를 기준으로 sort 
 + -n : 숫자순으로 sort
@@ -155,7 +161,7 @@ $ du -h
 + -t : field separater
 + -k : 어느 field를 기준으로 sort하는지 
 
-> $ sort -t ':' -k 3 -n  /etc/passwd
+`$ sort -t ':' -k 3 -n  /etc/passwd`
 
 ###### <활용 예시>
 <pre>
@@ -170,4 +176,16 @@ $ du -h
 
 
 
-# 4. Archiving data
+# 5. Archiving data
+> **grep** *[options] pattern [file]*
+
+
++ -v : reverse the search
++ -n : print matching patterns whith line numbers
++ -c :  count how many lines contain the matching pattern
++ -t : If you need to specify more than one matching pattern,
+
+`$ grep -e a -e b file` 보다는 regular expression을 사용가능함으로 `grep [ab] file`을 사용하자. 
+
+
++ egrep : extended
