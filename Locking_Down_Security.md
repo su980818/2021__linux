@@ -1,4 +1,11 @@
 # In this chapter
+1. User Acounts [useradd , usermod, userdel, chsh, chfn, finger]()
+2. Managin Passwords [passwd, change]()
+3. Adding Groups [groupadd, groupmod, groupdel]()
+4. Checking on Users [last , lastb , who , users]()
+5. Configuring the Built-In Firewall [iptabel]()
+
+
 + linux 는 하나의 컴퓨터를 여러명이 사용하는 Multi-user system.
 + root 유저와 일반 유저를 구분하여 os의 중요 기능 접근을 막아 os를 안전하게 사용. 
 +  root 의 UID(user ID)  = 0 일반 유전의 UID >= 1000 
@@ -36,45 +43,57 @@
 
 
 ## 2) 일반 유저가 자신의 계정을 관리하는 방법 
+
 ![image](https://user-images.githubusercontent.com/78835559/113229826-b3aa4500-92d2-11eb-8169-60d728877c21.png)
 
 # 2. Managin Passwords
+
 > [**passwd**]()
+
 ![image](https://user-images.githubusercontent.com/78835559/113230551-31228500-92d4-11eb-87d0-3a8fb66d3fe9.png)
+
 ###### *# usermod -L 을 사용하여 LOCK 하는것과 동일한 작업*
 
 ![image](https://user-images.githubusercontent.com/78835559/113230588-48fa0900-92d4-11eb-8b09-a2191b5798d3.png)
+
 ###### *# x : 사용자 계정의 비밀번호 (암호화방식이면 x로 표시)*
 
 ###### < passwd expire 관리 >
+
 ![image](https://user-images.githubusercontent.com/78835559/113230664-78107a80-92d4-11eb-9d3e-3ed64f76868c.png)
 
 > [**change**]()
 
-passwd command보다 더 추가적인 기능 지원
+#### passwd command보다 더 추가적인 기능 지원  
+
 ![image](https://user-images.githubusercontent.com/78835559/113230736-9c6c5700-92d4-11eb-88ff-623521e077be.png)
-*# -d 0 를 활용해서 passwd를 바로 만료 시킬수 있음*
+
+###### *# -d 0 를 활용해서 passwd를 바로 만료 시킬수 있음*
 
 # 3. Adding Groups
 #### useradd , mod , del 과 동일
 
 
 > [**groupadd**]()
+
 ![image](https://user-images.githubusercontent.com/78835559/113230843-db021180-92d4-11eb-89b3-30d5c6e20071.png)
 
 > [**groupmod**]()
+
 ![image](https://user-images.githubusercontent.com/78835559/113230850-ddfd0200-92d4-11eb-8217-4964d81d97ba.png)
 
 > [**groupdel**]()
+
 ![image](https://user-images.githubusercontent.com/78835559/113230863-e1908900-92d4-11eb-9b4b-54bb6d185984.png)
 
-#### group 에 user추가 , gruop 에 속한 user보기  
+### #) group 에 user추가 , gruop 에 속한 user보기  
 ![image](https://user-images.githubusercontent.com/78835559/113230909-0127b180-92d5-11eb-8310-2e6fd67f3f85.png)
 
 ![image](https://user-images.githubusercontent.com/78835559/113230923-097fec80-92d5-11eb-85d2-8aa2a66b1093.png)
 
 # 4. Checking on Users
 #### [user들의 로그인 log를 확인하자]()
+
 > [**last , lastb , who , users**]()
 
 ![image](https://user-images.githubusercontent.com/78835559/113230986-2c120580-92d5-11eb-89fb-8445e3a1815c.png)
@@ -96,7 +115,7 @@ filter table
 > [**iptable**]()
 
 ![image](https://user-images.githubusercontent.com/78835559/113231166-97f46e00-92d5-11eb-8b5b-48953c95c875.png)
-*REFECT 동작 DROP 동작 모두 접근을 차단하는것은 동일하지만 경고메시지를 띠우냐 안띠우냐의 차이*
+###### *# REFECT 동작 DROP 동작 모두 접근을 차단하는것은 동일하지만 경고메시지를 띠우냐 안띠우냐의 차이*
 
 <pre>
 $ iptables -A INPUT -d 192.168.10.10 -p tcp –dport 22 -j DROP
