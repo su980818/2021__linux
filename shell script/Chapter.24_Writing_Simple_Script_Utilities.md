@@ -25,7 +25,19 @@ $ cat Files_to_backup
 </pre>
 
 #### for 문을 통해 압축하고 싶은 file 들을 불러오고 이 과정에서 file이 있는지 없는지 확인해줘야함
+<pre>
+#!/bin/bash
 
+for file_name in $(cat Files_to_backup)
+do
+        ## 파일이 or 폴더가 존재하냐?
+        if [ -f $file_name -o -d $file_name ] ; then 
+                file_sum="$file_sum $file_name"
+        else
+                echo "$file_name is not exit, i dont include it "
+        fi
+done
+</pre>
 
 
 
