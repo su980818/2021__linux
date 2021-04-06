@@ -96,11 +96,16 @@ match whitespace ( space , tab , new line , carriage returns )
 .{8}
 # word boundaries 을 사용해서  더  정확하게 match ( /b /b 를 이용하여 bound를 설정할수 있음)
 \bT.{6}E\b
+</pre>
+
 
 # 5. Marking Up the Text
 What if you wanted to mark it up as HTML5 using regular expressions,
 rather than by hand? How would you do that?
 
 <pre>
-sed -n 's/^/<h1>/;s/$/<\/h1>/p;q' rime.txt
+sed -n '
+s/^/<h1>/
+s/$/<\/h1>/p
+q' rime.txt
 </pre>
