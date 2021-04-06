@@ -70,6 +70,7 @@ character classes and range
 
 > [**\s**]()
 match whitespace ( space , tab , new line , carriage returns )
+
 > [**[ \t\n\r]**]()
 
 
@@ -87,4 +88,19 @@ match whitespace ( space , tab , new line , carriage returns )
 
 > [**.**]() **dot_operation** matches all characters but  line ending characters , except under certain circumstances.
 
+<pre> 
+# THE RIME 을 match 해보자. 
+# dot를 사용해서 match
+........
+# quantifier을 사용해서 match
+.{8}
+# word boundaries 을 사용해서  더  정확하게 match ( /b /b 를 이용하여 bound를 설정할수 있음)
+\bT.{6}E\b
 
+# 5. Marking Up the Text
+What if you wanted to mark it up as HTML5 using regular expressions,
+rather than by hand? How would you do that?
+
+<pre>
+sed -n 's/^/<h1>/;s/$/<\/h1>/p;q' rime.txt
+</pre>
