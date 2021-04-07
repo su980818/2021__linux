@@ -76,7 +76,8 @@ match whitespace ( space , tab , new line , carriage returns )
 
 ###### < Character shorthands for whitespace characters > 
 
-|Character Shorthand Description|
+|Character Shorthand |Description|
+|-|-|
 |\f |Form feed|
 |\h |Horizontal whitespace|
 |\H |Not horizontal whitespace|
