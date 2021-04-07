@@ -106,7 +106,7 @@ rather than by hand? How would you do that?
 
 <pre>
 sed -n '
-s/^/<head>/
+s/^/<\/head>/
 s/$/<\/head>/p
 q'  rime.txt
 </pre>
