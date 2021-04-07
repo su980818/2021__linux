@@ -108,5 +108,5 @@ rather than by hand? How would you do that?
 sed -n '
 s/^/<h1>/
 s/$/<\/h1>/p
-q' rime.txt
+q'  rime.txt
 </pre>
