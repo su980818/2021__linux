@@ -3,7 +3,7 @@
 ##### [This chapter focuses on assertions. A zero-width assertion doesn’t match a character, perse, but rather a location in a string.]()
 
 
-#### The boundaries I'll talk about in this chapter are:
+####  I'll talk about in this chapter are:
 + The beginning and end of a line or string
 + Word boundaries (two kinds)
 + The beginning and end of a subject
@@ -19,12 +19,12 @@ To match the end of a line or string, use the dollar sign:
 
 ## 2. Word boundaries and Non-Word boundaries (two kinds)
 
->[**/b /b**]()
+>[**\b \b**]()
 
 <pre> \bthe\b </pre>
 ![image](https://user-images.githubusercontent.com/78835559/113671224-092a8b80-96f1-11eb-82d4-49a01c252b8f.png)
 
->[**/B /B**]()
+>[**\B \B**]()
 
 <pre> \Batter\B </pre>
 ![image](https://user-images.githubusercontent.com/78835559/113671166-f6b05200-96f0-11eb-8693-cba6f64bc7a2.png)
