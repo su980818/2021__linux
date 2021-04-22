@@ -57,7 +57,47 @@ U+AC00 + ((초성 값 x 21) + 중성 값) x 28 + 종성 값 = 소리마디 포�
 
 
 # 1. Matching a Unicode Character 
-# 2. Using vim 
-# 3. Matching Characters with Octal Numbers 
-# 4. Matching Unicode Character Properties 
-# 5. Matching Control Characters 
+unicode 값 ( unicode point ) 값을 이용하여 unicode character 을 match할 수 있음. 
+>\u00e9
+#hexadecimal value 를 사용
+
+
+
+# 2. Using vim
+vim 내부에서 unicode pointer의 사용법
+
+> \%u6c60
+
+###### < 찾기 ( / )  를 이용하여 유니코드 문자 찾기 >
+<pre>
+古池
+蛙飛び込む
+水の音
+	—芭蕉 (1644–1694)
+ 
+ /\%u6c60
+</pre>
+
+# 3. Matching Unicode Character Properties 
+
+In some implementations, such as Perl, you can match on Unicode character properties. The properties include characteristics like whether the character is a letter, number, or punctuation mark.
+
+> **ack** *'character'*
+
+A command-line tool written in Perl that acts like grep
+
+**matching property**
+
+> \p{property}
+
+|property|Description|
+| \pL |  Letter|
+| \p{Lu} | uppercase letter |
+| \p{Lu} | lowercase letter |
+| \PL | uppercase p do not match a Letter |
+
+###### *# upperacase do not match a property#
+
+
+
+# 4. Matching Control Characters 
