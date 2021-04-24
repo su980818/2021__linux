@@ -78,7 +78,7 @@ vim 내부에서 unicode pointer의 사용법
  /\%u6c60
 </pre>
 
-# 3. Matching Unicode Character Properties 
+# 3. Matching Unicode Character Properties (in Perl)
 
 In some implementations, such as Perl, you can match on Unicode character properties. The properties include characteristics like whether the character is a letter, number, or punctuation mark.
 
@@ -91,6 +91,7 @@ A command-line tool written in Perl that acts like grep
 > \p{property}
 
 |property|Description|
+|-|-|
 | \pL |  Letter|
 | \p{Lu} | uppercase letter |
 | \p{Lu} | lowercase letter |
@@ -100,4 +101,28 @@ A command-line tool written in Perl that acts like grep
 
 
 
-# 4. Matching Control Characters 
+# 4. Matching Control Characters (in Perl)
+> **\c***x*
+
+x is control character you want to match
+
+<pre>
+$ ack '\c@' ascii.txt
+0. Null
+$ ack '\0' ascii.txt
+0. Null
+</pre>
+
+<pre>
+$ cat  ascii.txt | ack '\c['
+27. Escape
+$ cat  ascii.txt | ack '\e'
+27. Escape
+</pre>
+
+<pre>
+$ cat ascii.txt | ack '\cH'
+8. Backspace
+$ cat ascii.txt | ack '[\b]'
+8. Backspace
+</pre>
