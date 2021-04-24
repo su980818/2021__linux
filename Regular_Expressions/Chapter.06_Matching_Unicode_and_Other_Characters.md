@@ -107,6 +107,10 @@ A command-line tool written in Perl that acts like grep
 
 
 # 4. Matching Control Characters ( in PHP, PCRE, Python, Golang, JavaScript )
+#### [Control Characters or non-printing character (NPC) ? ]()
+
+They are used as in-banded-signaling to cause effects other than the addition of a symbol to the text. 
+
 
 > **\c***x*
 
