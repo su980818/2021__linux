@@ -82,7 +82,8 @@ vim 내부에서 unicode pointer의 사용법
  /\%u6c60
 </pre>
 
-# 3. Matching Unicode Character Properties (in Perl)
+# 3. Matching Unicode Character Properties ( in PHP, PCRE, Python, Golang, JavaScript )
+
 
 In some implementations, such as Perl, you can match on Unicode character properties. The properties include characteristics like whether the character is a letter, number, or punctuation mark.
 
@@ -98,14 +99,15 @@ A command-line tool written in Perl that acts like grep
 |-|-|
 | \pL |  Letter|
 | \p{Lu} | uppercase letter |
-| \p{Lu} | lowercase letter |
+| \p{Ll} | lowercase letter |
 | \PL | uppercase p do not match a Letter |
 
 ###### *# upperacase do not match a property#
 
 
 
-# 4. Matching Control Characters (in Perl)
+# 4. Matching Control Characters ( in PHP, PCRE, Python, Golang, JavaScript )
+
 > **\c***x*
 
 x is control character you want to match
