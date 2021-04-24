@@ -60,6 +60,7 @@ U+AC00 + ((초성 값 x 21) + 중성 값) x 28 + 종성 값 = 소리마디 포�
 unicode 값 ( unicode point ) 값을 이용하여 unicode character 을 match할 수 있음. 
 
 >\u00e9
+>
 >\x{00e9}
 
 #hexadecimal value 를 사용
