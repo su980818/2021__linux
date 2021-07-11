@@ -60,7 +60,6 @@ fi
 *# 마지막 parameter을  ${$#}으로 참조할수 있을꺼 같지만 ${!#}을 사용해야 사용가능 ( 이유불명 )*
 
 # 3. Being Shifty with shift_command
-----
 #### The shift command literally shifts the command line parameters in their relative positions.
 #### This is another great way to iterate through command line parameters, especially if you don’t know how many parameters are available. 
 
